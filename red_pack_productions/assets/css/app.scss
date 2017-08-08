@@ -1,136 +1,186 @@
 @import "mixins";
-$bodyBackgroundColor: #000;
 
-body, html{
-	height:100%;
-}
+$black: #000;
+$gray: #F6F6FE;
+$mediumGray: #807F83;
+$navyBlue: #1594E5;
+$successGreen: #4EBF76;
+$error: #CC0000;
+$orange: #F5CE5F;
 
-body{
-	background-color: $bodyBackgroundColor;
-	font-family: 'PT Sans', sans-serif;
-	color: white;
-}
+.clear{ clear: both; }
+.success{ color: $successGreen }
+.error{ color: $error }
 
-/* Layout - Navigation */
-.test-border{
-	border:1px solid #FFF;
-}
+.container{
 
-.navigation-mobile{
-	@include cross-transition(width 0.2s linear)
-	// @include cross-transition(right 0.25s linear, opacity 0.25s linear)
-	position: absolute;
-	top: 0px;
-	//right: -200px;
-	right: 0px;
-	width: 0px;
-	height: 100%;
-	background-color: black;
-	z-index: 1;
-	//opacity: 0;
-	display: none;
+	width: 100%;
+	padding: 0px;
 
-	.navigation-close-btn-container{
-		margin: 15px 0px;
-
-		button{
-			background-color: black;
-			border: 0px;
-			font-size: 1.5em;
-			float: right;
-			margin-right: 15px;
-			margin-top: 5px;
-		}
+	.pre-header{
+		height: 25px;
+		background-color: $black;
 	}
 
-	ul{
-		list-style-type: none;
+	header{
+		width: 100%;
+		height: 125px;
 		text-align: center;
-		margin: 0px;
-		padding: 0px;
+		z-index: 2;
+		position: relative;
+		
+		-webkit-box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
+		-moz-box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
+		box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
 
-		li{
-			margin: 15px 0px;
-			padding: 15px 0px;
+		.navigation-item, .navigation-item-logo{
+			margin: 0px 15px;
+			display: inline-block;
+		}
 
-			a{
-				color: white;
+		.navigation-item-logo{
+
+			margin-top: 10px;
+
+			img{
+				width: 100px;
+				height: 100px;
 			}
 		}
 	}
-}
 
-.mobile-open{
-	//right: 0px;
-	//opacity: 1;
-	width: 200px;
-}
-
-/* Layout - Header */
-.navigation-hamburger{
-	position: absolute;
-	top: 15px;
-	right: 15px;
-	z-index: 2;
-
-	span{
-		@include cross-transition(color 0.2s linear)
-		font-size: 2em;
-		padding: 5px;
-		color: black;
-		z-index: 3;
-		&:hover{
-			color: yellow;
-			cursor: pointer;
-		}
-	}
-}
-
-.navigation-desktop{
-	border: 1px solid white;
-}
-
-.nav-button{
-	text-align: center;
-	a{
-		display: block;
-		color: white;
-		margin-top: 40px;
-	}
-}
-
-.parallax-bg-one, .parallax-bg-logo{
-	position: relative;
-	opacity: 0.65;
-	background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .caption{
-		position: absolute;
-		left: 0;
-		top: 50%;
-		text-align: center;
+	.content-introduction{
 		width: 100%;
-	}
-}
+		padding-top: 45px;
 
-.parallax-bg-logo{
-	background-image: url("/images/logo.jpg");
-	min-height: 100%;
-	width:100%;
-	opacity: 1;
-}
+		background: #d6d6d6;
+		background: -moz-linear-gradient(top, #d6d6d6 0%, #ffffff 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, #d6d6d6), color-stop(100%, #ffffff));
+		background: -webkit-linear-gradient(top, #d6d6d6 0%, #ffffff 100%);
+		background: -o-linear-gradient(top, #d6d6d6 0%, #ffffff 100%);
+		background: -ms-linear-gradient(top, #d6d6d6 0%, #ffffff 100%);
+		background: linear-gradient(to bottom, #d6d6d6 0%, #ffffff 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff', GradientType=0 );
 
+		.introduction-text{
+			max-width: 600px;
+			margin: 0px auto;
+			text-align: center;
+		}
 
-.parallax-bg-one{
-	background-image: url("/images/background-band.jpg");
-	min-height: 100%;
-}
+		.introduction-list{
+			max-width: 600px;
+			margin: 0px auto;
+			background-color: $navyBlue;
+			color: white;
+			padding: 15px;
+			margin-top: 25px;
+			position: relative;
 
-@media only screen and (max-device-width: 1024px){
-	.parallax-bg-one{
-		background-attachment: scroll;
+			ul{
+				list-style-type: none;
+				margin: 0px 0px 0px 0px;
+				float: left;
+
+				li{
+					padding:5px 0px;
+					span{
+						padding-right:5px;
+					}
+				}
+			}
+
+			img{
+				width: 125px;
+				height: 125px;
+				border: 1px solid red;
+				position: absolute;
+				top: -35px;
+				right: -25px;
+			}
+		}
+
+		.introduction-items{
+			max-width: 800px;
+			margin: 50px auto 0px auto;
+			text-align: center;
+			
+			.intro-item{
+				width: 180px;
+				display: inline-block;
+				margin: 0px 10px 10px 0px;
+				text-align: left;
+				background-color: white;
+
+				img{
+					width: 100%;
+					height: 150px;
+				}
+
+				h2, p, button{
+					margin-left: 15px;
+				}
+
+				h2{
+					padding: 0px;
+					margin-top:0px;
+					
+				}
+
+				ul{
+					padding-left: 30px;
+					margin-bottom: 30px;
+				}
+
+				button{
+					background-color: $orange;
+					border: 0px;
+					color: white;
+					padding: 10px 35px;
+					margin-bottom: 15px;
+					
+				}
+
+				.intro-subtitle{
+					font-weight: 600;
+					padding: 0px;
+					margin-top: 15px;
+					margin-bottom: 0px;
+				}
+
+				.full-price{
+					font-weight: 600;
+					text-decoration: line-through;
+				}
+
+				.real-price{
+					font-weight: 600;
+					font-size: 1.5em;
+				}
+
+				.intro-price{
+					margin-bottom: 0px;
+				}
+
+				.intro-btw{
+					padding-top: 0px;
+					margin-top: 0px;
+				}
+
+			}
+		}
+
+		.introduction-latest-text{
+			max-width: 600px;
+			margin: 100px auto 25px auto;
+			text-align: center;
+		}
+
+		.introduction-latest{
+			max-width: 800px;
+			height: 600px;
+			margin: 100px auto 100px auto;
+			border: 1px solid black;
+		}
 	}
 }

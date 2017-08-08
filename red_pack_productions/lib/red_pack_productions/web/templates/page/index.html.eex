@@ -1,36 +1,57 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+<div class="content-introduction">
+  
+  <div class="introduction-text">
+    <h1>Need audio recordings?</h1>
+    <h3>With us the best deal!</h3>
   </div>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
+  <div class="introduction-list">
     <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Fast results</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Profesional recording</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Fixed price</li>
     </ul>
+    <ul>
+      <li><span class="glyphicon glyphicon-ok success"></span> Over 20 years of experience</li>
+      <li><span class="glyphicon glyphicon-ok success"></span> It's ready when you say it's ready</li>
+      <li><span class="glyphicon glyphicon-remove error"></span> No bullshit</li>
+    </ul>
+    <img src="#" class="hidden-xs">
+    <div class="clear"></div>
   </div>
+
+  <div class="introduction-items">
+    
+    <%= for x <- @products do %>
+
+    <div class="intro-item">
+      <img src="#">
+      <p class="intro-subtitle">Opnamen:</p>
+      <h2>Instrument</h2>
+      <p>Inclusief:</p>
+      <ul>
+        <li>Item one</li>
+        <li>Item two</li>
+        <li>Item three</li>
+      </ul>
+      <p class="intro-price"><span class="full-price">&euro; 790</span> <span class="real-price">&euro; 250</span></p>
+      <p class="intro-btw">Per nummer ex btw</p>
+      <button>MORE INFO</button>
+    </div>
+
+    <%= end %>
+
+    <div class="clear"></div>
+
+
+    <div class="introduction-latest-text">
+      <h1>Some of our latest productions</h1>
+    </div>
+
+    <div class="introduction-latest">
+      
+    </div>
+
+  </div>
+
 </div>

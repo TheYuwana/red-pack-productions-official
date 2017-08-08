@@ -15,17 +15,23 @@
 
   <body>
     <div class="container">
+      
+      <div class="pre-header">
+        
+      </div>
+      
       <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
+        <%# <div class="row">
+          <div class="col-xs-"></div>
+        </div> %>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">HOME</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">CONTACT</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">MEDIA</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">RECORDINGS</a></div>
+        <div class="navigation-item-logo hidden-xs hidden-sm"><a href="#"><img src="#"></a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">SAMPLES</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="#">REFURBISHED INSTRUMEMTS</a></div>
       </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
