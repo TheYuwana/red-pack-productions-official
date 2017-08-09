@@ -5,7 +5,7 @@
     <h3>With us the best deal!</h3>
   </div>
 
-  <div class="introduction-list">
+  <div class="list-container">
     <ul>
       <li><span class="glyphicon glyphicon-ok success"></span>  Fast results</li>
       <li><span class="glyphicon glyphicon-ok success"></span>  Profesional recording</li>
@@ -36,7 +36,7 @@
       </ul>
       <p class="intro-price"><span class="full-price">&euro; 790</span> <span class="real-price">&euro; 250</span></p>
       <p class="intro-btw">Per nummer ex btw</p>
-      <button>MORE INFO</button>
+      <button class="btn-orange">MORE INFO</button>
     </div>
 
     <%= end %>
@@ -48,10 +48,158 @@
       <h1>Some of our latest productions</h1>
     </div>
 
-    <div class="introduction-latest">
-      
-    </div>
-
   </div>
 
+  <div class="latest-productions-container">
+      <div class="latest-productions"></div>
+  </div>
+
+  <div class="testimonials-container">
+    <div class="testimonial">
+      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
+      <p>Drain life - "Working with this guy is such a relaxing job"</p>
+    </div>
+    <div class="testimonial">
+      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
+      <p>Drain life - "Working with this guy is such a relaxing job"</p>
+    </div>
+    <div class="testimonial">
+      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
+      <p>Drain life - "Working with this guy is such a relaxing job"</p>
+    </div>
+  </div>
+
+  <div class="shop-instrument-container">
+    <div class="shop-instrument-title">
+      <h1>Refurbished instruments and studio gear</h1>
+      <button class="btn-red">GO TO SHOP</button>
+    </div>
+    <div class="list-container">
+      <ul>
+        <li><span class="glyphicon glyphicon-ok success"></span>  Request finds</li>
+        <li><span class="glyphicon glyphicon-ok success"></span>  Thoroughly tested</li>
+        <li><span class="glyphicon glyphicon-ok success"></span>  Free delivery</li>
+      </ul>
+      <ul>
+        <li><span class="glyphicon glyphicon-ok success"></span> 30 days refund</li>
+        <li><span class="glyphicon glyphicon-ok success"></span> Cleaned</li>
+        <li><span class="glyphicon glyphicon-ok success"></span> Pick up in Rotterdam</li>
+      </ul>
+      <img src="#" class="hidden-xs">
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="shop-samples-container">
+    <div class="shop-samples">
+      <img src="#" class="hidden-xs">
+      <div class="shop-samples-details">
+        <h2>Exclusive drum samples</h2>
+        <ul>
+          <li>High quality drums</li>
+          <li>44 Khz 24 bits samples</li>
+          <li>Wave format</li>
+          <li>10 different hit values</li>
+        </ul>
+        <ul>
+          <li>Processed hits</li>
+          <li>Different mics</li>
+          <li>Raw tracks</li>
+          <li>Average &euro; 1000,- snares</li>
+        </ul>
+        <button class="btn-red">GO TO SHOP</button>
+        <div class="clear"></div>
+      </div>
+    </div>   
+  </div>
+
+  <div class="front-youtube-container">
+    <!-- Gets background image --> 
+    <div class="front-youtube-content">
+      <div class="front-youtube-left-column">
+        <h2>Red Pack Productions</h2>
+        <h2>Youtube channel</h2>
+        <ul>
+          <li>High quality drums</li>
+          <li>44 Khz 24 bits samples</li>
+          <li>Wave format</li>
+          <li>10 different hit values</li>
+        </ul>
+        <ul>
+          <li>Processed hits</li>
+          <li>Different mics</li>
+          <li>Raw tracks</li>
+          <li>Average &euro; 1000,- snares</li>
+        </ul>
+        <div class="clear"></div>
+        <img src="#">
+        <img src="#">
+        <img src="#">
+      </div>
+
+      <div class="front-youtube-right-column">
+        <img src="#" class="youtube-red-pack-logo">
+        <div class="clear"></div>
+        <button class="btn-red">GO TO YOUTUBE</button>
+      </div>
+      <div class="clear"></div>      
+    </div>
+  </div>
+
+  <div class="front-google-maps-container">
+    <div id="front-maps"></div>
+    <div class="front-google-maps-infobox">
+      <h4>Red Pack Productions</h4>
+      <p>Wagenmakerstraat 5</p>
+      <p>2984 BD Ridderkerk</p>
+      <p>South Holland</p>
+      <p>KVK: 68847483</p>
+      <p class="infobox-contact gray">Email: info@redpackproductions.com</p>
+      <p class="gray">phone: 0641189513</p>
+      <p class="gray">Ma t/m Vr 10:00 &amp; 17:00</p>
+    </div>
+  </div>
+
+  <div class="front-footer">
+    <p>COPYRIGHT 2017</p>
+  </div>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ebJUXWlI9Qz4na2YB3H2s3zu_Pe0kYU&callback=initMap"></script>
+  <script type="text/javascript">
+    var map;
+    function initMap() {
+      
+      var redpackproductions = {lat: 51.8740939, lng: 4.6184794}; 
+      map = new google.maps.Map(document.getElementById('front-maps'), {
+        zoom: 16,
+        center: redpackproductions,
+        scrollwheel: false
+      });
+
+      // Center Marker
+      var marker = new google.maps.Marker({
+        position: redpackproductions,
+        map: map
+      });
+
+    }
+  </script>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

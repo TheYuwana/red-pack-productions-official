@@ -16,21 +16,32 @@
   <body>
     <div class="container">
       
-      <div class="pre-header">
+      <div class="pre-header hidden-xs hidden-sm">
         
       </div>
       
       <header class="header">
-        <%# <div class="row">
-          <div class="col-xs-"></div>
-        </div> %>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">HOME</a></div>
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">CONTACT</a></div>
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">MEDIA</a></div>
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">RECORDINGS</a></div>
         <div class="navigation-item-logo hidden-xs hidden-sm"><a href="#"><img src="#"></a></div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">SAMPLES</a></div>
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">REFURBISHED INSTRUMEMTS</a></div>
+
+        <div class="hamburger hidden-md hidden-lg">
+            <div id="hamburger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
+
       </header>
 
       <main role="main">

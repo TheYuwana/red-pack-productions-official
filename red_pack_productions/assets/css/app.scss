@@ -1,16 +1,54 @@
 @import "mixins";
-
-$black: #000;
-$gray: #F6F6FE;
-$mediumGray: #807F83;
-$navyBlue: #1594E5;
-$successGreen: #4EBF76;
-$error: #CC0000;
-$orange: #F5CE5F;
+@import "colors";
+@import "hamburger";
 
 .clear{ clear: both; }
-.success{ color: $successGreen }
-.error{ color: $error }
+.success{ color: $successGreen; }
+.error{ color: $error; }
+.gray{ color: $mediumGray;  }
+
+.list-container{
+	max-width: 600px;
+	margin: 0px auto;
+	background-color: $navyBlue;
+	color: white;
+	padding: 15px;
+	margin-top: 25px;
+	position: relative;
+
+	ul{
+		list-style-type: none;
+		margin: 0px 0px 0px 0px;
+		float: left;
+
+		li{
+			padding:5px 0px;
+			span{
+				padding-right:5px;
+			}
+		}
+	}
+
+	img{
+		width: 125px;
+		height: 125px;
+		border: 1px solid red;
+		position: absolute;
+		top: -35px;
+		right: -25px;
+	}
+}
+
+.btn-orange, .btn-red{
+	background-color: $lightOrange;
+	border: 0px;
+	color: white;
+	padding: 10px 35px;
+	margin-bottom: 15px;
+}
+.btn-red{ background-color: $error; }
+
+
 
 .container{
 
@@ -23,8 +61,8 @@ $orange: #F5CE5F;
 	}
 
 	header{
+
 		width: 100%;
-		height: 125px;
 		text-align: center;
 		z-index: 2;
 		position: relative;
@@ -33,9 +71,24 @@ $orange: #F5CE5F;
 		-moz-box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
 		box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
 
+		-webkit-transition: .25s ease-in-out;
+		-moz-transition: .25s ease-in-out;
+		-o-transition: .25s ease-in-out;
+		transition: .25s ease-in-out;
+
 		.navigation-item, .navigation-item-logo{
-			margin: 0px 15px;
+			margin: 0px 10px;
 			display: inline-block;
+
+			a{
+				color: black;
+			}
+		}
+
+		.navigation-item-separator{
+			margin: 0px 0px;
+			display: inline-block;
+			color: $mediumGray;
 		}
 
 		.navigation-item-logo{
@@ -46,6 +99,12 @@ $orange: #F5CE5F;
 				width: 100px;
 				height: 100px;
 			}
+		}
+
+		.hamburger{
+			position: absolute;
+			top: 15px;
+			right: 15px;
 		}
 	}
 
@@ -66,38 +125,6 @@ $orange: #F5CE5F;
 			max-width: 600px;
 			margin: 0px auto;
 			text-align: center;
-		}
-
-		.introduction-list{
-			max-width: 600px;
-			margin: 0px auto;
-			background-color: $navyBlue;
-			color: white;
-			padding: 15px;
-			margin-top: 25px;
-			position: relative;
-
-			ul{
-				list-style-type: none;
-				margin: 0px 0px 0px 0px;
-				float: left;
-
-				li{
-					padding:5px 0px;
-					span{
-						padding-right:5px;
-					}
-				}
-			}
-
-			img{
-				width: 125px;
-				height: 125px;
-				border: 1px solid red;
-				position: absolute;
-				top: -35px;
-				right: -25px;
-			}
 		}
 
 		.introduction-items{
@@ -132,15 +159,6 @@ $orange: #F5CE5F;
 					margin-bottom: 30px;
 				}
 
-				button{
-					background-color: $orange;
-					border: 0px;
-					color: white;
-					padding: 10px 35px;
-					margin-bottom: 15px;
-					
-				}
-
 				.intro-subtitle{
 					font-weight: 600;
 					padding: 0px;
@@ -172,15 +190,253 @@ $orange: #F5CE5F;
 
 		.introduction-latest-text{
 			max-width: 600px;
-			margin: 100px auto 25px auto;
+			margin: 100px auto;
 			text-align: center;
 		}
+	}
 
-		.introduction-latest{
+	.latest-productions-container{
+		width: 100%;
+		background-color: white;
+		padding: 50px 0px;
+
+		.latest-productions{
 			max-width: 800px;
 			height: 600px;
-			margin: 100px auto 100px auto;
+			margin: 0px auto;
 			border: 1px solid black;
 		}
 	}
+
+	.testimonials-container{
+		width: 100%;
+		text-align: center;
+		color: white;
+		background-color: $error;
+		padding: 25px 0px;
+
+		.testimonial{
+			padding: 25px 0px;
+
+		}
+	}
+
+	.shop-instrument-container{
+		width: 100%;
+		background-color: $gray;
+		padding-bottom: 50px;
+
+		.shop-instrument-title{
+			max-width: 600px;
+			margin: 0px auto;
+			text-align: center;
+			padding-top:50px;
+
+			h1{
+				margin-top: 0px;
+			}
+
+			button{
+				margin-top: 25px;
+			}
+		}
+	}
+
+	.shop-samples-container{
+		width: 100%;
+		background-color: $orange;
+		color: white;
+		padding:50px 0px;
+
+		.shop-samples{
+			max-width: 800px;
+			margin: 0px auto;
+			
+			ul{
+				float: left;
+				padding-left: 20px;
+				padding-right: 15px;
+				margin: 10px 0px 25px 0px;
+			}
+
+			img{
+				width: 300px;
+				height: 300px;
+				margin: 0px 50px 0px 0px;
+				float: left;
+				border: 1px solid white;
+			}
+		}
+	}
+
+	.front-youtube-container{
+		width: 100%;
+		background-color: $lightRed;
+		color: white;
+		padding:50px 0px;
+
+		.front-youtube-content{
+			max-width: 800px;
+			margin: 0px auto;
+			
+			.front-youtube-left-column{
+				float: left;
+
+				h2{
+					margin:0px 0px 5px 0px;
+				}
+
+				ul{
+					float: left;
+					padding-right: 15px;
+					padding-left: 20px; 
+					margin: 10px 0px 20px 0px;
+				}
+
+				img{
+					width: 125px;
+					height: 75px;
+					margin: 0px 5px 30px 0px;
+				}
+
+			}
+
+			.front-youtube-right-column{
+				width: 300px;
+				float: left;
+				text-align: center;
+
+				img{
+					width: 200px;
+					height: 200px;
+				}
+
+				button{
+					margin: 15px 0px;
+				}
+			}
+		}
+	}
+
+	.front-google-maps-container{
+		width: 100%;
+		position: relative;
+
+		#front-maps{
+			width: 100%;
+			height: 400px;
+		}
+
+		.front-google-maps-infobox{
+			background-color: white;
+			padding: 30px 30px 55px 30px;
+
+			h4{
+				padding-bottom: 10px;
+			}
+
+			p{
+				padding: 0px;
+				margin: 0px;
+			}
+
+			.infobox-contact{
+				margin-top: 20px;
+			}
+		}
+	}
+
+	.front-footer{
+		width: 100%;
+		text-align: center;
+		
+		p{
+			padding: 15px 0px 5px 0px;
+		}
+	}
 }
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	header{ 
+		height: 63px;
+	}
+	.front-google-maps-infobox{
+		position: relative;
+		top: 0px;
+		left: 25px;
+	}
+	#front-maps{ display: none; }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	header{ 
+		height: 63px;
+	}
+	.front-google-maps-infobox{
+		position: relative;
+		top: 0px;
+		left: 50px;
+	}
+	#front-maps{ display: none; }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	header{ 
+		height: 63px;
+	}
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	header{ 
+		height: 125px;
+	}
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	header{ 
+		height: 125px;
+	}
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
