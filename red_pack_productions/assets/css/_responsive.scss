@@ -1,0 +1,293 @@
+/****************************************
+		Custom, iPhone Retina
+ ****************************************/
+@media only screen and (min-width : 320px) {
+	header{ 
+		height: 63px;
+		position: fixed;
+	}
+	.content-introduction{
+		padding-top: 80px;
+	}
+
+	.shop-samples-container{
+		button{
+			margin: 50px 15px 0px 15px;
+		}
+	}
+
+	.shop-samples{
+		text-align: center;
+
+		.front-shop-samples{
+			ul{
+				padding-left: 50px;
+			}
+		}
+	}
+
+	/* Home Youtube */
+	.front-youtube{
+		margin-top: 25px;
+		ul{
+			padding-left: 50px;
+		}
+	}
+
+	.front-youtube-right-column{
+		margin-top: 25px;
+		width: 100%;
+	}
+
+	.front-youtube-left-column{
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Home Maps */
+	.front-google-maps-infobox{
+		position: relative;
+		top: 0px;
+		left: 25px;
+	}
+	#front-maps{ display: none; }
+}
+
+/****************************************
+	Extra Small Devices, Phones
+ ****************************************/
+@media only screen and (min-width : 480px) {
+	header{ 
+		height: 63px;
+		position: fixed;
+	}
+	.content-introduction{
+		padding-top: 80px;
+	}
+
+	.shop-samples-container{
+		button{
+			margin: 50px 15px 0px 15px;
+		}
+	}
+
+	.shop-samples{
+		text-align: center;
+		
+		.front-shop-samples{
+			max-width: 450px;
+			ul{
+				padding-left: 10px;
+			}
+		}
+	}
+
+	/* Home Youtube */
+	.front-youtube{
+		margin-top: 25px;
+		max-width: 450px;
+		ul{
+			padding-left: 50px;
+		}
+	}
+
+	.front-youtube-right-column{
+		margin-top: 25px;
+		width: 100%;
+	}
+
+	.front-youtube-left-column{
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Home Maps */
+	.front-google-maps-infobox{
+		position: relative;
+		top: 0px;
+		left: 50px;
+	}
+	#front-maps{ display: none; }
+}
+
+/****************************************
+		Small Devices, Tablets
+ ****************************************/
+@media only screen and (min-width : 768px) {
+	header{ 
+		height: 63px;
+		position: fixed;
+	}
+	.content-introduction{
+		padding-top: 80px;
+	}
+
+	.shop-samples-container{
+		button{
+			margin: 10px 0px 0px 0px;
+		}
+	}
+
+	.shop-samples{
+		text-align: left;
+		.front-shop-samples{
+			max-width: 800px;
+		}
+	}
+
+	/* Home Youtube */
+	.front-youtube{
+		margin-top: 25px;
+		ul{
+			padding-left: 50px;
+		}
+	}
+
+	.front-youtube-right-column{
+		margin-top: 25px;
+		width: 100%;
+	}
+
+	.front-youtube-left-column{
+		width: 100%;
+		text-align: center;
+	}
+
+	/* Home Maps */
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+/****************************************
+		Medium Devices, Desktops
+ ****************************************/
+@media only screen and (min-width : 992px) {
+	header{ 
+		height: 105px;
+		position: relative;
+	}
+	.content-introduction{
+		padding-top: 45px;
+	}
+
+	.shop-samples-container{
+		button{
+			margin: 15px 0px 0px 0px;
+		}
+	}
+
+	.shop-samples{
+		text-align: left;
+		.front-shop-samples{
+			max-width: 800px;
+		}
+	}
+
+	/* Home Youtube */
+	.front-youtube{
+		margin-top: 25px;
+		max-width: 700px;
+		ul{
+			padding-left: 0px;
+		}
+	}
+
+	.front-youtube-right-column{
+		width: 300px;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+	}
+
+	.front-youtube-left-column{
+		width: 425px;
+		text-align: left;
+	}
+
+	/* Home Maps */
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+/****************************************
+		Large Devices, Wide Screens
+ ****************************************/
+@media only screen and (min-width : 1200px) {
+	header{ 
+		height: 105px;
+		position: relative;
+	}
+	.content-introduction{
+		padding-top: 45px;
+	}
+
+	.shop-samples-container{
+		button{
+			margin: 15px 0px 0px 0px;
+		}
+	}
+
+	.shop-samples{
+		text-align: left;
+		.front-shop-samples{
+			max-width: 800px;
+		}
+	}
+
+	/* Home Youtube */
+	.front-youtube{
+		margin-top: 25px;
+		max-width: 700px;
+		ul{
+			padding-left: 0px;
+		}
+	}
+
+	.front-youtube-right-column{
+		width: 300px;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+	}
+
+	.front-youtube-left-column{
+		width: 425px;
+		text-align: left;
+	}
+	
+	/* Home Maps */
+	.front-google-maps-infobox{
+		position: absolute;
+		top: 60px;
+		left: 250px;
+	}
+	#front-maps{ display: block; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

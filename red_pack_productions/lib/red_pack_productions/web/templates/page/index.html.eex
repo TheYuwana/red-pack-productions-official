@@ -16,7 +16,7 @@
       <li><span class="glyphicon glyphicon-ok success"></span> It's ready when you say it's ready</li>
       <li><span class="glyphicon glyphicon-remove error"></span> No bullshit</li>
     </ul>
-    <img src="#" class="hidden-xs">
+    <img src="/images/rp_logo.png" class="hidden-xs">
     <div class="clear"></div>
   </div>
 
@@ -25,9 +25,9 @@
     <%= for x <- @products do %>
 
     <div class="intro-item">
-      <img src="#">
-      <p class="intro-subtitle">Opnamen:</p>
-      <h2>Instrument</h2>
+      <img src="/images/singer.png">
+      <p class="intro-subtitle">OPNAMEN:</p>
+      <h2>INSTRUMENT</h2>
       <p>Inclusief:</p>
       <ul>
         <li>Item one</li>
@@ -48,10 +48,17 @@
       <h1>Some of our latest productions</h1>
     </div>
 
-  </div>
+    
+    <div class="latest-productions">
+      
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/goldenrod-remix-v2&show_artwork=true&show_user=true"></iframe>
 
-  <div class="latest-productions-container">
-      <div class="latest-productions"></div>
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/heirs-of-unending-august-by-skys-pavilion&show_artwork=true&show_user=true"></iframe>
+
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/summers-incantations-by-skys-pavilion&show_artwork=true&show_user=true"></iframe>
+
+    </div>
+
   </div>
 
   <div class="testimonials-container">
@@ -71,10 +78,11 @@
 
   <div class="shop-instrument-container">
     <div class="shop-instrument-title">
-      <h1>Refurbished instruments and studio gear</h1>
+      <h1>Refurbished instruments</h1>
+      <h1>and studio gear</h1>
       <button class="btn-red">GO TO SHOP</button>
     </div>
-    <div class="list-container">
+    <div class="list-container front-refurbished">
       <ul>
         <li><span class="glyphicon glyphicon-ok success"></span>  Request finds</li>
         <li><span class="glyphicon glyphicon-ok success"></span>  Thoroughly tested</li>
@@ -85,29 +93,32 @@
         <li><span class="glyphicon glyphicon-ok success"></span> Cleaned</li>
         <li><span class="glyphicon glyphicon-ok success"></span> Pick up in Rotterdam</li>
       </ul>
-      <img src="#" class="hidden-xs">
+      <img src="/images/guitar.png" class="hidden-xs">
       <div class="clear"></div>
     </div>
   </div>
 
   <div class="shop-samples-container">
     <div class="shop-samples">
-      <img src="#" class="hidden-xs">
+      <img src="/images/products.png" class="hidden-xs">
       <div class="shop-samples-details">
         <h2>Exclusive drum samples</h2>
-        <ul>
-          <li>High quality drums</li>
-          <li>44 Khz 24 bits samples</li>
-          <li>Wave format</li>
-          <li>10 different hit values</li>
-        </ul>
-        <ul>
-          <li>Processed hits</li>
-          <li>Different mics</li>
-          <li>Raw tracks</li>
-          <li>Average &euro; 1000,- snares</li>
-        </ul>
-        <button class="btn-red">GO TO SHOP</button>
+        <div class="list-container front-shop-samples">
+          <ul>
+            <li>High quality drums</li>
+            <li>44 Khz 24 bits samples</li>
+            <li>Wave format</li>
+            <li>10 different hit values</li>
+          </ul>
+          <ul>
+            <li>Processed hits</li>
+            <li>Different mics</li>
+            <li>Raw tracks</li>
+            <li>Average &euro; 1000,- snares</li>
+          </ul>
+          <button class="btn-red">GO TO SHOP</button>
+          <div class="clear"></div>
+        </div>
         <div class="clear"></div>
       </div>
     </div>   
@@ -119,30 +130,31 @@
       <div class="front-youtube-left-column">
         <h2>Red Pack Productions</h2>
         <h2>Youtube channel</h2>
-        <ul>
-          <li>High quality drums</li>
-          <li>44 Khz 24 bits samples</li>
-          <li>Wave format</li>
-          <li>10 different hit values</li>
-        </ul>
-        <ul>
-          <li>Processed hits</li>
-          <li>Different mics</li>
-          <li>Raw tracks</li>
-          <li>Average &euro; 1000,- snares</li>
-        </ul>
-        <div class="clear"></div>
-        <img src="#">
-        <img src="#">
-        <img src="#">
+
+        <div class="list-container front-youtube">
+          <ul>
+            <li>Recording tutorials</li>
+            <li>Music videos</li>
+            <li>Band recordings</li>
+          </ul>
+          <ul>
+            <li>Gear reviews</li>
+            <li>How to videos</li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+        
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/uLzc0szj8_U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB5esfwPRRYjjhw7oLCFUGrfq250A">
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/0qe8f1EhFoo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB98AHeIgVrKiPOGGvZVkyY56ls2w">
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/URAfhsv4DoE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBhULAI7Q-H6QiWaf36Lxdg2rgQLw">
       </div>
 
       <div class="front-youtube-right-column">
-        <img src="#" class="youtube-red-pack-logo">
+        <img src="/images/rp_logo.png" class="youtube-red-pack-logo">
         <div class="clear"></div>
         <button class="btn-red">GO TO YOUTUBE</button>
       </div>
-      <div class="clear"></div>      
+      <div class="clear"></div>
     </div>
   </div>
 

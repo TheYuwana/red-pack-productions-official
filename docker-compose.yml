@@ -1,0 +1,11 @@
+version: '2'
+services:
+  redpackproductions:
+    container_name: "red_pack_productions"
+    build: .
+    ports:
+     - "4000:4000"
+    volumes:
+     - .:/application
+     - /data
+    command: /bin/bash /application/docker_command.sh
