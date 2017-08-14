@@ -31,7 +31,15 @@ p, a{
 	font-family: 'Open Sans', sans-serif;
 }
 
-.btn-orange, .btn-red{
+.span-space{
+	padding: 0px 10px;
+}
+
+.span-space-extra{
+	padding: 0px 20px;
+}
+
+.btn-orange, .btn-red, .btn-green{
 	background-color: $lightOrange;
 	border: 0px;
 	color: white;
@@ -51,6 +59,11 @@ p, a{
 		background-color: $orange;
 	}
 }
+
+.btn-green{
+	background-color: $successGreen;
+}
+
 
 /****************************************
 			List container
@@ -451,6 +464,90 @@ p, a{
 			}
 		}
 	}
+
+	/****************************************
+				Samples page
+ 	****************************************/
+ 	.content-samples{
+ 		width: 100%;
+
+ 		.shop-samples-container{
+
+			.shop-samples{
+				max-width: 800px;
+				margin: 0px auto;
+				
+				h2, h3{
+					margin:0px;
+				}
+
+				img{
+					width: 250px;
+					margin-right: 25px;
+				}
+
+				.sample-subscribe-text{
+					position: relative;
+					margin: 30px 210px 0px 0px;
+					float: right;
+
+					img{
+						width: 60px;
+						position: absolute;
+						top: 55px;
+						left: -51px;
+					}
+				}
+			}
+		}
+
+
+		input{
+			padding: 8px 5px;
+			margin-right: 10px;
+			margin-top: 70px;
+			width: 250px;
+			color: black;
+		}
+ 	}
+
+ 	/****************************************
+				Samples spam
+ 	****************************************/
+ 	.shop-samples-spam{
+ 		width: 100%;
+ 		background-color: $gray;
+
+ 		.spam-text-container{
+ 			max-width: 800px;
+ 			margin: 0px auto;
+ 			text-align: center;
+ 			padding: 50px 0px;
+
+ 			span{
+ 				padding-right: 40px;
+ 			}
+
+ 			span:before{
+ 				position: absolute;
+ 				top: -26px;
+ 				left: 0px;
+ 			}
+
+ 			h2{
+ 				display: inline;
+ 				margin: 0px 25px;
+ 				font-family: 'Open Sans', sans-serif;
+ 			}
+
+ 			.spam-text-left, .spam-text-right{
+ 				margin: 25px 25px;
+ 				max-width: 300px;
+ 				display: inline-block;
+ 				text-align: left;
+ 			}
+ 		}
+ 	}
 
 	/****************************************
 					Footer

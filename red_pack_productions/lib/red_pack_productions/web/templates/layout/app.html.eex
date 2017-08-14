@@ -24,23 +24,23 @@
 
       <header class="header">
 
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">HOME</a></div>
+        <div class="navigation-item-mobile hidden-md hidden-lg"><a href="/">HOME</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">CONTACT</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">MEDIA</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">RECORDINGS</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">SAMPLES</a></div>
+        <div class="navigation-item-mobile hidden-md hidden-lg"><a href="/samples">SAMPLES</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a href="#">REFURBISHED INSTRUMEMTS</a></div>
 
 
-        <div class="navigation-item hidden-xs hidden-sm"><a href="#">HOME</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="/">HOME</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">CONTACT</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">MEDIA</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">RECORDINGS</a></div>
-        <div class="navigation-item-logo hidden-xs hidden-sm"><a href="#"><img src="/images/rp_logo.png"></a></div>
-        <div class="navigation-item hidden-xs hidden-sm"><a href="#">SAMPLES</a></div>
+        <div class="navigation-item-logo hidden-xs hidden-sm"><a href="/"><img src="/images/rp_logo.png"></a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a href="/samples">SAMPLES</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a href="#">REFURBISHED INSTRUMEMTS</a></div>
 

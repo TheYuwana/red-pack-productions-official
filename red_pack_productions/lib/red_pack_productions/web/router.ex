@@ -17,6 +17,7 @@ defmodule RedPackProductions.Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/samples", PageController, :samples
   end
 
   # Other scopes may use custom stacks.
