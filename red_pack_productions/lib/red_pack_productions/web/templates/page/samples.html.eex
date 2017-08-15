@@ -7,7 +7,9 @@
 		    <h2>Stop sounding like</h2>
 		    <h2><span class="span-space"></span>everybody else</h2>
 		    
-		    <div class="sample-subscribe-text">
+		    <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+
+		    <div class="sample-subscribe-text hidden-xs">
 		    	<h3><span class="span-space-extra">Sign up for a</h3>
 		    	<h3>free sample pack</h3>
 		    	<img src="/images/arrow_sample.png">
@@ -22,7 +24,6 @@
 	</div>
 
 	<div class="shop-samples-spam">
-		
 		<div class="spam-text-container">
 			<h2><span class="glyphicon glyphicon-remove error"></span>NO SPAM</h2>
 			<h2><span class="glyphicon glyphicon-ok success"></span>YES FREE STUFF</h2>
@@ -37,7 +38,40 @@
 				</p>
 			</div>
 		</div>
+	</div>
 
+	<div class="big-footer">
+		<div class="big-footer-container">
+			<h1>RED PACK PRODUCTIONS</h1>
+			<div class="big-foot-left">
+				<ul>
+					<li>Wagenmakerstraat 5</li>
+					<li>2984 BD Ridderkerk</li>
+					<li>South Holland</li>
+				</ul>
+				<ul>
+					<li>KVK 68847483</li>
+				</ul>
+			</div>
+			<div class="big-foot-right">
+				<ul>
+					<li>E-mail:</li>
+					<li>info@redpackproductions.com</li>
+				</ul>
+				<ul>
+					<li>SUPPORT:</li>
+					<li>0641189513</li>
+					<li>Ma t/m Vr 10:00 &#38; 17:00</li>
+				</ul>
+			</div>
+			<div class="big-footer-subscribe hidden-xs">
+				<img class="footer-subscribe-arrow" src="images/arrow_down.png">
+				<img class="footer-subscribe-logo" src="images/rp_logo.png">
+				<h3>Free samples? Sign up here!</h3>
+				<button class="btn-green">SUBSCRIBE</button>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
 
 </div>

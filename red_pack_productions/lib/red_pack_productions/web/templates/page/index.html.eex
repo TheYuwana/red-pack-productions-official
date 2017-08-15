@@ -173,10 +173,6 @@
     </div>
   </div>
 
-  <div class="front-footer">
-    <p>COPYRIGHT 2017</p>
-  </div>
-
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ebJUXWlI9Qz4na2YB3H2s3zu_Pe0kYU&callback=initMap"></script>
   <script type="text/javascript">
     var map;
