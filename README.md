@@ -1,13 +1,8 @@
 # Welcome to the Red Pack Official site!
 
-### Week 14 Aug - 20 Aug
+### Week 21 Aug - 27 Aug
 * Brainstorm and fix navigation logic, might need to drop the webshop for now
 * Implement mailchimp subscribe
-* Setup Contentful
-* Implement Contentful logic onto frontend
-
-### TODO
-
 * Create packages page
 * Implement Soundcloud for RPP
 * Fix Mobile layout for homepage

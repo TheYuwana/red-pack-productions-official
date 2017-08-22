@@ -22,19 +22,19 @@
 
   <div class="introduction-items">
     
-    <%= for x <- @products do %>
+    <%= for package <- @packages do %>
 
     <div class="intro-item">
-      <img src="/images/singer.png">
+      <img src="<%= package.thumbnail %>">
       <p class="intro-subtitle">OPNAMEN:</p>
-      <h2>INSTRUMENT</h2>
+      <h2><%= package.title %></h2>
       <p>Inclusief:</p>
       <ul>
-        <li>Item one</li>
-        <li>Item two</li>
-        <li>Item three</li>
+        <%= for item <- package.items do %>
+          <li>item</li>
+        <%= end %>
       </ul>
-      <p class="intro-price"><span class="full-price">&euro; 790</span> <span class="real-price">&euro; 250</span></p>
+      <p class="intro-price"><span class="full-price">&euro; <%= package.normalPrice %></span> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
       <p class="intro-btw">Per nummer ex btw</p>
       <button class="btn-orange">MORE INFO</button>
     </div>
@@ -62,18 +62,12 @@
   </div>
 
   <div class="testimonials-container">
+    <%= for testimonial <- @testimonials do %>
     <div class="testimonial">
-      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
-      <p>Drain life - "Working with this guy is such a relaxing job"</p>
+          <p><%= testimonial.artist %></p>
+          <p>"<%= testimonial.comment %>"</p>
     </div>
-    <div class="testimonial">
-      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
-      <p>Drain life - "Working with this guy is such a relaxing job"</p>
-    </div>
-    <div class="testimonial">
-      <p>Adversarious - "Ik vind het gewoon kankah hard!"</p>
-      <p>Drain life - "Working with this guy is such a relaxing job"</p>
-    </div>
+    <%= end %>
   </div>
 
   <div class="shop-instrument-container">

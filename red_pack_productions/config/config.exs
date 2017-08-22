@@ -22,6 +22,13 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Contentful
+config :cached_contentful,
+	space_id: "6t670ovmra8o",
+	access_token: "365c0c9b6dabf434bffdd06bcc662b526a33785cffeb5249697de4633bef1caf",
+	auto_update: true,
+	update_interval: 24 * 60 * 60 *1000
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
