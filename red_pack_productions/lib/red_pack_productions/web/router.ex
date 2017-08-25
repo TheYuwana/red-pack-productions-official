@@ -18,10 +18,7 @@ defmodule RedPackProductions.Web.Router do
 
     get "/", PageController, :index
     get "/samples", PageController, :samples
+    get "/instruments", PageController, :instruments
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", RedPackProductions.Web do
-  #   pipe_through :api
-  # end
 end

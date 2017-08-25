@@ -29,6 +29,12 @@ config :cached_contentful,
 	auto_update: true,
 	update_interval: 24 * 60 * 60 *1000
 
+# ETS Cache
+config :plug_ets_cache,
+  db_name: :rpp,
+  ttl_check: 86400, # 24 hours
+  ttl: 43200 # 12 hours
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

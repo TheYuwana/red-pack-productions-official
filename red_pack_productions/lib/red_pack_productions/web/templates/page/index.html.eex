@@ -74,7 +74,7 @@
     <div class="shop-instrument-title">
       <h1>Refurbished instruments</h1>
       <h1>and studio gear</h1>
-      <button class="btn-red">GO TO SHOP</button>
+      <a href="/instruments" class="btn-red">GO TO SHOP</a>
     </div>
     <div class="list-container front-refurbished">
       <ul>
@@ -110,8 +110,8 @@
             <li>Raw tracks</li>
             <li>Average &euro; 1000,- snares</li>
           </ul>
-          <button class="btn-red">GO TO SHOP</button>
-          <button class="btn-red">GET A FREE SAMPLE PACK!</button>
+          <a href="/samples" class="btn-red">GO TO SHOP</a>
+          <a href="/samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
           <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -147,7 +147,7 @@
       <div class="front-youtube-right-column">
         <img src="/images/rp_logo.png" class="youtube-red-pack-logo">
         <div class="clear"></div>
-        <button class="btn-red">GO TO YOUTUBE</button>
+        <a class="btn-red" href="https://www.youtube.com/channel/UCibFkP0ucGGxHfearidgnMA" target="_blank">GO TO YOUTUBE</a>
       </div>
       <div class="clear"></div>
     </div>

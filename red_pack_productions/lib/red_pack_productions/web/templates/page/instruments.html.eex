@@ -1,0 +1,12 @@
+<div class="content-introduction">
+  
+  <div class="introduction-text">
+    <h1>Refurbished instruments</h1>
+    <h3>Coming soon!</h3>
+  </div>
+
+  <div class="underconstruction-space"></div>
+
+</div>
+
+<%= render "big_footer.html" %>

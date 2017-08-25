@@ -1,5 +1,6 @@
 defmodule RedPackProductions.Web.PageController do
   use RedPackProductions.Web, :controller
+  use PlugEtsCache.Phoenix
 
   def index(conn, _params) do
     
@@ -15,7 +16,6 @@ defmodule RedPackProductions.Web.PageController do
       }
     end)
 
-    IO.inspect packages
     #Get Testimonials form Contentful
   	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial"), fn(testimonial) ->
       %{
@@ -24,10 +24,21 @@ defmodule RedPackProductions.Web.PageController do
       }
     end)
 
-    render conn, "index.html", packages: packages, testimonials: testimonials
+    conn
+      |> render("index.html", packages: packages, testimonials: testimonials)
+      |> cache_response
   end
 
   def samples(conn, _params) do
-    render conn, "samples.html"
+    conn
+      |> render("samples.html")
+      |> cache_response
   end
+
+  def instruments(conn, _params) do
+    conn
+      |> render("instruments.html")
+      |> cache_response
+  end
+
 end
