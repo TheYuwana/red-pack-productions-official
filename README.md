@@ -15,13 +15,18 @@
 
 ### TODO After vacation
 
-* Setup Google Analystics
-* Setup Meta Data
+
 * Create Webshop page
 * Create Webshop detailed page
 * Research and implement webshop API
 * Create Reservation page
 * Research and implement reservation system (Database with dates and such)
+
+### Extrs
+
+* Setup Google Analystics
+* Setup Meta Data
+* Optimize website (See Google pagespeed insights)
 
 
 
