@@ -39,6 +39,7 @@ defmodule RedPackProductions.Mixfile do
      {:cowboy, "~> 1.0"},
      {:plug, "~> 1.4.3", override: true},
      {:plug_ets_cache, "~> 0.1.0"},
+     {:countries, "~> 1.4"},
      {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git"}]
   end
 

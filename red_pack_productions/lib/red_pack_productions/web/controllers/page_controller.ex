@@ -41,4 +41,31 @@ defmodule RedPackProductions.Web.PageController do
       |> cache_response
   end
 
+  def contact(conn, _params) do
+
+    # Get packages form Contentful
+    packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
+      asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
+      [ 
+        key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
+        value: package["fields"]["title"]
+      ]
+    end)
+
+    # Get countries
+    countries = Enum.map(Countries.all, fn(country) -> country.name end)
+    conn
+      |> render("contact.html", countries: countries, packages: packages)
+      |> cache_response
+  end
+
+  def reserve(conn, %{"reservation" => reservation}) do
+    
+    IO.inspect reservation
+
+    conn
+      |> render("success.html")
+      |> cache_response
+  end
+
 end

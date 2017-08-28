@@ -19,6 +19,9 @@ defmodule RedPackProductions.Web.Router do
     get "/", PageController, :index
     get "/samples", PageController, :samples
     get "/instruments", PageController, :instruments
+    get "/contact", PageController, :contact
+
+    post "/reserve", PageController, :reserve
   end
 
 end

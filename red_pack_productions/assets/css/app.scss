@@ -47,6 +47,7 @@ p, a{
 	padding: 10px 35px;
 	margin-bottom: 15px;
 	border-radius: 5px;
+	cursor: pointer;
 
 	&:hover{
 		color: white;
@@ -584,6 +585,16 @@ p, a{
  	****************************************/
  	.content-instruments{
  		width: 100%;
+ 	}
+
+ 	/****************************************
+				Contact page
+ 	****************************************/
+ 	.contact-form-container{
+ 		max-width: 600px;
+ 		margin: 0px auto;
+ 		padding: 15px;
+
  	}
 
 	/****************************************

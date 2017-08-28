@@ -25,7 +25,7 @@
       <header class="header">
 
         <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>' href="/">HOME</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">CONTACT</a></div>
+        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/contact" do %> nav-active <%= end %>' href="/contact">CONTACT</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">MEDIA</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">RECORDINGS</a></div>
         <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/samples" do %> nav-active <%= end %>' href="/samples">SAMPLES</a></div>
@@ -34,7 +34,7 @@
 
         <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>' href="/">HOME</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">CONTACT</a></div>
+        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/contact" do %> nav-active <%= end %>' href="/contact">CONTACT</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
         <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">MEDIA</a></div>
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
