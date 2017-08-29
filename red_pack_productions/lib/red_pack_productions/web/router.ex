@@ -24,4 +24,9 @@ defmodule RedPackProductions.Web.Router do
     post "/reserve", PageController, :reserve
   end
 
+  scope "/api", RedPackProductions.Web do
+    pipe_through :api 
+    get "/dates", ApiController, :reservation_dates
+  end
+
 end

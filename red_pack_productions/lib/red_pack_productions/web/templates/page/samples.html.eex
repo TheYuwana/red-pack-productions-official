@@ -3,7 +3,7 @@
   <div class="introduction-text">
     <h1>Sample Shop</h1>
     <h3>Coming soon!</h3>
-    <h3>Subscribe below for a preview sample!</h3>
+    <h3>Subscribe below for a free sample pack!</h3>
   </div>
 
   <div class="underconstruction-space"></div>
@@ -46,16 +46,16 @@
 		<div class="spam-text-container">
 			<h2><span class="glyphicon glyphicon-remove error"></span>NO SPAM</h2>
 			<h2><span class="glyphicon glyphicon-ok success"></span>YES FREE STUFF</h2>
-			<div class="spam-text-left">
+			<%# <div class="spam-text-left">
 				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+					
 				</p>
 			</div>
 			<div class="spam-text-right">
 				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+					
 				</p>
-			</div>
+			</div> %>
 		</div>
 	</div>
 

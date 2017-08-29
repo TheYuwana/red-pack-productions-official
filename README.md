@@ -1,10 +1,19 @@
 # Welcome to the Red Pack Official site!
 
 ### Week 27 Aug - 3 Sept
-* Brainstorm and fix navigation logic, might need to drop the webshop for now
+
+* Create basic reservation system
+	- Create hours
+	- send info to mail using hostnet smpt
+
+* Make media button scroll to soundcloud
+* Create FAQ page
 * Create packages page
-* Implement Soundcloud for RPP
-* Create basic reservation system (Contact info, package and dates are send to the RPP email)(Mailchimp SMTP)
+
+* recordings scrolls to soundcloud
+* contentfull soundcloud editing
+* Discuss what needs to be editable
+
 
 ### TODO After vacation
 
@@ -19,3 +28,4 @@
 * Setup Google Analystics
 * Setup Meta Data
 * Optimize website (See Google pagespeed insights)
+* Error handlers (Ajax requests, 404 pages)

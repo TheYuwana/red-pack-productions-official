@@ -14,6 +14,8 @@ exports.config = {
             before: [
                 "vendor/js/jquery-3.2.1.min.js",
                 "vendor/js/bootstrap.min.js",
+                "vendor/js/moment.min.js",
+                "vendor/js/soundcloud.js",
             ]
         }
     },

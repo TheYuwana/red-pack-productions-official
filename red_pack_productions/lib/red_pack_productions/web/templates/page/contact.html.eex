@@ -17,7 +17,11 @@
   		<h2>Select date</h2>
 
   		<div class="form-group">
-  			<input type="date" name="reservation[lastname]" class="form-control">
+  			<%# <input type="date" name="reservation[lastname]" class="form-control"> %>
+        <div id="contact-calendar"></div>
+        <div class="hour-container">
+          
+        </div>
   		</div>
 
   		<h2>Contact information</h2>
