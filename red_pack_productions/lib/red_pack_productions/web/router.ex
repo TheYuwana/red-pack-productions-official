@@ -20,8 +20,10 @@ defmodule RedPackProductions.Web.Router do
     get "/samples", PageController, :samples
     get "/instruments", PageController, :instruments
     get "/contact", PageController, :contact
+    get "/success", PageController, :success
 
     post "/reserve", PageController, :reserve
+
   end
 
   scope "/api", RedPackProductions.Web do

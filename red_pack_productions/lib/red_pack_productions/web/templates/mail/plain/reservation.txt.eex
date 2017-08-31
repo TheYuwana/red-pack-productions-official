@@ -1,0 +1,9 @@
+
+Package: <%= "#{details["package"]}" %>
+Reservation date: <%= "#{details["date"]}" %>
+name: <%= "#{details["firstname"]} #{details["lastname"]}" %>
+Phone: <%= "#{details["phone"]}" %>
+Email: <%= "#{details["email"]}" %>
+Adres: <%= "#{details["address"]} #{details["address_number"]} #{details["address"]}" %>
+<%= "#{details["postcode"]} #{details["city"]}, #{details["country"]}" %>
+Project details: <%= "#{details["comments"]}" %>

@@ -35,8 +35,19 @@ config :plug_ets_cache,
   ttl_check: 86400, # 24 hours
   ttl: 43200 # 12 hours
 
+# Mailer
+config :red_pack_productions, RedPackProductions.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: {:system, "MAIL_SERVER"},
+  port: {:system, "MAIL_PORT"},
+  username: {:system, "MAIL_USER"}, 
+  password: {:system, "MAIL_PASS"},
+  tls: :if_available, 
+  allowed_tls_versions: [:"tlsv1", :"tlsv1.1", :"tlsv1.2"], 
+  ssl: false,
+  retries: 1
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
-
-# A3-QFGAJ8-DRL2P5-WCDRV-TN2L7-N6BFA-5FY74

@@ -2,6 +2,9 @@ defmodule RedPackProductions.Web.PageController do
   use RedPackProductions.Web, :controller
   use PlugEtsCache.Phoenix
 
+  alias RedPackProductions.Mailer
+  alias RedPackProductions.Email
+
   def index(conn, _params) do
     
     # Get packages form Contentful
@@ -43,6 +46,9 @@ defmodule RedPackProductions.Web.PageController do
 
   def contact(conn, _params) do
 
+    # Hours
+    hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+
     # Get packages form Contentful
     packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
       asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
@@ -55,17 +61,19 @@ defmodule RedPackProductions.Web.PageController do
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
     conn
-      |> render("contact.html", countries: countries, packages: packages)
+      |> render("contact.html", countries: countries, packages: packages, hours: hours)
       |> cache_response
   end
 
   def reserve(conn, %{"reservation" => reservation}) do
-    
-    IO.inspect reservation
+    Email.reservation(reservation) |> Mailer.deliver_now
+    conn
+      |> redirect(to: page_path(conn, :success))
+  end
 
+  def success(conn, _params) do
     conn
       |> render("success.html")
-      |> cache_response
   end
 
 end

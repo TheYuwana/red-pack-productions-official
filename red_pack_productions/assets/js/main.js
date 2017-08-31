@@ -1,3 +1,6 @@
+var firstLoad = true;
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Oktober", "November", "December"];
+
 $(document).ready(function(){
 
 	$('#hamburger-icon').click(function(){
@@ -14,41 +17,59 @@ $(document).ready(function(){
 	});
 	soundcloud.debug = true;
 
-	/*
-		Calendar selectors
-		fc-today
-		fc-day
-		fc-future
-		fc-past
-
-		data-date = 2017-01-24
-	*/
-
 	// Full Calendar
 	$("#contact-calendar").fullCalendar({
+		weekends: false,
 		dayClick: function(date, event, view){
-			console.log(date);
-			//$(this) = selected day element
-			$(this).css('background-color', 'red');
+			
+			if(!$(this).hasClass("fc-disabled") && !$(this).hasClass("fc-past")){
+				$(".fc-day").removeClass("fc-selected");
+				$(this).addClass("fc-selected");
+				$("#calendar-input").val(date.date() + "-" + months[date.month()] + "-" + date.year());
+			}
+			//$(this) = selected day element			
 		},
 		viewRender: function(view, element){
 
-			// Fetch reserved dates
-			process_get_request("/api/dates", function(dates){
-				console.log(dates);
-
-				// Current day
-				var today = new Date();
-				var currentDays = refreshDays(today.getMonth(), today.getFullYear());
-
-				// $(".fc-day").each(function(key, day){
-				// 	console.log($(day).data("date"));
-				// 	console.log(findInArray(currentDays, $(day).data("date")));
-				// });
-			});
+			// Initial date
+			var today = new Date();
+			$("#calendar-input").val(today.getDate() + "-" + months[today.getMonth()] + "-" + today.getFullYear());
+			refreshView();
 		}
 	});
+
+	// Hour selection
+	// $(".hour").on("click", function(){
+	// 	var checkbox = $(this).find("input");
+	// 	if(checkbox.is(":checked")){
+	// 		 checkbox.prop('checked', false);
+ //        }else{
+ //            checkbox.prop('checked', true);
+ //        }
+	// });
+
+
 });
+
+function refreshView(selectedDay){
+	process_get_request("/api/dates", function(dates){
+		console.log(dates);
+		
+		// Disable full dates
+		var reservedDates = [];
+		for(var i = 0; i < dates.length; i++){ 
+			if(dates[i].reservedHours.length < 8){
+				reservedDates.push(dates[i].reservedDate);
+			}
+			
+		}
+		$(".fc-day").each(function(key, day){
+			if(findInArray(reservedDates, $(day).data("date"))){
+				$(day).addClass("fc-disabled");
+			}
+		});
+	});
+}
 
 function findInArray(arr, needle){
 	var found = false;
@@ -59,17 +80,6 @@ function findInArray(arr, needle){
 		}
 	}
 	return found;
-}
-
-function refreshDays(month, year){
-	var date = new Date(year, month, 1);
-	var days = [];
-	while (date.getMonth() === month) {
-		var current = new Date(date);
-		date.setDate(current.getDate() + 1);
-		days.push(current.getFullYear() + "-" + leadingZero(current.getMonth() + 1) + "-" + leadingZero(current.getDate()));
-	}
-	return days;
 }
 
 function leadingZero(number){

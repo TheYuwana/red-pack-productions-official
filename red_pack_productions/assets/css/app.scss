@@ -78,6 +78,33 @@ p, a{
 	margin: 100px 0px;
 }
 
+/****************************************
+			Calendar styles
+ ****************************************/
+
+.fc-view{
+	table{
+		td, th{
+			border-color: $formGray;
+		}
+	}
+}
+
+.fc-past, .fc-disabled{
+	background-color: $gray;
+}
+
+.fc-today, .fc-future{
+	cursor: pointer;
+}
+
+.fc-selected{
+	background-color: $lightGreen;
+}
+
+.fc-disabled{
+	cursor: default;
+}
 
 /****************************************
 			List container
@@ -594,6 +621,33 @@ p, a{
  		max-width: 600px;
  		margin: 0px auto;
  		padding: 15px;
+
+ 		.hour-container{
+
+ 			display: none;
+
+ 			.hour{
+ 				border: 1px solid $formGray;
+ 				text-align: center;
+ 				width: 75px;
+ 				margin: 15px;
+ 				float: left;
+ 				
+ 				p{
+ 					padding: 15px;
+ 					margin: 0px;
+ 				}
+
+ 				input{
+ 					display: none;
+ 				}
+
+ 			}
+
+ 			.reserved{
+ 				background-color: $formGray;
+ 			}
+ 		}
 
  	}
 

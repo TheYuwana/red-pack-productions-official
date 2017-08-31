@@ -2,9 +2,6 @@
 
 ### Week 27 Aug - 3 Sept
 
-* Create basic reservation system
-	- Create hours
-	- send info to mail using hostnet smpt
 
 * Make media button scroll to soundcloud
 * Create FAQ page
@@ -13,6 +10,9 @@
 * recordings scrolls to soundcloud
 * contentfull soundcloud editing
 * Discuss what needs to be editable
+
+* Create basic reservation system
+	- Create hours
 
 
 ### TODO After vacation

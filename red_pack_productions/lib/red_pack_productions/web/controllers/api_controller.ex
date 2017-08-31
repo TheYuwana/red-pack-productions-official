@@ -9,37 +9,33 @@ defmodule RedPackProductions.Web.ApiController do
   def reservation_dates(conn, _params) do 
   	
   	reservations = Enum.map(CachedContentful.Api.getEntriesByType("reservations"), fn(reservation) ->
-      if reservation["fields"]["approved"] do
-        startDate = String.split(reservation["fields"]["startDate"], "T")
-        startHour = startDate
-          |> Enum.at(1)
-          |> String.split("+")
-          |> Enum.at(0)
+      startDate = String.split(reservation["fields"]["startDate"], "T")
+      startHour = startDate
+        |> Enum.at(1)
+        |> String.split("+")
+        |> Enum.at(0)
 
-        endDate = String.split(reservation["fields"]["endDate"], "T")
-        endHour = endDate
-          |> Enum.at(1)
-          |> String.split("+")
-          |> Enum.at(0)
-
-        %{
-          start: %{
-            date: Enum.at(startDate, 0),
-            hour: startHour
-          },
-          end: %{
-            date: Enum.at(endDate, 0),
-            hour: endHour
-          }
-        }
+      endDate = String.split(reservation["fields"]["endDate"], "T")
+      endHour = endDate
+        |> Enum.at(1)
+        |> String.split("+")
+        |> Enum.at(0)
+        
+      startNumber = startHour |> String.split(":") |> Enum.at(0) |> String.to_integer()
+      endNumber = endHour |> String.split(":") |> Enum.at(0) |> String.to_integer()
+      reservedHours = for item <- startNumber..endNumber do
+        "#{item}:00"
       end
 
+      %{
+        reservedDate: Enum.at(startDate, 0),
+        reservedHours: reservedHours
+      }
     end)
 
   	conn
 	    |> put_status(200)
 	    |> render(ReservationView, "index.json", reservations: reservations)
-	    #|> cache_response
   end
 
 end

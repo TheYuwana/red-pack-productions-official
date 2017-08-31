@@ -18,7 +18,7 @@ defmodule RedPackProductions.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {RedPackProductions.Application, []},
-     extra_applications: [:logger, :cached_contentful, :plug_ets_cache, :timex]]
+     extra_applications: [:logger, :cached_contentful, :plug_ets_cache, :timex, :bamboo, :bamboo_smtp]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,6 +41,8 @@ defmodule RedPackProductions.Mixfile do
      {:plug_ets_cache, "~> 0.1.0"},
      {:countries, "~> 1.4"},
      {:timex, "~> 3.1"},
+     {:bamboo, "~> 0.8"},
+     {:bamboo_smtp, "~> 1.4.0"},
      {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git"}]
   end
 
