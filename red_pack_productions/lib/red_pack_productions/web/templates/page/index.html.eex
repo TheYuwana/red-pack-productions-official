@@ -20,23 +20,23 @@
     <div class="clear"></div>
   </div>
 
-  <div class="introduction-items">
+  <div id="packages" class="introduction-items">
     
     <%= for package <- @packages do %>
 
     <div class="intro-item">
       <img src="<%= package.thumbnail %>">
-      <p class="intro-subtitle">OPNAMEN:</p>
+      <p class="intro-subtitle">O<%= package.subtitle %></p>
       <h2><%= package.title %></h2>
       <p>Inclusief:</p>
       <ul>
         <%= for item <- package.items do %>
-          <li>item</li>
+          <li><%= item %></li>
         <%= end %>
       </ul>
       <p class="intro-price"><span class="full-price">&euro; <%= package.normalPrice %></span> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
-      <p class="intro-btw">Per nummer ex btw</p>
-      <button class="btn-orange">MORE INFO</button>
+      <p class="intro-btw"><%= package.priceText %></p>
+      <a href="/packages/<%= package.title %>" class="btn-orange"><%= package.buttonText %></a>
     </div>
 
     <%= end %>
@@ -44,21 +44,51 @@
     <div class="clear"></div>
 
 
-    <div class="introduction-latest-text">
+    <div id="soundcloud" class="introduction-latest-text">
       <h1>Some of our latest productions</h1>
     </div>
 
     
     <div class="latest-productions">
-      
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/goldenrod-remix-v2&show_artwork=true&show_user=true"></iframe>
-
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/heirs-of-unending-august-by-skys-pavilion&show_artwork=true&show_user=true"></iframe>
-
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=https://soundcloud.com/hope_industries/summers-incantations-by-skys-pavilion&show_artwork=true&show_user=true"></iframe>
-
+      <%= for song <- @soundcloud do %>
+        <%= if song.show do %>
+          <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
+        <%= end %>
+      <%= end %>
     </div>
+  </div>
 
+  <div id="samples" class="content-samples">
+    <div class="shop-samples-container">
+      <div class="shop-samples">
+        <img src="/images/free_pack.png" class="hidden-xs">
+        <div class="shop-samples-details">
+          <h2>Stop sounding like</h2>
+          <h2><span class="span-space"></span>everybody else</h2>
+          
+          <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+
+          <div class="sample-subscribe-text hidden-xs">
+            <h3><span class="span-space-extra">Sign up for a</h3>
+            <h3>free sample pack</h3>
+            <img src="/images/arrow_sample.png">
+          </div>
+        
+        <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+            <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_6bf1bf9059744fe52696d0f48_d5dae95bbf" tabindex="-1" value="">
+              </div>
+              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">SUBSCRIBE</button>
+            </div>
+        </form>
+
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="testimonials-container">
@@ -70,7 +100,7 @@
     <%= end %>
   </div>
 
-  <div class="shop-instrument-container">
+  <div id="instruments" class="shop-instrument-container">
     <div class="shop-instrument-title">
       <h1>Refurbished instruments</h1>
       <h1>and studio gear</h1>
@@ -100,18 +130,16 @@
         <div class="list-container front-shop-samples">
           <ul>
             <li>High quality drums</li>
-            <li>44 Khz 24 bits samples</li>
-            <li>Wave format</li>
+            <li>44 Khz 24 bits wave format</li>
             <li>10 different hit values</li>
           </ul>
           <ul>
             <li>Processed hits</li>
             <li>Different mics</li>
             <li>Raw tracks</li>
-            <li>Average &euro; 1000,- snares</li>
           </ul>
           <a href="/samples" class="btn-red">GO TO SHOP</a>
-          <a href="/samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
+          <a href="#samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
           <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -156,7 +184,7 @@
   <div class="front-google-maps-container">
     <div id="front-maps"></div>
     <div class="front-google-maps-infobox">
-      <h4>Red Pack Productions</h4>
+      <h4 id="contact">Red Pack Productions</h4>
       <p>Wagenmakerstraat 5</p>
       <p>2984 BD Ridderkerk</p>
       <p>South Holland</p>

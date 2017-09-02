@@ -28,25 +28,92 @@
 
       <header class="header">
 
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>' href="/">HOME</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/contact" do %> nav-active <%= end %>' href="/contact">CONTACT</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">FAQ</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">RECORDINGS</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/samples" do %> nav-active <%= end %>' href="/samples">SAMPLES</a></div>
-        <div class="navigation-item-mobile hidden-md hidden-lg"><a class='<%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>' href="/instruments">REFURBISHED INSTRUMEMTS</a></div>
+        <!-- MOBILE NAVIGATION -->
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>'
+           href="/">HOME</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #contact <%= else %> /#contact <%= end %>'>CONTACT</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>'
+           href='/question'>FAQ</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <%= else %> /#soundcloud <%= end %>'>RECORDINGS</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #packages <%= else %> /#packages <%= end %>'>PACKAGES</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #samples <%= else %> /#samples <%= end %>'>SAMPLES</a>
+        </div>
+        
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMEMTS</a>
+        </div>
 
 
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>' href="/">HOME</a></div>
+        <!-- DESKTOP NAVIGATION -->
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>'
+           href="/">HOME</a>
+        </div>
+        
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/contact" do %> nav-active <%= end %>' href="/contact">CONTACT</a></div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #contact <%= else %> /#contact <%= end %>'>CONTACT</a>
+        </div>
+        
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">FAQ</a></div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>'
+           href='/question'>FAQ</a>
+        </div>
+        
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>' href="#">RECORDINGS</a></div>
-        <div class="navigation-item-logo hidden-xs hidden-sm"><a href="/"><img src="/images/rp_logo.png"></a></div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/samples" do %> nav-active <%= end %>' href="/samples">SAMPLES</a></div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <%= else %> /#soundcloud <%= end %>'>RECORDINGS</a>
+        </div>
+        
+        <div class="navigation-item-logo hidden-xs hidden-sm">
+          <a href="/"><img src="/images/rp_logo.png"></a>
+        </div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <%= end %>'
+           href='#packages'>PACKAGES</a>
+        </div>
+        
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-        <div class="navigation-item hidden-xs hidden-sm"><a class='<%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>' href="/instruments">REFURBISHED INSTRUMEMTS</a></div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #samples <%= else %> /#samples <%= end %>'>SAMPLES</a>
+        </div>
+        
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+        
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>'
+           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMEMTS</a>
+        </div>
 
         <div class="hamburger hidden-md hidden-lg">
             <div id="hamburger-icon">

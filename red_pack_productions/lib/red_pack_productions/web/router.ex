@@ -21,6 +21,8 @@ defmodule RedPackProductions.Web.Router do
     get "/instruments", PageController, :instruments
     get "/contact", PageController, :contact
     get "/success", PageController, :success
+    get "/packages/:package", PageController, :packages
+    get "/question", PageController, :question
 
     post "/reserve", PageController, :reserve
 

@@ -1,0 +1,19 @@
+<div class="content-introduction">
+  
+  <div class="introduction-text">
+    <h1>F A Q</h1>
+  </div>
+
+  <div class="faq-container">
+  	<%= for question <- @questions do %>
+  		<h2><%= question.question %></h2>
+  		<%= raw(question.answer) %>
+  	<%= end %>
+  </div>
+  
+
+  <div class="underconstruction-space"></div>
+
+</div>
+
+<%= render "big_footer.html" %>

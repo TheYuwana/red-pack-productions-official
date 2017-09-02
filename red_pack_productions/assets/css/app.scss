@@ -260,14 +260,14 @@ p, a{
 	}
 
 	.header-open{
-		height: 300px;
+		height: 325px;
 	}
 
 	/****************************************
 			Content Introduction
  	****************************************/
 
-	.content-introduction{
+	.content-introduction, .package-booking{
 
 		width: 100%;
 		background: #ebebeb;
@@ -322,6 +322,10 @@ p, a{
 					li{
 						text-align: left;
 					}
+				}
+
+				a{
+					display: inline-block;
 				}
 
 				.intro-subtitle{
@@ -648,6 +652,49 @@ p, a{
  				background-color: $formGray;
  			}
  		}
+
+ 	}
+
+ 	/****************************************
+				Package page
+ 	****************************************/
+
+ 	.content-package{
+ 		width: 100%;
+ 		background-color: $orange;
+ 		color: white;
+
+ 		.package-container{
+ 			padding: 15px;
+ 			max-width: 800px;
+ 			margin: 0px auto; 
+
+ 			h1{
+ 				margin-top: 30px;
+ 			}
+
+ 			img{
+ 				width: 300px;
+ 				float: right;
+ 				margin: 0px 0px 15px 15px;
+ 			}
+ 		}
+ 	}
+
+ 	.package-booking{
+ 		background: white;
+ 		padding-top: 35px;
+ 		width: 100%;
+ 	}
+
+ 	/****************************************
+				FAQ page
+ 	****************************************/
+
+ 	.faq-container{
+ 		max-width: 900px;
+ 		margin : 0px auto;
+ 		padding: 0px 25px;
 
  	}
 

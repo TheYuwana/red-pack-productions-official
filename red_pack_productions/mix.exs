@@ -43,6 +43,7 @@ defmodule RedPackProductions.Mixfile do
      {:timex, "~> 3.1"},
      {:bamboo, "~> 0.8"},
      {:bamboo_smtp, "~> 1.4.0"},
+     {:earmark, "~> 1.2"},
      {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git"}]
   end
 

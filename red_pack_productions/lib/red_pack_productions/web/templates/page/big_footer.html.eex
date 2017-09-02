@@ -23,8 +23,8 @@
 			</ul>
 		</div>
 		<div class="big-footer-subscribe hidden-xs">
-			<img class="footer-subscribe-arrow" src="images/arrow_down.png">
-			<img class="footer-subscribe-logo" src="images/rp_logo.png">
+			<img class="footer-subscribe-arrow" src="/images/arrow_down.png">
+			<img class="footer-subscribe-logo" src="/images/rp_logo.png">
 			<h3>Free samples? Sign up here!</h3>
 			<form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 				<button class="btn-green">SUBSCRIBE</button>
