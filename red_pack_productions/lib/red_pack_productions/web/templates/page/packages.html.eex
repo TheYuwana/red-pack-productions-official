@@ -1,6 +1,5 @@
 <div class="content-package">
   <div class="package-container">
-    <h1><%= @packageDetails.title %></h1>
     <img class="hidden-xs" src="<%= @packageDetails.thumbnail %>">
     <%= raw(@packageDetails.details) %>
   </div>

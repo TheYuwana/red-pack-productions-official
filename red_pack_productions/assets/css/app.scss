@@ -180,7 +180,7 @@ p, a{
 
 	.pre-header{
 		height: 25px;
-		background-color: $preHeaderGray;
+		background-color: $black;
 	}
 
 	.header-logo-mobile{
@@ -313,6 +313,7 @@ p, a{
 					font-family: 'Open Sans', sans-serif;
 					font-size: 1.7em;
 					font-weight: 600;
+					height: 55px;
 				}
 
 				ul{
@@ -326,6 +327,9 @@ p, a{
 
 				a{
 					display: inline-block;
+					font-size: 1em;
+					padding: 10px 0px;
+					width: 166px;
 				}
 
 				.intro-subtitle{
@@ -361,6 +365,26 @@ p, a{
 			max-width: 600px;
 			margin: 100px auto;
 			text-align: center;
+		}
+
+		.latest-speakers-container{
+			width: 100%;
+			position: absolute;
+			left: 0px;
+
+			.speakers-right{
+				position: absolute;
+				top: -172px;
+				right: 0px;
+				width: 100px;
+			}
+
+			.speakers-left{
+				position: absolute;
+				top: -148px;
+				left: -7px;
+				width: 200px;
+			}
 		}
 
 		.latest-productions{
@@ -421,7 +445,7 @@ p, a{
 
 	.shop-samples-container{
 		width: 100%;
-		background-color: $orange;
+		background-color: $mediumBlack;
 		color: white;
 		padding: 50px 0px;
 
@@ -460,6 +484,7 @@ p, a{
 			max-width: 700px;
 			margin: 0px auto;
 			position: relative;
+			padding-bottom: 25px;
 			
 			.front-youtube-left-column{
 
@@ -531,7 +556,7 @@ p, a{
  		width: 100%;
 
  		.shop-samples-container{
-
+ 			background-color: $orange;
 			.shop-samples{
 				max-width: 800px;
 				margin: 0px auto;
@@ -676,7 +701,7 @@ p, a{
  			img{
  				width: 300px;
  				float: right;
- 				margin: 0px 0px 15px 15px;
+ 				margin: 35px 0px 15px 15px;
  			}
  		}
  	}

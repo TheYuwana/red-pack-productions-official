@@ -19,18 +19,26 @@ defmodule RedPackProductions.Web.PageController do
   	packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
       asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
       
+      items = case package["fields"]["items"] do
+        nil ->
+          []
+        _ ->
+          package["fields"]["items"]
+      end   
+
       %{
         title: package["fields"]["title"],
         subtitle: package["fields"]["subtitle"],
-        items: package["fields"]["items"],
+        items: items,
         normalPrice: package["fields"]["normalPrice"],
         redPackPrice: package["fields"]["redPackPrice"],
         priceText: package["fields"]["priceText"],
         thumbnail: asset["file"]["url"],
-        buttonText: package["fields"]["buttonText"]
+        slug: package["fields"]["slug"],
+        buttonText: package["fields"]["buttonText"],
+        order: package["fields"]["order"]
       }
     end)
-
 
     #Get Testimonials form Contentful
   	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial"), fn(testimonial) ->
@@ -64,33 +72,26 @@ defmodule RedPackProductions.Web.PageController do
     # Hours
     hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
+
     # Get packages form Contentful
-    packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
-      asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
-      [ 
-        key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
-        value: package["fields"]["title"]
-      ]
-    end)
+    packagesFromContentful = CachedContentful.Api.getEntriesByType("packages")
 
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
 
-    # Get packages form Contentful
-    packages = CachedContentful.Api.getEntriesByType("packages")
-
     # Get details for one package
-    packageDetails = Enum.map(packages, fn(package) ->
-      if packageName == package["fields"]["title"] do
+    packageDetails = Enum.map(packagesFromContentful, fn(package) ->
+      if packageName == package["fields"]["slug"] do
         asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
-        htmlDetails =  Earmark.as_html(package["fields"]["details"])
+        htmlDetails = Earmark.as_html(package["fields"]["details"])
         %{
           title: package["fields"]["title"],
           items: package["fields"]["items"],
           normalPrice: package["fields"]["normalPrice"],
           redPackPrice: package["fields"]["redPackPrice"],
           details: elem(htmlDetails, 1),
-          thumbnail: asset["file"]["url"]
+          thumbnail: asset["file"]["url"],
+          slug: package["fields"]["slug"]
         }
       end
     end)
@@ -98,8 +99,7 @@ defmodule RedPackProductions.Web.PageController do
       |> Enum.fetch!(0)
 
     # Package list
-    packages = Enum.map(packages, fn(package) ->
-      asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
+    packages = Enum.map(packagesFromContentful, fn(package) ->
       [ 
         key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
         value: package["fields"]["title"]
@@ -118,7 +118,6 @@ defmodule RedPackProductions.Web.PageController do
 
     # Get packages form Contentful
     packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
-      asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
       [ 
         key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
         value: package["fields"]["title"]
@@ -141,9 +140,18 @@ defmodule RedPackProductions.Web.PageController do
   def question(conn, _params) do
     
     questions = Enum.map(CachedContentful.Api.getEntriesByType("questions"), fn(question) ->
+      
+      htmlDetails = case question["fields"]["answer"] do
+        nil -> 
+            ""
+          _ -> 
+            result = Earmark.as_html(question["fields"]["answer"])
+            elem(result, 1)
+      end
+
       %{
           question: question["fields"]["question"],
-          answer: question["fields"]["answer"]
+          answer: htmlDetails
         }
     end)
 

@@ -26,29 +26,34 @@
 
     <div class="intro-item">
       <img src="<%= package.thumbnail %>">
-      <p class="intro-subtitle">O<%= package.subtitle %></p>
+      <p class="intro-subtitle"><%= package.subtitle %></p>
       <h2><%= package.title %></h2>
       <p>Inclusief:</p>
+      
       <ul>
         <%= for item <- package.items do %>
           <li><%= item %></li>
         <%= end %>
       </ul>
-      <p class="intro-price"><span class="full-price">&euro; <%= package.normalPrice %></span> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
+      
+      <p class="intro-price"><span class="full-price"> <%= if package.normalPrice != nil do %> &euro; <%= package.normalPrice %></span> <%= end %> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
       <p class="intro-btw"><%= package.priceText %></p>
-      <a href="/packages/<%= package.title %>" class="btn-orange"><%= package.buttonText %></a>
+      <a href="/packages/<%= package.slug %>" class="btn-orange"><%= package.buttonText %></a>
     </div>
 
     <%= end %>
 
     <div class="clear"></div>
 
-
     <div id="soundcloud" class="introduction-latest-text">
       <h1>Some of our latest productions</h1>
     </div>
 
-    
+    <div class="latest-speakers-container">
+      <img class="speakers-left hidden-xs hidden-sm" src="/images/speakers.png" />
+      <img class="speakers-right hidden-xs hidden-sm" src="/images/speakers-r.png" />
+    </div>
+
     <div class="latest-productions">
       <%= for song <- @soundcloud do %>
         <%= if song.show do %>
@@ -56,6 +61,7 @@
         <%= end %>
       <%= end %>
     </div>
+
   </div>
 
   <div id="samples" class="content-samples">
@@ -91,6 +97,7 @@
     </div>
   </div>
 
+  <%= if Enum.count(@testimonials) > 0 do %>
   <div class="testimonials-container">
     <%= for testimonial <- @testimonials do %>
     <div class="testimonial">
@@ -99,6 +106,7 @@
     </div>
     <%= end %>
   </div>
+  <%= end %>
 
   <div id="instruments" class="shop-instrument-container">
     <div class="shop-instrument-title">
@@ -166,10 +174,6 @@
           </ul>
           <div class="clear"></div>
         </div>
-        
-        <img class="hidden-xs" src="https://i.ytimg.com/vi/uLzc0szj8_U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB5esfwPRRYjjhw7oLCFUGrfq250A">
-        <img class="hidden-xs" src="https://i.ytimg.com/vi/0qe8f1EhFoo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB98AHeIgVrKiPOGGvZVkyY56ls2w">
-        <img class="hidden-xs" src="https://i.ytimg.com/vi/URAfhsv4DoE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBhULAI7Q-H6QiWaf36Lxdg2rgQLw">
       </div>
 
       <div class="front-youtube-right-column">
@@ -191,7 +195,6 @@
       <p>KVK: 68847483</p>
       <p class="infobox-contact gray">Email: info@redpackproductions.com</p>
       <p class="gray">phone: 0641189513</p>
-      <p class="gray">Ma t/m Vr 10:00 &amp; 17:00</p>
     </div>
   </div>
 

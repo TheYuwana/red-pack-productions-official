@@ -25,11 +25,11 @@ defmodule RedPackProductions.Web.Router do
     get "/question", PageController, :question
 
     post "/reserve", PageController, :reserve
-
   end
 
   scope "/api", RedPackProductions.Web do
     pipe_through :api 
+    get "/resetcache", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
   end
 

@@ -6,6 +6,15 @@ defmodule RedPackProductions.Web.ApiController do
 
   plug :put_layout, false
 
+  def reset_cache(conn, _params) do
+    RedPackProductions.EtsHelper.clear_all_cache()
+    CachedContentful.Api.updateAssets()
+    CachedContentful.Api.updateEntries()
+    conn
+      |> put_status(200)
+      |> render(ReservationView, "reset.json")
+  end
+
   def reservation_dates(conn, _params) do 
   	
   	reservations = Enum.map(CachedContentful.Api.getEntriesByType("reservations"), fn(reservation) ->

@@ -1,8 +1,14 @@
 # Welcome to the Red Pack Official site!
 
-### Week 27 Aug - 3 Sept
+### Vacation work
 
-* Create Contentful FAQ page
+
+* Add images to the homepage
+* Add ordering to the packages
+* Create validation for the reservation page
+* Enhance the testimonials
+
+
 
 ### TODO After vacation
 
