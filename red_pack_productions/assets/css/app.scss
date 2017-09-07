@@ -78,6 +78,11 @@ p, a{
 	margin: 100px 0px;
 }
 
+.error-star{
+	font-size: 1.5em;
+	margin: 0px 0px 0px 5px;
+}
+
 /****************************************
 			Calendar styles
  ****************************************/
@@ -293,9 +298,12 @@ p, a{
 			.intro-item{
 				width: 180px;
 				display: inline-block;
-				margin: 0px 10px 10px 0px;
+				margin: 0px 10px 20px 0px;
 				text-align: center;
 				background-color: white;
+				-webkit-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				-moz-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
 
 				img{
 					width: 100%;

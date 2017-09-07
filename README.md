@@ -2,16 +2,13 @@
 
 ### Vacation work
 
-
 * Add images to the homepage
 * Add ordering to the packages
-* Create validation for the reservation page
 * Enhance the testimonials
-
-
 
 ### TODO After vacation
 
+* Fix the mailing (User their own server)
 * Create basic reservation system
 	- Create hours
 * Create Webshop page

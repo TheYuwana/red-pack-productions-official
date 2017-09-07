@@ -5,8 +5,7 @@
   </div>
 
   <div class="contact-form-container">
-
-  	<%= form_for @conn, page_path(@conn, :reserve), [as: :reservation], fn f -> %>
+  	<%= form_for @changeset, page_path(@conn, :reserve), [as: :reservation], fn f -> %>
 
   		<h2>Select package</h2>
 
@@ -33,6 +32,12 @@
   		</div>
 
   		<h2>Contact information</h2>
+
+      <%= if Enum.count(@changeset.errors) > 0 do %>
+       <%= for  {k, v}  <-  @error  do %>
+          <p class="error"><%= v %></p>
+        <%= end %>
+      <%= end %>
 
   		<div class="form-group">
   			<%= label(f, :firstname, "First name") %>
@@ -74,12 +79,12 @@
   		</div>
 
   		<div class="form-group">
-  			<%= label(f, :phone, "Phone number") %>
+  			<%= label(f, :phone, "Phone number") %><span class="error-star error">*</span>
   			<%= text_input f, :phone, class: "form-control" %>
   		</div>
 
   		<div class="form-group">
-  			<%= label(f, :email, "Email") %>
+  			<%= label(f, :email, "Email") %><span class='error-star error'>*</span>
   			<%= text_input f, :email, class: "form-control" %>
   		</div>
 

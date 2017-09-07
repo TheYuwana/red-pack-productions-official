@@ -14,7 +14,7 @@
     <ul>
       <li><span class="glyphicon glyphicon-ok success"></span> Over 20 years of experience</li>
       <li><span class="glyphicon glyphicon-ok success"></span> It's ready when you say it's ready</li>
-      <li><span class="glyphicon glyphicon-remove error"></span> No bullshit</li>
+      <li><span class="glyphicon glyphicon-remove error"></span> Bullshit</li>
     </ul>
     <img src="/images/rp_logo.png" class="hidden-xs">
     <div class="clear"></div>
@@ -166,14 +166,19 @@
           <ul>
             <li>Recording tutorials</li>
             <li>Music videos</li>
-            <li>Band recordings</li>
           </ul>
           <ul>
             <li>Gear reviews</li>
-            <li>How to videos</li>
+            <li>Band recordings</li>
           </ul>
+
           <div class="clear"></div>
         </div>
+
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/uLzc0szj8_U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB5esfwPRRYjjhw7oLCFUGrfq250A">
+          <img class="hidden-xs" src="https://i.ytimg.com/vi/0qe8f1EhFoo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB98AHeIgVrKiPOGGvZVkyY56ls2w">
+          <img class="hidden-xs" src="https://i.ytimg.com/vi/URAfhsv4DoE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBhULAI7Q-H6QiWaf36Lxdg2rgQLw">
+
       </div>
 
       <div class="front-youtube-right-column">

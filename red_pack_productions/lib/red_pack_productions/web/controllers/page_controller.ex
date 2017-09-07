@@ -4,6 +4,8 @@ defmodule RedPackProductions.Web.PageController do
 
   alias RedPackProductions.Mailer
   alias RedPackProductions.Email
+  alias RedPackProductions.Web.Context
+  alias RedPackProductions.Web.Reservation
 
   def index(conn, _params) do
     
@@ -126,15 +128,44 @@ defmodule RedPackProductions.Web.PageController do
 
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
+
+    # Reservation changeset
+    changeset = Context.change_reservation(%Reservation{})
+
     conn
-      |> render("contact.html", countries: countries, packages: packages, hours: hours)
+      |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: nil)
       |> cache_response
   end
 
   def reserve(conn, %{"reservation" => reservation}) do
-    Email.reservation(reservation) |> Mailer.deliver_now
-    conn
-      |> redirect(to: page_path(conn, :success))
+    changeset = Context.create_reservation(reservation)
+    case changeset.valid? do
+      true ->
+        Email.reservation(reservation) |> Mailer.deliver_now
+        conn
+          |> redirect(to: page_path(conn, :success))
+
+      false ->
+        # Hours
+        hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+
+        # Get packages form Contentful
+        packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
+          [ 
+            key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
+            value: package["fields"]["title"]
+          ]
+        end)
+
+        # Get countries
+        countries = Enum.map(Countries.all, fn(country) -> country.name end)
+
+        error = format_error(changeset.errors) |> List.first
+
+        conn
+          |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: error)
+          |> cache_response
+    end
   end
 
   def question(conn, _params) do
@@ -163,5 +194,14 @@ defmodule RedPackProductions.Web.PageController do
     conn
       |> render("success.html")
   end
+
+  def format_error(errors) do
+    Enum.map(errors, fn({k, v}) ->
+      k = k |> Atom.to_string
+      v = v |> Tuple.to_list |> List.first
+      %{"#{k}": v}
+    end)
+  end
+
 
 end
