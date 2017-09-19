@@ -64,7 +64,6 @@ $(document).ready(function(){
 
 	// Full Calendar
 	$("#contact-calendar").fullCalendar({
-		weekends: false,
 		dayClick: function(date, event, view){
 			
 			if(!$(this).hasClass("fc-disabled") && !$(this).hasClass("fc-past")){

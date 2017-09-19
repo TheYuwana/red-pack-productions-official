@@ -19,7 +19,7 @@
   		<h2>Select package</h2>
 
   		<div class="form-group">
-  			<%= select(f, :package, @packages, class: "form-control") %>
+  			<%= select(f, :package, @packages, class: "form-control", selected: @selectedPackage) %>
   		</div>
 
   		<h2>Select date</h2>

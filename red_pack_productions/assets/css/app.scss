@@ -275,14 +275,9 @@ p, a{
 	.content-introduction, .package-booking{
 
 		width: 100%;
-		background: #ebebeb;
-		background: -moz-linear-gradient(top, #ebebeb 0%, #ebebeb 0%, #f0f0f0 22%, #ffffff 42%, #ffffff 100%);
-		background: -webkit-gradient(left top, left bottom, color-stop(0%, #ebebeb), color-stop(0%, #ebebeb), color-stop(22%, #f0f0f0), color-stop(42%, #ffffff), color-stop(100%, #ffffff));
-		background: -webkit-linear-gradient(top, #ebebeb 0%, #ebebeb 0%, #f0f0f0 22%, #ffffff 42%, #ffffff 100%);
-		background: -o-linear-gradient(top, #ebebeb 0%, #ebebeb 0%, #f0f0f0 22%, #ffffff 42%, #ffffff 100%);
-		background: -ms-linear-gradient(top, #ebebeb 0%, #ebebeb 0%, #f0f0f0 22%, #ffffff 42%, #ffffff 100%);
-		background: linear-gradient(to bottom, #ebebeb 0%, #ebebeb 0%, #f0f0f0 22%, #ffffff 42%, #ffffff 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#ffffff', GradientType=0 );
+		background: $gray;
+		padding-bottom: 75px;
+		position: relative;
 
 		.introduction-text{
 			max-width: 600px;
@@ -290,10 +285,82 @@ p, a{
 			text-align: center;
 		}
 
-		.introduction-items{
-			max-width: 800px;
-			margin: 50px auto 0px auto;
+		.introduction-latest-text{
+			max-width: 600px;
+			margin: 100px auto;
 			text-align: center;
+		}
+
+		.latest-speakers-container{
+			width: 100%;
+			position: absolute;
+			left: 0px;
+
+			.speakers-right{
+				position: absolute;
+				top: -172px;
+				right: 0px;
+				width: 100px;
+			}
+
+			.speakers-left{
+				position: absolute;
+				top: -148px;
+				left: -7px;
+				width: 200px;
+			}
+		}
+
+		.mic-left{
+			position: absolute;
+			left: 0px;
+			top: 100px;
+			width: 300px;
+		}
+
+		.mic-right{
+			position: absolute;
+			right: -18px;
+			top: 87px;
+			width: 325px;
+		}
+	}
+
+	/****************************************
+			Content Packages
+ 	****************************************/
+
+ 	.package-container{
+
+ 		background-color: white;
+ 		width: 100%;
+ 		position: relative;
+ 		text-align: center;
+
+ 		a{
+			font-family: 'typewriter';
+			font-size: 2em;
+			margin: -105px 0px 30px 0px;
+			display: block;
+			color: white;
+			margin-top: 10px;
+		}
+
+ 		.latest-productions{
+			max-width: 800px;
+			margin: 0px auto 0px auto;
+			background-color: white;
+			position: relative;
+			padding: 15px;
+			top: -120px;
+		}
+
+ 		.introduction-items{
+			max-width: 800px;
+			margin: 0px auto 0px auto;
+			text-align: center;
+			position: relative;
+			top: -25px;
 			
 			.intro-item{
 				width: 180px;
@@ -368,40 +435,7 @@ p, a{
 
 			}
 		}
-
-		.introduction-latest-text{
-			max-width: 600px;
-			margin: 100px auto;
-			text-align: center;
-		}
-
-		.latest-speakers-container{
-			width: 100%;
-			position: absolute;
-			left: 0px;
-
-			.speakers-right{
-				position: absolute;
-				top: -172px;
-				right: 0px;
-				width: 100px;
-			}
-
-			.speakers-left{
-				position: absolute;
-				top: -148px;
-				left: -7px;
-				width: 200px;
-			}
-		}
-
-		.latest-productions{
-			max-width: 800px;
-			height: 600px;
-			margin: 0px auto 100px auto;
-		}
-	}
-
+ 	}
 
 	/****************************************
 			Content Testimonials
@@ -700,7 +734,9 @@ p, a{
  		.package-container{
  			padding: 15px;
  			max-width: 800px;
- 			margin: 0px auto; 
+ 			margin: 0px auto;
+ 			background-color: $orange;
+ 			text-align: left;
 
  			h1{
  				margin-top: 30px;

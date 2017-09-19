@@ -74,7 +74,6 @@ defmodule RedPackProductions.Web.PageController do
     # Hours
     hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
-
     # Get packages form Contentful
     packagesFromContentful = CachedContentful.Api.getEntriesByType("packages")
 
@@ -100,6 +99,15 @@ defmodule RedPackProductions.Web.PageController do
       |> Enum.filter(fn(x) -> x != nil end)
       |> Enum.fetch!(0)
 
+    # Get selected package
+    selectedPackage = Enum.map(packagesFromContentful, fn(package) -> 
+      if packageName == package["fields"]["slug"] do 
+        package["fields"]["title"]
+      end
+    end)
+      |> Enum.filter(fn(x) -> x != nil end)
+      |> Enum.fetch!(0)
+
     # Package list
     packages = Enum.map(packagesFromContentful, fn(package) ->
       [ 
@@ -109,33 +117,37 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     conn
-      |> render("packages.html", packages: packages, countries: countries, packageDetails: packageDetails, hours: hours)
+      |> render("packages.html", packages: packages, countries: countries, packageDetails: packageDetails, hours: hours, selectedPackage: selectedPackage)
       |> cache_response
   end
 
-  def contact(conn, _params) do
+  # def contact(conn, _params) do
 
-    # Hours
-    hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+  #   # Hours
+  #   hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
-    # Get packages form Contentful
-    packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
-      [ 
-        key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
-        value: package["fields"]["title"]
-      ]
-    end)
+  #   # Get packages form Contentful
+  #   packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
+      
+  #     IO.inspect package
 
-    # Get countries
-    countries = Enum.map(Countries.all, fn(country) -> country.name end)
+  #     [ 
+  #       key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
+  #       value: package["fields"]["title"], 
+  #       selected: false
+  #     ]
+  #   end)
 
-    # Reservation changeset
-    changeset = Context.change_reservation(%Reservation{})
+  #   # Get countries
+  #   countries = Enum.map(Countries.all, fn(country) -> country.name end)
 
-    conn
-      |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: nil)
-      |> cache_response
-  end
+  #   # Reservation changeset
+  #   changeset = Context.change_reservation(%Reservation{})
+
+  #   conn
+  #     |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: nil)
+  #     |> cache_response
+  # end
 
   def reserve(conn, %{"reservation" => reservation}) do
     changeset = Context.create_reservation(reservation)

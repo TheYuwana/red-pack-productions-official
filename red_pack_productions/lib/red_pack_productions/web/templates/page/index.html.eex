@@ -1,10 +1,8 @@
 <div class="content-introduction">
-  
   <div class="introduction-text">
     <h1>Need audio recordings?</h1>
-    <h3>With us the best deal!</h3>
+    <h3>At Red Pack productions we help people create, write and perform their greatest music and make it infinite.</h3>
   </div>
-
   <div class="list-container">
     <ul>
       <li><span class="glyphicon glyphicon-ok success"></span>  Fast results</li>
@@ -19,67 +17,66 @@
     <img src="/images/rp_logo.png" class="hidden-xs">
     <div class="clear"></div>
   </div>
+  <img src="/images/Michand.png" class="mic-left hidden-xs hidden-sm">
+  <img src="/images/Microfoon.png" class="mic-right hidden-xs hidden-sm">
+</div>
 
+<div class="package-container">
   <div id="packages" class="introduction-items">
-    
     <%= for package <- @packages do %>
-
     <div class="intro-item">
       <img src="<%= package.thumbnail %>">
       <p class="intro-subtitle"><%= package.subtitle %></p>
       <h2><%= package.title %></h2>
-      <p>Inclusief:</p>
-      
+      <p>Including:</p>
       <ul>
         <%= for item <- package.items do %>
           <li><%= item %></li>
         <%= end %>
       </ul>
-      
       <p class="intro-price"><span class="full-price"> <%= if package.normalPrice != nil do %> &euro; <%= package.normalPrice %></span> <%= end %> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
       <p class="intro-btw"><%= package.priceText %></p>
-      <a href="/packages/<%= package.slug %>" class="btn-orange"><%= package.buttonText %></a>
+      <a href="/packages/<%= package.slug %>" class="btn-red"><%= package.buttonText %></a>
     </div>
-
     <%= end %>
-
     <div class="clear"></div>
-
-    <div id="soundcloud" class="introduction-latest-text">
-      <h1>Some of our latest productions</h1>
-    </div>
-
-    <div class="latest-speakers-container">
-      <img class="speakers-left hidden-xs hidden-sm" src="/images/speakers.png" />
-      <img class="speakers-right hidden-xs hidden-sm" src="/images/speakers-r.png" />
-    </div>
-
-    <div class="latest-productions">
-      <%= for song <- @soundcloud do %>
-        <%= if song.show do %>
-          <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
-        <%= end %>
-      <%= end %>
-    </div>
-
   </div>
+</div>
 
-  <div id="samples" class="content-samples">
-    <div class="shop-samples-container">
-      <div class="shop-samples">
-        <img src="/images/free_pack.png" class="hidden-xs">
-        <div class="shop-samples-details">
-          <h2>Stop sounding like</h2>
-          <h2><span class="span-space"></span>everybody else</h2>
-          
-          <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+<div class="content-introduction">
+  <div id="soundcloud" class="introduction-latest-text">
+    <h1>Some of our latest productions</h1>
+  </div>
+  <div class="latest-speakers-container">
+    <img class="speakers-left hidden-xs hidden-sm" src="/images/speakers.png" />
+    <img class="speakers-right hidden-xs hidden-sm" src="/images/speakers-r.png" />
+  </div>  
+</div>
 
-          <div class="sample-subscribe-text hidden-xs">
-            <h3><span class="span-space-extra">Sign up for a</h3>
-            <h3>free sample pack</h3>
-            <img src="/images/arrow_sample.png">
-          </div>
-        
+<div class="package-container">
+  <div class="latest-productions">
+    <%= for song <- @soundcloud do %>
+      <%= if song.show do %>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
+      <%= end %>
+    <%= end %>
+  </div>
+  <a href="https://soundcloud.com/rpproductions" target="_blank">Click here for more!</a>
+</div>
+
+<div id="samples" class="content-samples">
+  <div class="shop-samples-container">
+    <div class="shop-samples">
+      <img src="/images/free_pack.png" class="hidden-xs">
+      <div class="shop-samples-details">
+        <h2>Stop sounding like</h2>
+        <h2><span class="span-space"></span>everybody else</h2>
+        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+        <div class="sample-subscribe-text hidden-xs">
+          <h3><span class="span-space-extra">Sign up for a</h3>
+          <h3>free sample pack</h3>
+          <img src="/images/arrow_sample.png">
+        </div>
         <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
             <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
@@ -90,142 +87,138 @@
               <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">SUBSCRIBE</button>
             </div>
         </form>
-
-          <div class="clear"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <%= if Enum.count(@testimonials) > 0 do %>
-  <div class="testimonials-container">
-    <%= for testimonial <- @testimonials do %>
-    <div class="testimonial">
-          <p><%= testimonial.artist %></p>
-          <p>"<%= testimonial.comment %>"</p>
-    </div>
-    <%= end %>
-  </div>
-  <%= end %>
-
-  <div id="instruments" class="shop-instrument-container">
-    <div class="shop-instrument-title">
-      <h1>Refurbished instruments</h1>
-      <h1>and studio gear</h1>
-      <a href="/instruments" class="btn-red">GO TO SHOP</a>
-    </div>
-    <div class="list-container front-refurbished">
-      <ul>
-        <li><span class="glyphicon glyphicon-ok success"></span>  Request finds</li>
-        <li><span class="glyphicon glyphicon-ok success"></span>  Thoroughly tested</li>
-        <li><span class="glyphicon glyphicon-ok success"></span>  Free delivery</li>
-      </ul>
-      <ul>
-        <li><span class="glyphicon glyphicon-ok success"></span> 30 days refund</li>
-        <li><span class="glyphicon glyphicon-ok success"></span> Cleaned</li>
-        <li><span class="glyphicon glyphicon-ok success"></span> Pick up in Rotterdam</li>
-      </ul>
-      <img src="/images/guitar.png" class="hidden-xs">
-      <div class="clear"></div>
-    </div>
-  </div>
-
-  <div class="shop-samples-container">
-    <div class="shop-samples">
-      <img src="/images/products.png" class="hidden-xs">
-      <div class="shop-samples-details">
-        <h2>Exclusive drum samples</h2>
-        <div class="list-container front-shop-samples">
-          <ul>
-            <li>High quality drums</li>
-            <li>44 Khz 24 bits wave format</li>
-            <li>10 different hit values</li>
-          </ul>
-          <ul>
-            <li>Processed hits</li>
-            <li>Different mics</li>
-            <li>Raw tracks</li>
-          </ul>
-          <a href="/samples" class="btn-red">GO TO SHOP</a>
-          <a href="#samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
-          <div class="clear"></div>
-        </div>
         <div class="clear"></div>
       </div>
-    </div>   
-  </div>
-
-  <div class="front-youtube-container">
-    <!-- Gets background image --> 
-    <div class="front-youtube-content">
-      <div class="front-youtube-left-column">
-        <h2>Red Pack Productions</h2>
-        <h2>Youtube channel</h2>
-
-        <div class="list-container front-youtube">
-          <ul>
-            <li>Recording tutorials</li>
-            <li>Music videos</li>
-          </ul>
-          <ul>
-            <li>Gear reviews</li>
-            <li>Band recordings</li>
-          </ul>
-
-          <div class="clear"></div>
-        </div>
-
-        <img class="hidden-xs" src="https://i.ytimg.com/vi/uLzc0szj8_U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB5esfwPRRYjjhw7oLCFUGrfq250A">
-          <img class="hidden-xs" src="https://i.ytimg.com/vi/0qe8f1EhFoo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB98AHeIgVrKiPOGGvZVkyY56ls2w">
-          <img class="hidden-xs" src="https://i.ytimg.com/vi/URAfhsv4DoE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBhULAI7Q-H6QiWaf36Lxdg2rgQLw">
-
-      </div>
-
-      <div class="front-youtube-right-column">
-        <img src="/images/rp_logo.png" class="youtube-red-pack-logo">
-        <div class="clear"></div>
-        <a class="btn-red" href="https://www.youtube.com/channel/UCibFkP0ucGGxHfearidgnMA" target="_blank">GO TO YOUTUBE</a>
-      </div>
-      <div class="clear"></div>
     </div>
   </div>
-
-  <div class="front-google-maps-container">
-    <div id="front-maps"></div>
-    <div class="front-google-maps-infobox">
-      <h4 id="contact">Red Pack Productions</h4>
-      <p>Wagenmakerstraat 5</p>
-      <p>2984 BD Ridderkerk</p>
-      <p>South Holland</p>
-      <p>KVK: 68847483</p>
-      <p class="infobox-contact gray">Email: info@redpackproductions.com</p>
-      <p class="gray">phone: 0641189513</p>
-    </div>
-  </div>
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ebJUXWlI9Qz4na2YB3H2s3zu_Pe0kYU&callback=initMap"></script>
-  <script type="text/javascript">
-    var map;
-    function initMap() {
-      
-      var redpackproductions = {lat: 51.8740939, lng: 4.6184794}; 
-      map = new google.maps.Map(document.getElementById('front-maps'), {
-        zoom: 16,
-        center: redpackproductions,
-        scrollwheel: false
-      });
-
-      // Center Marker
-      var marker = new google.maps.Marker({
-        position: redpackproductions,
-        map: map
-      });
-
-    }
-  </script>
-
 </div>
 
+<%= if Enum.count(@testimonials) > 0 do %>
+<div class="testimonials-container">
+  <%= for testimonial <- @testimonials do %>
+  <div class="testimonial">
+        <p><%= testimonial.artist %></p>
+        <p>"<%= testimonial.comment %>"</p>
+  </div>
+  <%= end %>
+</div>
+<%= end %>
+
+<div id="instruments" class="shop-instrument-container">
+  <div class="shop-instrument-title">
+    <h1>Refurbished instruments</h1>
+    <h1>and studio gear</h1>
+    <a href="/instruments" class="btn-red">GO TO SHOP</a>
+  </div>
+  <div class="list-container front-refurbished">
+    <ul>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Request finds</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Thoroughly tested</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  Free delivery</li>
+    </ul>
+    <ul>
+      <li><span class="glyphicon glyphicon-ok success"></span> 30 days refund</li>
+      <li><span class="glyphicon glyphicon-ok success"></span> Cleaned</li>
+      <li><span class="glyphicon glyphicon-ok success"></span> Pick up in Rotterdam</li>
+    </ul>
+    <img src="/images/guitar.png" class="hidden-xs">
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="shop-samples-container">
+  <div class="shop-samples">
+    <img src="/images/products.png" class="hidden-xs">
+    <div class="shop-samples-details">
+      <h2>Exclusive drum samples</h2>
+      <div class="list-container front-shop-samples">
+        <ul>
+          <li>High quality drums</li>
+          <li>44 Khz 24 bits wave format</li>
+          <li>10 different hit values</li>
+        </ul>
+        <ul>
+          <li>Processed hits</li>
+          <li>Different mics</li>
+          <li>Raw tracks</li>
+        </ul>
+        <a href="/samples" class="btn-red">GO TO SHOP</a>
+        <a href="#samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>   
+</div>
+
+<div class="front-youtube-container">
+  <!-- Gets background image --> 
+  <div class="front-youtube-content">
+    <div class="front-youtube-left-column">
+      <h2>Red Pack Productions</h2>
+      <h2>Youtube channel</h2>
+
+      <div class="list-container front-youtube">
+        <ul>
+          <li>Recording tutorials</li>
+          <li>Music videos</li>
+        </ul>
+        <ul>
+          <li>Gear reviews</li>
+          <li>Band recordings</li>
+        </ul>
+
+        <div class="clear"></div>
+      </div>
+
+      <img class="hidden-xs" src="https://i.ytimg.com/vi/uLzc0szj8_U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB5esfwPRRYjjhw7oLCFUGrfq250A">
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/0qe8f1EhFoo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB98AHeIgVrKiPOGGvZVkyY56ls2w">
+        <img class="hidden-xs" src="https://i.ytimg.com/vi/URAfhsv4DoE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBhULAI7Q-H6QiWaf36Lxdg2rgQLw">
+
+    </div>
+
+    <div class="front-youtube-right-column">
+      <img src="/images/rp_logo.png" class="youtube-red-pack-logo">
+      <div class="clear"></div>
+      <a class="btn-red" href="https://www.youtube.com/channel/UCibFkP0ucGGxHfearidgnMA" target="_blank">GO TO YOUTUBE</a>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="front-google-maps-container">
+  <div id="front-maps"></div>
+  <div class="front-google-maps-infobox">
+    <h4 id="contact">Red Pack Productions</h4>
+    <p>Wagenmakerstraat 5</p>
+    <p>2984 BD Ridderkerk</p>
+    <p>South Holland</p>
+    <p>KVK: 68847483</p>
+    <p class="infobox-contact gray">Email: info@redpackproductions.com</p>
+    <p class="gray">phone: 0641189513</p>
+  </div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ebJUXWlI9Qz4na2YB3H2s3zu_Pe0kYU&callback=initMap"></script>
+<script type="text/javascript">
+  var map;
+  function initMap() {
+    
+    var redpackproductions = {lat: 51.8740939, lng: 4.6184794}; 
+    map = new google.maps.Map(document.getElementById('front-maps'), {
+      zoom: 16,
+      center: redpackproductions,
+      scrollwheel: false
+    });
+
+    // Center Marker
+    var marker = new google.maps.Marker({
+      position: redpackproductions,
+      map: map
+    });
+
+  }
+</script>
 
 
 
