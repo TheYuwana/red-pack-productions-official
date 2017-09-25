@@ -1,7 +1,7 @@
 <div class="content-introduction">
   <div class="introduction-text">
     <h1>Need audio recordings?</h1>
-    <h3>At Red Pack productions we help people create, write and perform their greatest music and make it infinite.</h3>
+    <h3>At Red Pack productions we help people create, write and perform their greatest music.</h3>
   </div>
   <div class="list-container">
     <ul>
@@ -71,10 +71,9 @@
       <div class="shop-samples-details">
         <h2>Stop sounding like</h2>
         <h2><span class="span-space"></span>everybody else</h2>
-        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for discounts and a free sample pack</h3>
         <div class="sample-subscribe-text hidden-xs">
-          <h3><span class="span-space-extra">Sign up for a</h3>
-          <h3>free sample pack</h3>
+          <h3>Sign up for discounts and a free sample pack</h3>
           <img src="/images/arrow_sample.png">
         </div>
         <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>

@@ -42,6 +42,8 @@ defmodule RedPackProductions.Web.PageController do
       }
     end)
 
+    IO.inspect packages
+
     #Get Testimonials form Contentful
   	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial"), fn(testimonial) ->
       asset = CachedContentful.Api.getAssetById(testimonial["fields"]["thumbnail"]["sys"]["id"])["fields"]

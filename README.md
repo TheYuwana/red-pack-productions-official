@@ -1,12 +1,9 @@
 # Welcome to the Red Pack Official site!
 
-### Vacation work
 
-* Add images to the homepage
+* Packages > editable strikeout text
 * Add ordering to the packages
 * Enhance the testimonials
-
-### TODO After vacation
 
 * Fix the mailing (User their own server)
 * Create basic reservation system
