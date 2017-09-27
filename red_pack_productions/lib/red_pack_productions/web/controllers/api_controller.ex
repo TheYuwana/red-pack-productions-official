@@ -9,7 +9,7 @@ defmodule RedPackProductions.Web.ApiController do
   def reset_cache(conn, _params) do
 
     packageOptions = %{"content_type": "packages", "order": "fields.order"}
-    CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions)
+    CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true)
 
     RedPackProductions.EtsHelper.clear_all_cache()
     CachedContentful.Api.updateAssets()

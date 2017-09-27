@@ -29,7 +29,7 @@ defmodule RedPackProductions.Web.Router do
 
   scope "/api", RedPackProductions.Web do
     pipe_through :api 
-    get "/resetcache", ApiController, :reset_cache
+    post "/resetcache", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
   end
 
