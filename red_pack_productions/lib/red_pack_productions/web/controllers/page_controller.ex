@@ -18,7 +18,11 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     # Get packages form Contentful
-  	packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
+    packageOptions = %{
+      "content_type": "packages",
+      "order": "fields.order"
+    }
+  	packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions), fn(package) ->
       asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
       
       items = case package["fields"]["items"] do
@@ -41,8 +45,6 @@ defmodule RedPackProductions.Web.PageController do
         order: package["fields"]["order"]
       }
     end)
-
-    IO.inspect packages
 
     #Get Testimonials form Contentful
   	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial"), fn(testimonial) ->
@@ -77,7 +79,11 @@ defmodule RedPackProductions.Web.PageController do
     hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
     # Get packages form Contentful
-    packagesFromContentful = CachedContentful.Api.getEntriesByType("packages")
+    packageOptions = %{
+      "content_type": "packages",
+      "order": "fields.order"
+    }
+    packagesFromContentful = CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions)
 
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
@@ -164,7 +170,11 @@ defmodule RedPackProductions.Web.PageController do
         hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
         # Get packages form Contentful
-        packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
+        packageOptions = %{
+          "content_type": "packages",
+          "order": "fields.order"
+        }
+        packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions), fn(package) ->
           [ 
             key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
             value: package["fields"]["title"]

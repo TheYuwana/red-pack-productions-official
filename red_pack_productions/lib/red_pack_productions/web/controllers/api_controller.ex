@@ -7,6 +7,10 @@ defmodule RedPackProductions.Web.ApiController do
   plug :put_layout, false
 
   def reset_cache(conn, _params) do
+
+    packageOptions = %{"content_type": "packages", "order": "fields.order"}
+    CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions)
+
     RedPackProductions.EtsHelper.clear_all_cache()
     CachedContentful.Api.updateAssets()
     CachedContentful.Api.updateEntries()

@@ -98,7 +98,7 @@
         
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMEMTS</a>
+           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMENTS</a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>

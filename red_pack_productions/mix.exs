@@ -44,7 +44,7 @@ defmodule RedPackProductions.Mixfile do
      {:bamboo, "~> 0.8"},
      {:bamboo_smtp, "~> 1.4.0"},
      {:earmark, "~> 1.2"},
-     {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git"}]
+     {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git", tag: "0.2.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
