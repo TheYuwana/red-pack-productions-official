@@ -1,13 +1,16 @@
 # Welcome to the Red Pack Official site!
 
 
+* The reset url uses post
+
 * Packages > editable strikeout text
-* Add ordering to the packages
+
 * Enhance the testimonials
 
 * Fix the mailing (User their own server)
 * Create basic reservation system
 	- Create hours
+
 * Create Webshop page
 * Create Webshop detailed page
 * Research and implement webshop API
