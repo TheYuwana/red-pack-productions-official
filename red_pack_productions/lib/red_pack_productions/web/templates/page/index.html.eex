@@ -62,8 +62,20 @@
     <%= end %>
      <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">Click here for more!</a>
   </div>
- 
 </div>
+
+<%= if Enum.count(@testimonials) > 0 do %>
+<div class="testimonials-container">
+  <%= for testimonial <- @testimonials do %>
+  <div class="testimonial">
+        <h2><%= testimonial.artist %></h2>
+        <h4>"<%= testimonial.comment %>"</h4>
+        <img src="<%= testimonial.thumbnail %>">
+        <div class="clear"></div>
+  </div>
+  <%= end %>
+</div>
+<%= end %>
 
 <div id="samples" class="content-samples">
   <div class="shop-samples-container">
@@ -92,17 +104,6 @@
     </div>
   </div>
 </div>
-
-<%= if Enum.count(@testimonials) > 0 do %>
-<div class="testimonials-container">
-  <%= for testimonial <- @testimonials do %>
-  <div class="testimonial">
-        <p><%= testimonial.artist %></p>
-        <p>"<%= testimonial.comment %>"</p>
-  </div>
-  <%= end %>
-</div>
-<%= end %>
 
 <div id="instruments" class="shop-instrument-container">
   <div class="shop-instrument-title">

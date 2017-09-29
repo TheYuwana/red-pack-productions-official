@@ -1,11 +1,8 @@
 # Welcome to the Red Pack Official site!
 
-
-* The reset url uses post
-
-* Packages > editable strikeout text
-
 * Enhance the testimonials
+
+* Setup Google Analystics (Create Privacy Policy, Cookie Policy and Analytics Policy)
 
 * Fix the mailing (User their own server)
 * Create basic reservation system
@@ -18,7 +15,7 @@
 
 ### Extras
 
-* Setup Google Analystics
+
 * Setup Meta Data
 * Optimize website (See Google pagespeed insights)
 * Error handlers (Ajax requests, 404 pages)

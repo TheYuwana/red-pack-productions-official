@@ -459,7 +459,7 @@ p, a{
 
 		.latest-productions{
 			max-width: 800px;
-			margin: 0px auto 0px auto;
+			margin: 0px auto;
 			background-color: white;
 			position: relative;
 			padding: 15px;
@@ -473,15 +473,36 @@ p, a{
  	****************************************/	
 
 	.testimonials-container{
+		display: none;
 		width: 100%;
-		text-align: center;
 		color: white;
 		background-color: $error;
 		padding: 25px 0px;
 
 		.testimonial{
-			padding: 25px 0px;
 
+			max-width: 800px;
+			border: 1px solid white;
+			margin: 0px auto 0px auto;
+			height: 200px;
+			position: relative;
+
+			h2{
+				margin-top: 45px;
+				text-align: center;
+			}
+
+			h4{
+				margin-top: 45px;
+				text-align: center;
+			}
+
+			img{
+				width: 200px;
+				position: absolute;
+				right: 0px;
+				top: 0px;
+			}
 		}
 	}
 
