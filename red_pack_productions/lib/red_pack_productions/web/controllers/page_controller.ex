@@ -5,7 +5,7 @@ defmodule RedPackProductions.Web.PageController do
   alias RedPackProductions.Mailer
   alias RedPackProductions.Email
   alias RedPackProductions.Web.Context
-  alias RedPackProductions.Web.Reservation
+  # alias RedPackProductions.Web.Reservation
 
   def index(conn, _params) do
     
@@ -36,7 +36,7 @@ defmodule RedPackProductions.Web.PageController do
         title: package["fields"]["title"],
         subtitle: package["fields"]["subtitle"],
         items: items,
-        normalPrice: package["fields"]["normalPrice"],
+        normalPriceText: package["fields"]["normalPriceText"],
         redPackPrice: package["fields"]["redPackPrice"],
         priceText: package["fields"]["priceText"],
         thumbnail: asset["file"]["url"],
@@ -96,7 +96,6 @@ defmodule RedPackProductions.Web.PageController do
         %{
           title: package["fields"]["title"],
           items: package["fields"]["items"],
-          normalPrice: package["fields"]["normalPrice"],
           redPackPrice: package["fields"]["redPackPrice"],
           details: elem(htmlDetails, 1),
           thumbnail: asset["file"]["url"],

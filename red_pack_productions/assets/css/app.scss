@@ -285,32 +285,6 @@ p, a{
 			text-align: center;
 		}
 
-		.introduction-latest-text{
-			max-width: 600px;
-			margin: 100px auto;
-			text-align: center;
-		}
-
-		.latest-speakers-container{
-			width: 100%;
-			position: absolute;
-			left: 0px;
-
-			.speakers-right{
-				position: absolute;
-				top: -172px;
-				right: 0px;
-				width: 100px;
-			}
-
-			.speakers-left{
-				position: absolute;
-				top: -148px;
-				left: -7px;
-				width: 200px;
-			}
-		}
-
 		.mic-left{
 			position: absolute;
 			left: 0px;
@@ -344,16 +318,7 @@ p, a{
 			display: block;
 			color: white;
 			margin-top: 10px;
-		}
-
- 		.latest-productions{
-			max-width: 800px;
-			margin: 0px auto 0px auto;
-			background-color: white;
-			position: relative;
-			padding: 15px;
-			top: -120px;
-		}
+		} 		
 
  		.introduction-items{
 			max-width: 800px;
@@ -435,6 +400,72 @@ p, a{
 
 			}
 		}
+ 	}
+
+ 	/****************************************
+			Content Productions
+ 	****************************************/
+
+ 	.production-container-intro{
+
+ 		background: $gray;
+ 		
+
+ 		.introduction-latest-text{
+			max-width: 600px;
+			text-align: center;
+			margin: 0px auto;
+			padding: 50px 0px 175px 0px;
+			margin-bottom: 0px				
+		}
+
+		.latest-speakers-container{
+			width: 100%;
+			position: absolute;
+			left: 0px;
+
+			.speakers-right{
+				position: absolute;
+				top: -272px;
+				right: 0px;
+				width: 100px;
+			}
+
+			.speakers-left{
+				position: absolute;
+				top: -248px;
+				left: -7px;
+				width: 200px;
+			}
+		}
+ 	}
+
+ 	.production-container{
+
+ 		background-color: white;
+ 		width: 100%;
+ 		position: relative;
+ 		text-align: center;
+ 		padding-top: 5px;
+
+ 		a{
+			font-family: 'typewriter';
+			font-size: 2em;
+			margin: 30px 0px 30px 0px;
+			display: block;
+			color: $black;
+			cursor: pointer;
+		}
+
+		.latest-productions{
+			max-width: 800px;
+			margin: 0px auto 0px auto;
+			background-color: white;
+			position: relative;
+			padding: 15px;
+			margin-top: -120px;
+		}
+
  	}
 
 	/****************************************

@@ -34,7 +34,7 @@
           <li><%= item %></li>
         <%= end %>
       </ul>
-      <p class="intro-price"><span class="full-price"> <%= if package.normalPrice != nil do %> &euro; <%= package.normalPrice %></span> <%= end %> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
+      <p class="intro-price"><%= if package.normalPriceText != nil do raw(package.normalPriceText) end %> <span class="real-price">&euro; <%= package.redPackPrice %></span></p>
       <p class="intro-btw"><%= package.priceText %></p>
       <a href="/packages/<%= package.slug %>" class="btn-red"><%= package.buttonText %></a>
     </div>
@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div class="content-introduction">
+<div class="production-container-intro">
   <div id="soundcloud" class="introduction-latest-text">
     <h1>Some of our latest productions</h1>
   </div>
@@ -53,15 +53,16 @@
   </div>  
 </div>
 
-<div class="package-container">
+<div class="production-container">
   <div class="latest-productions">
     <%= for song <- @soundcloud do %>
       <%= if song.show do %>
         <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
       <%= end %>
     <%= end %>
+     <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">Click here for more!</a>
   </div>
-  <a href="https://soundcloud.com/rpproductions" target="_blank">Click here for more!</a>
+ 
 </div>
 
 <div id="samples" class="content-samples">
