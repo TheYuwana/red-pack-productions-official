@@ -21,7 +21,8 @@ RUN mix local.hex --force \
 
 RUN cd assets \
   && npm install \
-  && /usr/bin/node node_modules/brunch/bin/brunch build
+  && /usr/bin/node node_modules/brunch/bin/brunch build \
+  && /usr/bin/node node_modules/.bin/gulp minify_all
 
 RUN mix compile
 RUN mix phx.digest

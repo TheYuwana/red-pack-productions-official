@@ -21,6 +21,7 @@
   <img src="/images/Microfoon.png" class="mic-right hidden-xs hidden-sm">
 </div>
 
+<!-- Packages -->
 <div class="package-container">
   <div id="packages" class="introduction-items">
     <%= for package <- @packages do %>
@@ -43,6 +44,7 @@
   </div>
 </div>
 
+<!-- Latest productions -->
 <div class="production-container-intro">
   <div id="soundcloud" class="introduction-latest-text">
     <h1>Some of our latest productions</h1>
@@ -64,19 +66,26 @@
   </div>
 </div>
 
+<!-- Testimonials -->
 <%= if Enum.count(@testimonials) > 0 do %>
 <div class="testimonials-container">
-  <%= for testimonial <- @testimonials do %>
-  <div class="testimonial">
-        <h2><%= testimonial.artist %></h2>
-        <h4>"<%= testimonial.comment %>"</h4>
+    <%= for testimonial <- @testimonials do %>
+    <div class="testimonial">
+      <div class="testimonial-image">
         <img src="<%= testimonial.thumbnail %>">
-        <div class="clear"></div>
-  </div>
-  <%= end %>
+      </div>
+      
+      <div class="testimonial-details">
+        <h2><%= testimonial.artist %></h2>
+        <p>"<%= testimonial.comment %>"</p>
+      </div>
+        
+    </div>
+    <%= end %>
 </div>
 <%= end %>
 
+<!-- Samples -->
 <div id="samples" class="content-samples">
   <div class="shop-samples-container">
     <div class="shop-samples">
@@ -105,6 +114,7 @@
   </div>
 </div>
 
+<!-- Instruments -->
 <div id="instruments" class="shop-instrument-container">
   <div class="shop-instrument-title">
     <h1>Refurbished instruments</h1>
@@ -127,6 +137,7 @@
   </div>
 </div>
 
+<!-- Shop Samples -->
 <div class="shop-samples-container">
   <div class="shop-samples">
     <img src="/images/products.png" class="hidden-xs">
@@ -152,6 +163,7 @@
   </div>   
 </div>
 
+<!-- Youtube -->
 <div class="front-youtube-container">
   <!-- Gets background image --> 
   <div class="front-youtube-content">
@@ -187,6 +199,7 @@
   </div>
 </div>
 
+<!-- Footer google -->
 <div class="front-google-maps-container">
   <div id="front-maps"></div>
   <div class="front-google-maps-infobox">

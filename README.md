@@ -1,5 +1,7 @@
 # Welcome to the Red Pack Official site!
 
+https://www.jssor.com/development/slider-with-slideshow.html
+
 * Enhance the testimonials
 
 * Setup Google Analystics (Create Privacy Policy, Cookie Policy and Analytics Policy)

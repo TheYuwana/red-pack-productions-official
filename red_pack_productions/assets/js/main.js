@@ -18,6 +18,17 @@ $(document).ready(function(){
 		}
 	});
 
+	// Slick Slider
+	var nextArrow = '<button type="button" class="slick-next"><span class="glyphicon glyphicon-chevron-right"></span</button>';
+	var prevArrow = '<button type="button" class="slick-prev"><span class="glyphicon glyphicon-chevron-left"></span</button>';
+	$(".testimonials-container").slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		nextArrow: nextArrow,
+		prevArrow: prevArrow,
+		dots: true
+	});
+
 	// Scroll Magic
 	// Select all links with hashes
 	$('a[href*="#"]')
@@ -146,20 +157,3 @@ function process_get_request(url, callback){
 	  }
 	});
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

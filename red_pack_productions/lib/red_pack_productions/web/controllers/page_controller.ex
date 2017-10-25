@@ -56,8 +56,6 @@ defmodule RedPackProductions.Web.PageController do
       }
     end)
 
-    IO.inspect testimonials
-
     conn
       |> render("index.html", packages: packages, testimonials: testimonials, soundcloud: soundcloud)
       |> cache_response
