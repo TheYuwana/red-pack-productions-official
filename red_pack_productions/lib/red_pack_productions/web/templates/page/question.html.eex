@@ -8,7 +8,7 @@
   	<%= for question <- @questions do %>
   		<h2><%= question.question %></h2>
   		<%= raw(question.answer) %>
-  	<%= end %>
+  	<% end %>
   </div>
   
 

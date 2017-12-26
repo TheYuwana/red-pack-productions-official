@@ -22,7 +22,7 @@ defmodule RedPackProductions.Web.PageController do
       "content_type": "packages",
       "order": "fields.order"
     }
-  	packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions), fn(package) ->
+  	packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false), fn(package) ->
       asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
       
       items = case package["fields"]["items"] do
@@ -57,18 +57,24 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     conn
+      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+      |> assign(:title, "Red Pack Productions")
       |> render("index.html", packages: packages, testimonials: testimonials, soundcloud: soundcloud)
       |> cache_response
   end
 
   def samples(conn, _params) do
     conn
+      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+      |> assign(:title, "Red Pack Productions - Samples")
       |> render("samples.html")
       |> cache_response
   end
 
   def instruments(conn, _params) do
     conn
+      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+      |> assign(:title, "Red Pack Productions - Instruments")
       |> render("instruments.html")
       |> cache_response
   end
@@ -83,7 +89,7 @@ defmodule RedPackProductions.Web.PageController do
       "content_type": "packages",
       "order": "fields.order"
     }
-    packagesFromContentful = CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions)
+    packagesFromContentful = CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false)
 
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
@@ -124,37 +130,11 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     conn
+      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+      |> assign(:title, "Red Pack Productions - Packages")
       |> render("packages.html", packages: packages, countries: countries, packageDetails: packageDetails, hours: hours, selectedPackage: selectedPackage)
       |> cache_response
   end
-
-  # def contact(conn, _params) do
-
-  #   # Hours
-  #   hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
-
-  #   # Get packages form Contentful
-  #   packages = Enum.map(CachedContentful.Api.getEntriesByType("packages"), fn(package) ->
-      
-  #     IO.inspect package
-
-  #     [ 
-  #       key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
-  #       value: package["fields"]["title"], 
-  #       selected: false
-  #     ]
-  #   end)
-
-  #   # Get countries
-  #   countries = Enum.map(Countries.all, fn(country) -> country.name end)
-
-  #   # Reservation changeset
-  #   changeset = Context.change_reservation(%Reservation{})
-
-  #   conn
-  #     |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: nil)
-  #     |> cache_response
-  # end
 
   def reserve(conn, %{"reservation" => reservation}) do
     changeset = Context.create_reservation(reservation)
@@ -173,7 +153,7 @@ defmodule RedPackProductions.Web.PageController do
           "content_type": "packages",
           "order": "fields.order"
         }
-        packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions), fn(package) ->
+        packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false), fn(package) ->
           [ 
             key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
             value: package["fields"]["title"]
@@ -186,9 +166,76 @@ defmodule RedPackProductions.Web.PageController do
         error = format_error(changeset.errors) |> List.first
 
         conn
+          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+          |> assign(:title, "Red Pack Productions - Contact")
           |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: error)
           |> cache_response
     end
+  end
+
+  def blog(conn, _params) do
+
+    blogPosts = CachedContentful.Api.customEntrySearch(
+      "ordered_blogposts",
+      %{"content_type": "blogPost", "order": "sys.createdAt"}, 
+      false
+    )
+
+    blogPosts = Enum.map(blogPosts, fn(post) ->
+
+      thumbnail = if post["fields"]["photos"] != nil do
+        photo = CachedContentful.Api.getAssetById(List.first(post["fields"]["photos"])["sys"]["id"])
+        "#{photo["fields"]["file"]["url"]}?w=250"
+      else
+        nil
+      end
+
+      %{
+          title: post["fields"]["title"],
+          slug: post["fields"]["slug"],
+          thumbnail: thumbnail,
+        }
+    end)
+
+    conn
+      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+      |> assign(:title, "Red Pack Productions - Blog")
+      |> render("blog_list.html", blogPosts: blogPosts) 
+  end
+
+  def blog_item(conn, %{"slug" => slug}) do
+
+    blogposts = CachedContentful.Api.getEntriesByType("blogPost");
+
+    # Get details for one blog post
+    blogPost = Enum.map(blogposts, fn(post) ->
+      if slug == post["fields"]["slug"] do
+
+        photo = if post["fields"]["photos"] != nil do
+          photo = CachedContentful.Api.getAssetById(List.first(post["fields"]["photos"])["sys"]["id"])
+          photo["fields"]["file"]["url"]
+        else
+          "/images/rp_logo.png"
+        end
+
+        htmlDetails = Earmark.as_html(post["fields"]["content"])
+
+        %{
+          title: post["fields"]["title"],
+          subtitle: post["fields"]["subtitle"],
+          content: elem(htmlDetails, 1),
+          slug: post["fields"]["slug"],
+          photo: photo,
+        }
+      end
+    end)
+      |> Enum.filter(fn(x) -> x != nil end)
+      |> Enum.fetch!(0)
+
+    conn
+      |> assign(:og_description, "#{blogPost.title}")
+      |> assign(:title, "Red Pack Productions - #{blogPost.title}")
+      |> render("blog.html", blogPost: blogPost) 
   end
 
   def question(conn, _params) do
@@ -210,11 +257,15 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     conn
-      |> render("question.html", questions: questions)  
+      |> assign(:og_description, "Everything you need to know!")
+      |> assign(:title, "Red Pack Productions - FAQ")
+      |> render("question.html", questions: questions) 
   end
 
   def success(conn, _params) do
     conn
+      |> assign(:og_description, "HOW ARE YOU EVEN HERE!???")
+      |> assign(:title, "Red Pack Productions - SUCCESS")
       |> render("success.html")
   end
 

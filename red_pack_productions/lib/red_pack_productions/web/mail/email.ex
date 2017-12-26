@@ -5,7 +5,7 @@ defmodule RedPackProductions.Email do
 	@template_root_path  "#{Path.dirname(__DIR__)}/templates/mail"
 
 	def reservation(details) do
-		new_email
+		new_email()
 			|> to("jmerrelaar@icloud.com")
 			|> cc("hope_industries@hotmail.com")
 			|> from("info@redpackproductions.com")

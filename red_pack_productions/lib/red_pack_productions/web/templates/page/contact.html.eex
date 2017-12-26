@@ -25,7 +25,7 @@
           <h3>Select hours for </h3>
           <%= for hour <- @hours do %>
             <div class="hour"><p><%= hour %></p><input type="checkbox" value="<%= hour %>" name="reservation[hour][]" /></div>
-          <%= end %>
+          <% end %>
         </div>
 
         <div class="clear"></div>
@@ -34,10 +34,10 @@
   		<h2>Contact information</h2>
 
       <%= if Enum.count(@changeset.errors) > 0 do %>
-       <%= for  {k, v}  <-  @error  do %>
+       <%= for  {_, v}  <-  @error  do %>
           <p class="error"><%= v %></p>
-        <%= end %>
-      <%= end %>
+        <% end %>
+      <% end %>
 
   		<div class="form-group">
   			<%= label(f, :firstname, "First name") %>
@@ -97,7 +97,7 @@
   			<%= submit "RESERVE", class: "btn-green" %>
   		</div>
 
-  	<%= end %>
+  	<% end %>
 
   </div>
 

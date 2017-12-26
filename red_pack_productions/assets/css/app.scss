@@ -2,6 +2,7 @@
 @import "fonts";
 @import "colors";
 @import "hamburger";
+@import "slick";
 
 /****************************************
 				Globals
@@ -265,7 +266,7 @@ p, a{
 	}
 
 	.header-open{
-		height: 325px;
+		height: 350px;
 	}
 
 	/****************************************
@@ -278,6 +279,7 @@ p, a{
 		background: $gray;
 		padding-bottom: 75px;
 		position: relative;
+		overflow: hidden;
 
 		.introduction-text{
 			max-width: 600px;
@@ -817,6 +819,212 @@ p, a{
  	.content-instruments{
  		width: 100%;
  	}
+
+ 	/****************************************
+					Blog Page
+ 	****************************************/
+ 	.content-blog{
+
+		width: 100%;
+		background: $gray;
+		position: relative;
+		text-align: center;
+
+		.introduction-text{
+			margin-bottom: 25px;
+
+			h1{
+				margin: 0px;
+				padding: 25px 0px 0px 0px;
+			}
+
+			@include breakpoint(xs){
+				padding-top: 75px;
+			}
+			@include breakpoint(sm){
+				padding-top: 75px;
+			}
+			@include breakpoint(md){
+				padding-top: 25px;
+			}
+		}
+
+		.blog-content-container{
+			max-width: 960px;
+			margin: 0px auto;
+
+			.blog-header{
+				padding: 50px 0px;
+				width: 100%;
+				background-color: $mediumGray;
+				position: relative;
+
+				img{
+					max-width: 100%;
+				}
+
+				.blog-header-title{
+					position: absolute;
+					bottom: 0px;
+					text-align: center;
+					width: 100%;
+					background-color: rgba(0,0,0,0.8);
+					h1{
+						color: white;
+						padding: 10px;
+					}
+				}
+			}
+
+			.blog-content{
+				text-align: left;
+				padding: 25px;
+				background-color: white;
+
+				.blog-subtitle{
+					text-align: center;
+					width: 100%;
+					margin: 15px auto;
+					i{
+						font-size: 24px;
+					}
+				}
+
+				share-button{
+					padding: 15px;
+					margin: 25px 0px 0px 0px;
+					background-color: $error;
+					color: white;
+					float: right;
+				}
+			}
+		}
+		
+
+		.blog-list-container{
+
+			max-width: 1080px;
+			margin: 0px auto 0px auto;
+			text-align: center;
+
+			@include breakpoint(xs){
+				padding: 0px 15px 75px 15px;
+			}
+			@include breakpoint(sm){
+				padding: 0px 5px 75px 5px;
+			}
+
+			.blog-item{
+				
+				padding: 2px;
+				float: left;
+				height: 350px;
+				background-color: white;
+				position: relative;
+				color: black;
+
+				-webkit-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				-moz-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				
+
+				-webkit-transition: box-shadow .2s ease-in-out;
+				-moz-transition: box-shadow .2s ease-in-out;
+				-o-transition: box-shadow .2s ease-in-out;
+				transition: box-shadow .2s ease-in-out;
+
+				img{
+					height: 150px;
+					@include breakpoint(xs){
+						padding-top: 25px;
+						width: 250px;
+					}
+					@include breakpoint(sm){
+						padding-top: 0px;
+						width: 100%;
+					}
+					@include breakpoint(md){
+						padding-top: 0px;
+						width: 100%;
+					}
+				}
+
+				.blog-img-placeholder{
+					width: 100%;
+					height: 150px;
+					background-color: $gray;
+
+					p{
+						font-family: 'typewriter';
+						font-size: 18px;
+						color: $mediumGray;
+						padding-top: 65px;
+					}
+				}
+
+				.blog-button{
+					position: absolute;
+					bottom: 0px;
+					background-color: $error;
+					opacity: 0;
+					height: 50px;
+					text-align: center;
+					width: 100%;
+					padding-top: 15px;
+					left: 0px;
+					color: white;
+
+					-webkit-transition: opacity .2s ease-in-out;
+					-moz-transition: opacity .2s ease-in-out;
+					-o-transition: opacity .2s ease-in-out;
+					transition: opacity .2s ease-in-out;
+				}
+
+				@include breakpoint(xs){
+					margin: 16px 0px 0px 0px;
+					width: 100%;
+
+					&:hover{
+						cursor: pointer;
+						-webkit-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						-moz-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						.blog-button{
+							opacity: 0.9;
+						}
+					}
+				}
+				@include breakpoint(sm){
+					margin: 16px 8px 0px 8px;
+					width: 250px;
+
+					&:hover{
+						cursor: pointer;
+						-webkit-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						-moz-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						.blog-button{
+							opacity: 0.9;
+						}
+					}
+				}
+				@include breakpoint(md){
+					margin: 16px 8px 0px 8px;
+					width: 250px;
+
+					&:hover{
+						cursor: pointer;
+						-webkit-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						-moz-box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						box-shadow: 3px 7px 26px -7px rgba(232, 52, 38,1);
+						.blog-button{
+							opacity: 0.9;
+						}
+					}
+				}
+			}
+		}
+	}
 
  	/****************************************
 				Contact page

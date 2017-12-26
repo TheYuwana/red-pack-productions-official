@@ -1,6 +1,5 @@
-FROM registry.gitlab.com/weareyipyip/phoenixbuild/image:latest
+FROM weareyipyip/elixir-sass:1.5.2
 MAINTAINER Jonathan van Putten <hope_industries@hotmail.com>
-
 
 ADD . /application
 
@@ -21,8 +20,7 @@ RUN mix local.hex --force \
 
 RUN cd assets \
   && npm install \
-  && /usr/bin/node node_modules/brunch/bin/brunch build \
-  && /usr/bin/node node_modules/.bin/gulp minify_all
+  && /usr/bin/node node_modules/brunch/bin/brunch build
 
 RUN mix compile
 RUN mix phx.digest

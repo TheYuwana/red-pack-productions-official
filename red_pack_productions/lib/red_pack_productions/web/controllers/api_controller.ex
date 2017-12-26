@@ -11,6 +11,9 @@ defmodule RedPackProductions.Web.ApiController do
     packageOptions = %{"content_type": "packages", "order": "fields.order"}
     CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true)
 
+    blogPostOptions = %{"content_type": "blogPost", "order": "sys.createdAt"}
+    CachedContentful.Api.customEntrySearch("ordered_blogposts", blogPostOptions, true)
+
     RedPackProductions.EtsHelper.clear_all_cache()
     CachedContentful.Api.updateAssets()
     CachedContentful.Api.updateEntries()

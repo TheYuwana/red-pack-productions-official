@@ -1,0 +1,28 @@
+<div class="content-blog">
+  
+  <div class="blog-content-container">
+  	
+  	<div class="blog-header">
+  		<img src="<%= @blogPost.photo %>" />
+  		
+  		<div class="blog-header-title">
+  			<h1><%= @blogPost.title %></h1>
+  		</div>
+  	</div>
+
+  	<div class="blog-content">
+  		<div class="blog-subtitle">
+  			<i>"<%= @blogPost.subtitle %>"</i>
+  		</div>
+  		<%= raw(@blogPost.content) %>
+
+  		<share-button class="share-button"></share-button>
+  		<div class="clear"></div>
+  	</div>
+
+  </div>
+  
+
+</div>
+
+<%= render "big_footer.html" %>

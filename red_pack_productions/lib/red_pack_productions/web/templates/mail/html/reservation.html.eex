@@ -4,11 +4,9 @@
 <p>Reservation date: <%= "#{details["date"]}" %></p>
 
 <h2>Contact details</h2>
-<p>Name: <%= "#{details["firstname"]} #{details["lastname"]}" %></p>
+<p>Name: <%= "#{details["name"]}" %></p>
 <p>Phone: <%= "#{details["phone"]}" %></p>
 <p>Email: <%= "#{details["email"]}" %></p>
-<p><%= "#{details["address"]} #{details["address_number"]}" %></p>
-<p><%= "#{details["postcode"]} #{details["city"]}, #{details["country"]}" %></p>
 
 <h2>A little about the project</h2>
 <p><%= "#{details["comments"]}" %></p>

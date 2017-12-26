@@ -17,6 +17,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- Open Graph -->
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:title" content="<%= @conn.assigns.title %>" />
+    <meta property="twitter:title" content="<%= @conn.assigns.title %>" />
+    <meta property="og:description" content="<%= @conn.assigns.og_description %>" />
+
+    <meta property="og:site_name" content="Red Pack Productions" />
+    
+    <meta property="og:url" content="<%= get_current_url(@conn) %>" />
+    <meta property="og:image" content="<%= static_url(@conn, "/images/rp_logo.png") %>" />
+    <meta property="twitter:image" content="<%= static_url(@conn, "/images/rp_logo.png") %>" /> 
+
     <title>Red Pack Productions</title>
 
     <link rel="shortcut icon" href="/favicon.ico">
@@ -42,66 +57,71 @@
 
         <!-- MOBILE NAVIGATION -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>'
+          <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/">HOME</a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #packages <%= else %> /#packages <%= end %>'>PACKAGES</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'>PACKAGES</a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #soundcloud <%= else %> /#soundcloud <%= end %>'>RECORDINGS</a>
+          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'>RECORDINGS</a>
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <%= else %> /#samples <%= end %>'>SAMPLES</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'>SAMPLES</a>
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMENTS</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'>REFURBISHED INSTRUMENTS</a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #contact <%= else %> /#contact <%= end %>'>CONTACT</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'>CONTACT</a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>'
+          <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
+           href="/blog">BLOG</a>
+        </div>
+
+        <div class="navigation-item-mobile hidden-md hidden-lg">
+          <a class='<%= if @conn.request_path == "/question" do %> nav-active <% end %>'
            href='/question'>FAQ</a>
         </div>
 
 
         <!-- DESKTOP NAVIGATION -->
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='<%= if @conn.request_path == "/" do %> nav-active <%= end %>'
+          <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/">HOME</a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #packages <%= else %> /#packages <%= end %>'>PACKAGES</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'>PACKAGES</a>
         </div>
         
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #soundcloud <%= else %> /#soundcloud <%= end %>'>RECORDINGS</a>
+          <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'>RECORDINGS</a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <%= else %> /#samples <%= end %>'>SAMPLES</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'>SAMPLES</a>
         </div>
         
         <div class="navigation-item-logo hidden-xs hidden-sm">
@@ -109,21 +129,28 @@
         </div>
         
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <%= else %> /#instruments <%= end %>'>REFURBISHED INSTRUMENTS</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'>REFURBISHED INSTRUMENTS</a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <%= end %>'
-           href='<%= if @conn.request_path == "/" do %> #contact <%= else %> /#contact <%= end %>'>CONTACT</a>
+          <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
+           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'>CONTACT</a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='<%= if @conn.request_path == "" do %> nav-active <%= end %>'
+          <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
+           href='/blog'>BLOG</a>
+        </div>
+
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+
+        <div class="navigation-item hidden-xs hidden-sm">
+          <a class='<%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='/question'>FAQ</a>
         </div>
 
@@ -147,10 +174,10 @@
       </div>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/vendor.min.js") %>"></script>
-    <script src="<%= static_path(@conn, "/js/phoenix.min.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/phoenix.js") %>"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-    <script src="<%= static_path(@conn, "/js/app.min.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     
   </body>
 </html>

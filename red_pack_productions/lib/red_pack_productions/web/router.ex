@@ -23,6 +23,8 @@ defmodule RedPackProductions.Web.Router do
     get "/success", PageController, :success
     get "/packages/:package", PageController, :packages
     get "/question", PageController, :question
+    get "/blog", PageController, :blog
+    get "/blog/:slug", PageController, :blog_item
 
     post "/reserve", PageController, :reserve
   end
@@ -30,6 +32,7 @@ defmodule RedPackProductions.Web.Router do
   scope "/api", RedPackProductions.Web do
     pipe_through :api 
     post "/resetcache", ApiController, :reset_cache
+    get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
   end
 

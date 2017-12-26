@@ -1,5 +1,7 @@
 var firstLoad = true;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Oktober", "November", "December"];
+var map;
+var shareButton = {};
 
 $(document).ready(function(){
 
@@ -16,6 +18,23 @@ $(document).ready(function(){
 			$("header").removeClass("header-open");
 			$('#hamburger-icon').toggleClass('open');
 		}
+	});
+
+	// Share button
+	shareButton = new ShareButton({
+	  ui: {
+            buttonText: "SHARE WITH THE WORLD!"
+        },
+        networks: {
+            googlePlus: { enabled: true },
+            twitter: { enabled: true },
+            facebook: { enabled: true },
+            pinterest: { enabled: false },
+            reddit: { enabled: false },
+            linkedin: { enabled: false },
+            whatsapp: { enabled: true },
+            email: { enabled: false }
+        }
 	});
 
 	// Slick Slider
@@ -93,6 +112,9 @@ $(document).ready(function(){
 		}
 	});
 
+	// Init map
+	initMap();
+
 	// Hour selection
 	// $(".hour").on("click", function(){
 	// 	var checkbox = $(this).find("input");
@@ -105,6 +127,23 @@ $(document).ready(function(){
 
 
 });
+
+function initMap() {
+
+	var redpackproductions = {lat: 51.8740939, lng: 4.6184794}; 
+	map = new google.maps.Map(document.getElementById('front-maps'), {
+	  zoom: 16,
+	  center: redpackproductions,
+	  scrollwheel: false
+	});
+
+	// Center Marker
+	var marker = new google.maps.Marker({
+	  position: redpackproductions,
+	  map: map
+	});
+
+}
 
 function refreshView(selectedDay){
 	process_get_request("/api/dates", function(dates){
