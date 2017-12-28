@@ -2,6 +2,7 @@
 
 <p>Package: <%= "#{details["package"]}" %></p>
 <p>Reservation date: <%= "#{details["date"]}" %></p>
+<p>Reservation hours: <%= for hour <- details["hours"] do "#{hour} " end %></p>
 
 <h2>Contact details</h2>
 <p>Name: <%= "#{details["name"]}" %></p>

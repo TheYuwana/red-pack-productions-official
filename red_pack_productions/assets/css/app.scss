@@ -102,6 +102,9 @@ p, a{
 
 .fc-today, .fc-future{
 	cursor: pointer;
+	&:hover{
+		background-color: $transLightGreen;
+	}
 }
 
 .fc-selected{
@@ -1036,8 +1039,6 @@ p, a{
 
  		.hour-container{
 
- 			display: none;
-
  			.hour{
  				border: 1px solid $formGray;
  				text-align: center;
@@ -1054,6 +1055,15 @@ p, a{
  					display: none;
  				}
 
+ 				&:hover{
+ 					background-color: $transLightGreen;
+ 					cursor: pointer;
+ 				}
+
+ 			}
+
+ 			.hour-selected{
+ 				background-color: $lightGreen;
  			}
 
  			.reserved{

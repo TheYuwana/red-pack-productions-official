@@ -4,9 +4,14 @@ defmodule RedPackProductions.Web.PageController do
 
   alias RedPackProductions.Mailer
   alias RedPackProductions.Email
+  alias RedPackProductions.Web.Reservation
   alias RedPackProductions.Web.Context
-  # alias RedPackProductions.Web.Reservation
+  
+  @hours ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"]
 
+  # ==================================
+  #               Index
+  # ==================================
   def index(conn, _params) do
     
     # Get soundcloud songs
@@ -63,6 +68,9 @@ defmodule RedPackProductions.Web.PageController do
       |> cache_response
   end
 
+  # ==================================
+  #            Samples
+  # ==================================
   def samples(conn, _params) do
     conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -71,6 +79,9 @@ defmodule RedPackProductions.Web.PageController do
       |> cache_response
   end
 
+  # ==================================
+  #          Instruments
+  # ==================================
   def instruments(conn, _params) do
     conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -79,11 +90,28 @@ defmodule RedPackProductions.Web.PageController do
       |> cache_response
   end
 
+  # ==================================
+  #           Packages
+  # ==================================
   def packages(conn, %{"package" => packageName}) do
+    changeset = Context.change_reservation(%Reservation{})
+    render_package_form(conn, packageName, changeset)
+  end
 
-    # Hours
-    hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
+  def reserve(conn, %{"reservation" => reservation}) do
+    changeset = Context.create_reservation(reservation)
+    case changeset.valid? do
+      true ->
+        Email.reservation(reservation) |> Mailer.deliver_now
+        conn
+          |> redirect(to: page_path(conn, :success))
+      false ->
+        packageName = reservation["package"]
+        render_package_form(conn, packageName, changeset)    
+    end
+  end
 
+  def render_package_form(conn, packageName, changeset) do
     # Get packages form Contentful
     packageOptions = %{
       "content_type": "packages",
@@ -112,7 +140,7 @@ defmodule RedPackProductions.Web.PageController do
       |> Enum.filter(fn(x) -> x != nil end)
       |> Enum.fetch!(0)
 
-    # Get selected package
+      # Get selected package
     selectedPackage = Enum.map(packagesFromContentful, fn(package) -> 
       if packageName == package["fields"]["slug"] do 
         package["fields"]["title"]
@@ -125,54 +153,21 @@ defmodule RedPackProductions.Web.PageController do
     packages = Enum.map(packagesFromContentful, fn(package) ->
       [ 
         key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
-        value: package["fields"]["title"]
+        value: package["fields"]["slug"]
       ]
     end)
 
     conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
       |> assign(:title, "Red Pack Productions - Packages")
-      |> render("packages.html", packages: packages, countries: countries, packageDetails: packageDetails, hours: hours, selectedPackage: selectedPackage)
+      |> render("packages.html", packages: packages, countries: countries, packageDetails: packageDetails, hours: @hours, selectedPackage: selectedPackage, changeset: changeset)
       |> cache_response
+
   end
 
-  def reserve(conn, %{"reservation" => reservation}) do
-    changeset = Context.create_reservation(reservation)
-    case changeset.valid? do
-      true ->
-        Email.reservation(reservation) |> Mailer.deliver_now
-        conn
-          |> redirect(to: page_path(conn, :success))
-
-      false ->
-        # Hours
-        hours = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
-
-        # Get packages form Contentful
-        packageOptions = %{
-          "content_type": "packages",
-          "order": "fields.order"
-        }
-        packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false), fn(package) ->
-          [ 
-            key: "#{package["fields"]["title"]} - € #{package["fields"]["redPackPrice"]},-",
-            value: package["fields"]["title"]
-          ]
-        end)
-
-        # Get countries
-        countries = Enum.map(Countries.all, fn(country) -> country.name end)
-
-        error = format_error(changeset.errors) |> List.first
-
-        conn
-          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-          |> assign(:title, "Red Pack Productions - Contact")
-          |> render("contact.html", countries: countries, packages: packages, hours: hours, changeset: changeset, error: error)
-          |> cache_response
-    end
-  end
-
+  # ==================================
+  #               Blog
+  # ==================================
   def blog(conn, _params) do
 
     blogPosts = CachedContentful.Api.customEntrySearch(
@@ -238,6 +233,9 @@ defmodule RedPackProductions.Web.PageController do
       |> render("blog.html", blogPost: blogPost) 
   end
 
+  # ==================================
+  #           Question
+  # ==================================
   def question(conn, _params) do
     
     questions = Enum.map(CachedContentful.Api.getEntriesByType("questions"), fn(question) ->
@@ -262,6 +260,9 @@ defmodule RedPackProductions.Web.PageController do
       |> render("question.html", questions: questions) 
   end
 
+  # ==================================
+  #            Success
+  # ==================================
   def success(conn, _params) do
     conn
       |> assign(:og_description, "HOW ARE YOU EVEN HERE!???")
@@ -269,6 +270,9 @@ defmodule RedPackProductions.Web.PageController do
       |> render("success.html")
   end
 
+  # ==================================
+  #            Helpers
+  # ==================================
   def format_error(errors) do
     Enum.map(errors, fn({k, v}) ->
       k = k |> Atom.to_string
@@ -276,6 +280,5 @@ defmodule RedPackProductions.Web.PageController do
       %{"#{k}": v}
     end)
   end
-
 
 end

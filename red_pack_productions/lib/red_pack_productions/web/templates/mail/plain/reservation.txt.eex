@@ -1,6 +1,7 @@
 
 Package: <%= "#{details["package"]}" %>
 Reservation date: <%= "#{details["date"]}" %>
+Reservation hours: <%= for hour <- details["hours"] do "#{hour}, " end %>
 name: <%= "#{details["name"]}" %>
 Phone: <%= "#{details["phone"]}" %>
 Email: <%= "#{details["email"]}" %>

@@ -25,18 +25,42 @@
   		<h2>Select date</h2>
 
   		<div class="form-group">
-  			<%# <input type="date" name="reservation[lastname]" class="form-control"> %>
+  			
         <div id="contact-calendar"></div>
 
         <%= hidden_input f, :date, id: "calendar-input" %>
 
         <div class="hour-container">
-          <h3>Select hours for </h3>
-          <%= for hour <- @hours do %>
-            <div class="hour"><p><%= hour %></p><input type="checkbox" value="<%= hour %>" name="reservation[hour][]" /></div>
-          <% end %>
-        </div>
+          <h3>Select hours</h3>
+          
+          <%= if Map.has_key?(f.source.assigns.changeset.changes, :hours) do %>
 
+            <% selectedHours = f.source.assigns.changeset.changes.hours %>
+
+            <%= for hour <- @hours do %>
+              <%= if Enum.find_value(selectedHours, fn(x) -> x == hour end) do %>
+                <div class="hour">
+                  <p><%= hour %></p>
+                  <input type="checkbox" value="<%= hour %>" name="reservation[hours][]" checked="checked" />
+                </div>
+              <% else %>
+                <div class="hour">
+                <p><%= hour %></p>
+                  <input type="checkbox" value="<%= hour %>" name="reservation[hours][]" />
+                </div>
+              <% end %>
+            <% end %>
+
+          <% else %>
+            <%= for hour <- @hours do %>
+              <div class="hour">
+                <p><%= hour %></p>
+                <input type="checkbox" value="<%= hour %>" name="reservation[hours][]" />
+              </div>
+            <% end %>
+          <% end %>
+
+        </div>
         <div class="clear"></div>
   		</div>
 
@@ -44,7 +68,7 @@
 
   		<div class="form-group">
   			<%= label(f, :name, "Name") %>
-  			<%= text_input f, :firstname, class: "form-control" %>
+  			<%= text_input f, :name, class: "form-control" %>
   		</div>
 
   		<div class="form-group">

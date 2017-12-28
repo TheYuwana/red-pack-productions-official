@@ -29,7 +29,7 @@
       <img src="<%= package.thumbnail %>">
       <p class="intro-subtitle"><%= package.subtitle %></p>
       <h2><%= package.title %></h2>
-      <p>Including:</p>
+      <p>Inclusief:</p>
       <ul>
         <%= for item <- package.items do %>
           <li><%= item %></li>
@@ -213,13 +213,6 @@
     <p class="gray">phone: 0641189513</p>
   </div>
 </div>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ebJUXWlI9Qz4na2YB3H2s3zu_Pe0kYU"></script>
-
-
-
-
-
 
 
 

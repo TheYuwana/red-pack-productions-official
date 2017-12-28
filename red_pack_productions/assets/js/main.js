@@ -99,32 +99,54 @@ $(document).ready(function(){
 			if(!$(this).hasClass("fc-disabled") && !$(this).hasClass("fc-past")){
 				$(".fc-day").removeClass("fc-selected");
 				$(this).addClass("fc-selected");
-				$("#calendar-input").val(date.date() + "-" + months[date.month()] + "-" + date.year());
-			}
-			//$(this) = selected day element			
+				$("#calendar-input").val(leadingZero(date.date()) + "-" + leadingZero((date.month()+1)) + "-" + date.year());
+			}			
 		},
 		viewRender: function(view, element){
 
 			// Initial date
 			var today = new Date();
-			$("#calendar-input").val(today.getDate() + "-" + months[today.getMonth()] + "-" + today.getFullYear());
+
+			// Set initial planing date to today when empty, else higlight the selected date
+			if($("#calendar-input").val() == ""){
+				$("#calendar-input").val(today.getDate() + "-" + months[today.getMonth()] + "-" + today.getFullYear());
+			}else{
+				// Produces dd, mm, yy
+				var dateArr = $("#calendar-input").val().split("-");
+				var formattedDate = dateArr[2] + "-" + dateArr[1] + "-" + dateArr[0];
+				
+				// Set selected if found
+				$("[data-date='"+formattedDate+"']").addClass("fc-selected");
+			}
+
 			refreshView();
 		}
 	});
 
 	// Init map
-	initMap();
+	if($("#front-maps").length){
+		initMap();
+	}
 
 	// Hour selection
-	// $(".hour").on("click", function(){
-	// 	var checkbox = $(this).find("input");
-	// 	if(checkbox.is(":checked")){
-	// 		 checkbox.prop('checked', false);
- //        }else{
- //            checkbox.prop('checked', true);
- //        }
-	// });
-
+	if($(".hour").length){
+		$(".hour").each(function(){
+			var checkbox = $(this).find("input");
+			if(checkbox.is(":checked")){
+				$(this).toggleClass("hour-selected");
+			}
+		});
+	}
+	$(".hour").on("click", function(){
+		var checkbox = $(this).find("input");
+		if(checkbox.is(":checked")){
+			$(this).removeClass("hour-selected");
+			checkbox.prop('checked', false);
+        }else{
+        	$(this).toggleClass("hour-selected");
+            checkbox.prop('checked', true);
+        }
+	});
 
 });
 
@@ -147,7 +169,7 @@ function initMap() {
 
 function refreshView(selectedDay){
 	process_get_request("/api/dates", function(dates){
-		console.log(dates);
+		//console.log(dates);
 		
 		// Disable full dates
 		var reservedDates = [];
