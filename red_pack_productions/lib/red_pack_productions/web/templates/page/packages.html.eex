@@ -1,9 +1,19 @@
-<div class="content-package">
-  <div class="package-container">
-    <img class="hidden-xs" src="<% @packageDetails.thumbnail %>">
-    <%= raw(@packageDetails.details) %>
+<div class="content-blog">
+  
+  <div class="blog-content-container">
+    <div class="blog-header">
+      <img src="<%= @packageDetails.thumbnail %>" />
+      
+      <div class="blog-header-title">
+        <h1><%= @packageDetails.title %> Pakket</h1>
+      </div>
+    </div>
+
+    <div class="blog-content">
+      <%= raw(@packageDetails.details) %>
+      <div class="clear"></div>
+    </div>
   </div>
-  <div class="clear"></div>
 </div>
 
 <div class="package-booking">
@@ -95,7 +105,5 @@
   </div>
 
 </div>
-
-
 
 <%= render "big_footer.html" %>

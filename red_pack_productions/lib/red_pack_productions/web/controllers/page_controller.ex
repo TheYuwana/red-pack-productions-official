@@ -140,10 +140,10 @@ defmodule RedPackProductions.Web.PageController do
       |> Enum.filter(fn(x) -> x != nil end)
       |> Enum.fetch!(0)
 
-      # Get selected package
+    # Get selected package
     selectedPackage = Enum.map(packagesFromContentful, fn(package) -> 
       if packageName == package["fields"]["slug"] do 
-        package["fields"]["title"]
+        package["fields"]["slug"]
       end
     end)
       |> Enum.filter(fn(x) -> x != nil end)

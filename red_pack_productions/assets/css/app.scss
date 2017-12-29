@@ -91,13 +91,17 @@ p, a{
 .fc-view{
 	table{
 		td, th{
-			border-color: $formGray;
+			border-color: white;
 		}
 	}
 }
 
 .fc-past, .fc-disabled{
-	background-color: $gray;
+	background-color: $mediumGray;
+}
+
+.fc-today{
+	background-color: $formGray !important;
 }
 
 .fc-today, .fc-future{
@@ -276,7 +280,7 @@ p, a{
 			Content Introduction
  	****************************************/
 
-	.content-introduction, .package-booking{
+	.content-introduction{
 
 		width: 100%;
 		background: $gray;
@@ -1040,7 +1044,7 @@ p, a{
  		.hour-container{
 
  			.hour{
- 				border: 1px solid $formGray;
+ 				border: 1px solid white;
  				text-align: center;
  				width: 75px;
  				margin: 15px;
@@ -1102,9 +1106,17 @@ p, a{
  	}
 
  	.package-booking{
- 		background: white;
+ 		background-color: $orange;
  		padding-top: 35px;
  		width: 100%;
+ 		color: white;
+
+ 		.introduction-text{
+			max-width: 600px;
+			margin: 0px auto;
+			text-align: center;
+		}
+
  	}
 
  	/****************************************
