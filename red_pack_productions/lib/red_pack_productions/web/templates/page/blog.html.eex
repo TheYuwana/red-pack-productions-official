@@ -16,7 +16,7 @@
   		</div>
   		<%= raw(@blogPost.content) %>
 
-  		<share-button class="share-button"></share-button>
+  		<share-button class="share-button" data-label="<%= dgettext("blog", "blog-share-button") %>"></share-button>
   		<div class="clear"></div>
   	</div>
 

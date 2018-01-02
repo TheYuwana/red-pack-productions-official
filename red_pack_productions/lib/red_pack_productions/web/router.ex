@@ -7,6 +7,7 @@ defmodule RedPackProductions.Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug RedPackProductions.Web.Locale
   end
 
   pipeline :api do
@@ -25,6 +26,7 @@ defmodule RedPackProductions.Web.Router do
     get "/question", PageController, :question
     get "/blog", PageController, :blog
     get "/blog/:slug", PageController, :blog_item
+    get "/locale", PageController, :locale
 
     post "/reserve", PageController, :reserve
   end

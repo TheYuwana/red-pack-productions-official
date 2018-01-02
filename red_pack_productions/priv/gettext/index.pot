@@ -1,0 +1,145 @@
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+
+# ===========================
+# Top Introduction
+# ===========================
+
+msgid "index-introduction"
+msgstr "Audio opnames nodig?"
+
+msgid "index-sub-introduction"
+msgstr "-- need translation --"
+
+# ===========================
+# Top Introduction List
+# ===========================
+
+msgid "index-introduction-list-item-1"
+msgstr "-- need translation --"
+
+msgid "index-introduction-list-item-2"
+msgstr "-- need translation --"
+
+msgid "index-introduction-list-item-3"
+msgstr "-- need translation --"
+
+msgid "index-introduction-list-item-4"
+msgstr "-- need translation --"
+
+msgid "index-introduction-list-item-5"
+msgstr "-- need translation --"
+
+msgid "index-introduction-list-item-6"
+msgstr "-- need translation --"
+
+# ===========================
+# Latest Productions
+# ===========================
+
+msgid "index-latest-title"
+msgstr "-- need translation --"
+
+msgid "index-latest-more"
+msgstr "-- need translation --"
+
+# ===========================
+# Samples
+# ===========================
+
+msgid "index-sample-title-1"
+msgstr "-- need translation --"
+
+msgid "index-sample-title-2"
+msgstr "-- need translation --"
+
+msgid "index-sample-sign-up"
+msgstr "-- need translation --"
+
+msgid "index-sample-subscribe"
+msgstr "-- need translation --"
+
+# ===========================
+# Instruments
+# ===========================
+
+msgid "index-intruments-title-1"
+msgstr "-- need translation --"
+
+msgid "index-intruments-title-2"
+msgstr "-- need translation --"
+
+msgid "index-intruments-shop"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-1"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-2"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-3"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-4"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-5"
+msgstr "-- need translation --"
+
+msgid "index-intruments-list-6"
+msgstr "-- need translation --"
+
+# ===========================
+# Shop Samples
+# ===========================
+
+msgid "index-shop-title"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-1"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-2"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-3"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-4"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-5"
+msgstr "-- need translation --"
+
+msgid "index-shop-list-6"
+msgstr "-- need translation --"
+
+msgid "index-shop-link"
+msgstr "-- need translation --"
+
+msgid "index-shop-free-link"
+msgstr "-- need translation --"
+
+# ===========================
+# Youtube
+# ===========================
+
+msgid "index-youtube-title"
+msgstr "-- need translation --"
+
+msgid "index-youtube-list-1"
+msgstr "-- need translation --"
+
+msgid "index-youtube-list-2"
+msgstr "-- need translation --"
+
+msgid "index-youtube-list-3"
+msgstr "-- need translation --"
+
+msgid "index-youtube-list-4"
+msgstr "-- need translation --"
+
+msgid "index-youtube-link"
+msgstr "-- need translation --"

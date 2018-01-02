@@ -13,7 +13,7 @@ defmodule RedPackProductions.Web.PageController do
   #               Index
   # ==================================
   def index(conn, _params) do
-    
+
     # Get soundcloud songs
     soundcloud = Enum.map(CachedContentful.Api.getEntriesByType("soundcloud"), fn(song) ->
       %{
@@ -259,6 +259,18 @@ defmodule RedPackProductions.Web.PageController do
       |> assign(:title, "Red Pack Productions - FAQ")
       |> render("question.html", questions: questions) 
   end
+
+  # ==================================
+  #            Locale
+  # ==================================
+  def locale(conn, %{"locale" => locale, "redirect" => redirect}) do
+    Gettext.put_locale(RedPackProductions.Web.Gettext, locale)
+    conn
+    |> put_session(:locale, locale)
+    |> redirect(to: redirect)
+  end
+  def locale(conn, %{"locale" => locale}), do: locale(conn, %{"locale" => locale, "redirect" => page_path(conn, :index)})
+  def locale(conn, _), do: locale(conn, %{"locale" => "nl", "redirect" => page_path(conn, :index)})
 
   # ==================================
   #            Success

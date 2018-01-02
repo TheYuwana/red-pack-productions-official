@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+# ===========================
+# Top Introduction
+# ===========================
+
+msgid "index-introduction"
+msgstr "Need audio recordings?"
+
+msgid "index-sub-introduction"
+msgstr "At Red Pack productions we help people create, write and perform their greatest music."
+
+# ===========================
+# Top Introduction List
+# ===========================
+
+msgid "index-introduction-list-item-1"
+msgstr "Fast results"
+
+msgid "index-introduction-list-item-2"
+msgstr "Professional recording"
+
+msgid "index-introduction-list-item-3"
+msgstr "Fixed price"
+
+msgid "index-introduction-list-item-4"
+msgstr "Over 20 years of experience"
+
+msgid "index-introduction-list-item-5"
+msgstr "It's ready when you say it's ready"
+
+msgid "index-introduction-list-item-6"
+msgstr "Bullshit"
+
+# ===========================
+# Latest Productions
+# ===========================
+
+msgid "index-latest-title"
+msgstr "Some of our latest productions"
+
+msgid "index-latest-more"
+msgstr "Click here for more!"
+
+# ===========================
+# Samples
+# ===========================
+
+msgid "index-sample-title-1"
+msgstr "Stop sounding like"
+
+msgid "index-sample-title-2"
+msgstr "everybody else"
+
+msgid "index-sample-sign-up"
+msgstr "Sign up for discounts and a free sample pack"
+
+msgid "index-sample-subscribe"
+msgstr "SUBSCRIBE"
+
+# ===========================
+# Instruments
+# ===========================
+
+msgid "index-intruments-title-1"
+msgstr "Refurbished instruments"
+
+msgid "index-intruments-title-2"
+msgstr "and studio gear"
+
+msgid "index-intruments-shop"
+msgstr "GO TO SHOP"
+
+msgid "index-intruments-list-1"
+msgstr "Request finds"
+
+msgid "index-intruments-list-2"
+msgstr "Thoroughly tested"
+
+msgid "index-intruments-list-3"
+msgstr "Free delivery"
+
+msgid "index-intruments-list-4"
+msgstr "30 days refund"
+
+msgid "index-intruments-list-5"
+msgstr "Cleaned"
+
+msgid "index-intruments-list-6"
+msgstr "Pick up in Rotterdam"
+
+# ===========================
+# Shop Samples
+# ===========================
+
+msgid "index-shop-title"
+msgstr "Exclusive drum samples"
+
+msgid "index-shop-list-1"
+msgstr "High quality drums"
+
+msgid "index-shop-list-2"
+msgstr "44 Khz 24 bits wave format"
+
+msgid "index-shop-list-3"
+msgstr "10 different hit values"
+
+msgid "index-shop-list-4"
+msgstr "Processed hits"
+
+msgid "index-shop-list-5"
+msgstr "Different mics"
+
+msgid "index-shop-list-6"
+msgstr "Raw tracks"
+
+msgid "index-shop-link"
+msgstr "GO TO SHOP"
+
+msgid "index-shop-free-link"
+msgstr "GET A FREE SAMPLE PACK!"
+
+# ===========================
+# Youtube
+# ===========================
+
+msgid "index-youtube-title"
+msgstr "Youtube channel"
+
+msgid "index-youtube-list-1"
+msgstr "Recording tutorials"
+
+msgid "index-youtube-list-2"
+msgstr "Music videos"
+
+msgid "index-youtube-list-3"
+msgstr "Gear reviews"
+
+msgid "index-youtube-list-4"
+msgstr "Band recordings"
+
+msgid "index-youtube-link"
+msgstr "GO TO YOUTUBE"
+

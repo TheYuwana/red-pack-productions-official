@@ -1,0 +1,37 @@
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+
+# ===========================
+# Package Form
+# ===========================
+
+msgid "package-form-title"
+msgstr "-- need translation --"
+
+msgid "package-form-select-package"
+msgstr "-- need translation --"
+
+msgid "package-form-select-date"
+msgstr "-- need translation --"
+
+msgid "package-form-select-hours"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-title"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-name"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-phone"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-email"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-comment"
+msgstr "-- need translation --"
+
+msgid "package-form-contact-button"
+msgstr "-- need translation --"

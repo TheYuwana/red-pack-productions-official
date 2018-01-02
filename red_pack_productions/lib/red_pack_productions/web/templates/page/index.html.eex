@@ -1,18 +1,18 @@
 <div class="content-introduction">
   <div class="introduction-text">
-    <h1>Need audio recordings?</h1>
-    <h3>At Red Pack productions we help people create, write and perform their greatest music.</h3>
+    <h1><%= dgettext("index", "index-introduction") %></h1>
+    <h3><%= dgettext("index", "index-sub-introduction") %></h3>
   </div>
   <div class="list-container">
     <ul>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Fast results</li>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Professional recording</li>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Fixed price</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-introduction-list-item-1") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-introduction-list-item-2") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-introduction-list-item-3") %></li>
     </ul>
     <ul>
-      <li><span class="glyphicon glyphicon-ok success"></span> Over 20 years of experience</li>
-      <li><span class="glyphicon glyphicon-ok success"></span> It's ready when you say it's ready</li>
-      <li><span class="glyphicon glyphicon-remove error"></span> Bullshit</li>
+      <li><span class="glyphicon glyphicon-ok success"></span> <%= dgettext("index", "index-introduction-list-item-4") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span> <%= dgettext("index", "index-introduction-list-item-5") %></li>
+      <li><span class="glyphicon glyphicon-remove error"></span> <%= dgettext("index", "index-introduction-list-item-6") %></li>
     </ul>
     <img src="/images/rp_logo.png" class="hidden-xs">
     <div class="clear"></div>
@@ -47,7 +47,7 @@
 <!-- Latest productions -->
 <div class="production-container-intro">
   <div id="soundcloud" class="introduction-latest-text">
-    <h1>Some of our latest productions</h1>
+    <h1><%= dgettext("index", "index-latest-title") %></h1>
   </div>
   <div class="latest-speakers-container">
     <img class="speakers-left hidden-xs hidden-sm" src="/images/speakers.png" />
@@ -62,7 +62,9 @@
         <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
       <% end %>
     <% end %>
-     <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">Click here for more!</a>
+     <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">
+       <%= dgettext("index", "index-latest-more") %>
+     </a>
   </div>
 </div>
 
@@ -92,11 +94,11 @@
     <div class="shop-samples">
       <img src="/images/free_pack.png" class="hidden-xs">
       <div class="shop-samples-details">
-        <h2>Stop sounding like</h2>
-        <h2><span class="span-space"></span>everybody else</h2>
-        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for discounts and a free sample pack</h3>
+        <h2><%= dgettext("index", "index-sample-title-1") %></h2>
+        <h2><span class="span-space"></span><%= dgettext("index", "index-sample-title-2") %></h2>
+        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg"><%= dgettext("index", "index-sample-sign-up") %></h3>
         <div class="sample-subscribe-text hidden-xs">
-          <h3>Sign up for discounts and a free sample pack</h3>
+          <h3><%= dgettext("index", "index-sample-sign-up") %></h3>
           <img src="/images/arrow_sample.png">
         </div>
         <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -106,7 +108,9 @@
               <div style="position: absolute; left: -5000px;" aria-hidden="true">
                 <input type="text" name="b_6bf1bf9059744fe52696d0f48_d5dae95bbf" tabindex="-1" value="">
               </div>
-              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">SUBSCRIBE</button>
+              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">
+                <%= dgettext("index", "index-sample-subscribe") %>
+              </button>
             </div>
         </form>
         <div class="clear"></div>
@@ -118,20 +122,20 @@
 <!-- Instruments -->
 <div id="instruments" class="shop-instrument-container">
   <div class="shop-instrument-title">
-    <h1>Refurbished instruments</h1>
-    <h1>and studio gear</h1>
-    <a href="/instruments" class="btn-red">GO TO SHOP</a>
+    <h1><%= dgettext("index", "index-intruments-title-1") %></h1>
+    <h1><%= dgettext("index", "index-intruments-title-2") %></h1>
+    <a href="/instruments" class="btn-red"><%= dgettext("index", "index-intruments-shop") %></a>
   </div>
   <div class="list-container front-refurbished">
     <ul>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Request finds</li>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Thoroughly tested</li>
-      <li><span class="glyphicon glyphicon-ok success"></span>  Free delivery</li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-intruments-list-1") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-intruments-list-2") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span>  <%= dgettext("index", "index-intruments-list-3") %></li>
     </ul>
     <ul>
-      <li><span class="glyphicon glyphicon-ok success"></span> 30 days refund</li>
-      <li><span class="glyphicon glyphicon-ok success"></span> Cleaned</li>
-      <li><span class="glyphicon glyphicon-ok success"></span> Pick up in Rotterdam</li>
+      <li><span class="glyphicon glyphicon-ok success"></span> <%= dgettext("index", "index-intruments-list-4") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span> <%= dgettext("index", "index-intruments-list-5") %></li>
+      <li><span class="glyphicon glyphicon-ok success"></span> <%= dgettext("index", "index-intruments-list-6") %></li>
     </ul>
     <img src="/images/guitar.png" class="hidden-xs">
     <div class="clear"></div>
@@ -143,20 +147,20 @@
   <div class="shop-samples">
     <img src="/images/products.png" class="hidden-xs">
     <div class="shop-samples-details">
-      <h2>Exclusive drum samples</h2>
+      <h2><%= dgettext("index", "index-shop-title") %></h2>
       <div class="list-container front-shop-samples">
         <ul>
-          <li>High quality drums</li>
-          <li>44 Khz 24 bits wave format</li>
-          <li>10 different hit values</li>
+          <li><%= dgettext("index", "index-shop-list-1") %></li>
+          <li><%= dgettext("index", "index-shop-list-2") %></li>
+          <li><%= dgettext("index", "index-shop-list-3") %></li>
         </ul>
         <ul>
-          <li>Processed hits</li>
-          <li>Different mics</li>
-          <li>Raw tracks</li>
+          <li><%= dgettext("index", "index-shop-list-4") %></li>
+          <li><%= dgettext("index", "index-shop-list-5") %></li>
+          <li><%= dgettext("index", "index-shop-list-6") %></li>
         </ul>
-        <a href="/samples" class="btn-red">GO TO SHOP</a>
-        <a href="#samples" class="btn-red">GET A FREE SAMPLE PACK!</a>
+        <a href="/samples" class="btn-red"><%= dgettext("index", "index-shop-link") %></a>
+        <a href="#samples" class="btn-red"><%= dgettext("index", "index-shop-free-link") %></a>
         <div class="clear"></div>
       </div>
       <div class="clear"></div>
@@ -170,16 +174,16 @@
   <div class="front-youtube-content">
     <div class="front-youtube-left-column">
       <h2>Red Pack Productions</h2>
-      <h2>Youtube channel</h2>
+      <h2><%= dgettext("index", "index-youtube-title") %></h2>
 
       <div class="list-container front-youtube">
         <ul>
-          <li>Recording tutorials</li>
-          <li>Music videos</li>
+          <li><%= dgettext("index", "index-youtube-list-1") %></li>
+          <li><%= dgettext("index", "index-youtube-list-2") %></li>
         </ul>
         <ul>
-          <li>Gear reviews</li>
-          <li>Band recordings</li>
+          <li><%= dgettext("index", "index-youtube-list-3") %></li>
+          <li><%= dgettext("index", "index-youtube-list-4") %></li>
         </ul>
 
         <div class="clear"></div>
@@ -194,7 +198,9 @@
     <div class="front-youtube-right-column">
       <img src="/images/rp_logo.png" class="youtube-red-pack-logo">
       <div class="clear"></div>
-      <a class="btn-red" href="https://www.youtube.com/channel/UCibFkP0ucGGxHfearidgnMA" target="_blank">GO TO YOUTUBE</a>
+      <a class="btn-red" href="https://www.youtube.com/channel/UCibFkP0ucGGxHfearidgnMA" target="_blank">
+        <%= dgettext("index", "index-youtube-link") %>
+      </a>
     </div>
     <div class="clear"></div>
   </div>
@@ -209,8 +215,8 @@
     <p>2984 BD Ridderkerk</p>
     <p>Zuid Holland</p>
     <p>KVK: 68847483</p>
-    <p class="infobox-contact gray">Email: info@redpackproductions.com</p>
-    <p class="gray">phone: 0641189513</p>
+    <p class="infobox-contact gray"><%= dgettext("general", "email") %>: info@redpackproductions.com</p>
+    <p class="gray"><%= dgettext("general", "phone") %>: 0641189513</p>
   </div>
 </div>
 

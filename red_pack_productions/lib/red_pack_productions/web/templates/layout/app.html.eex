@@ -48,7 +48,14 @@
     <div class="container">
       
       <div class="pre-header hidden-xs hidden-sm">
-        
+        <div class="language-container">
+          <a href="<%= page_path(@conn, :locale, [locale: "en", redirect: @conn.request_path]) %>">
+              <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <%= end %>>
+          </a>
+          <a href="<%= page_path(@conn, :locale, [locale: "nl", redirect: @conn.request_path]) %>">
+              <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <%= end %>>
+          </a>
+        </div>
       </div>
       
       <img src="/images/rp_logo.png" class="header-logo-mobile hidden-md hidden-lg">
@@ -58,70 +65,70 @@
         <!-- MOBILE NAVIGATION -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
-           href="/">HOME</a>
+           href="/"><%= dgettext("general", "navigation-home") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'>PACKAGES</a>
+           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'><%= dgettext("general", "navigation-packages") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'>RECORDINGS</a>
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'><%= dgettext("general", "navigation-recordings") %></a>
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'>SAMPLES</a>
+           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'>REFURBISHED INSTRUMENTS</a>
+           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'>CONTACT</a>
+           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'><%= dgettext("general", "navigation-contact") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
-           href="/blog">BLOG</a>
+           href="/blog"><%= dgettext("general", "navigation-blog") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/question" do %> nav-active <% end %>'
-           href='/question'>FAQ</a>
+           href='/question'><%= dgettext("general", "navigation-faq") %></a>
         </div>
 
 
         <!-- DESKTOP NAVIGATION -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
-           href="/">HOME</a>
+           href="/"><%= dgettext("general", "navigation-home") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'>PACKAGES</a>
+           href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'><%= dgettext("general", "navigation-packages") %></a>
         </div>
         
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'>RECORDINGS</a>
+           href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'><%= dgettext("general", "navigation-recordings") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'>SAMPLES</a>
+           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
         </div>
         
         <div class="navigation-item-logo hidden-xs hidden-sm">
@@ -130,31 +137,48 @@
         
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'>REFURBISHED INSTRUMENTS</a>
+           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'>CONTACT</a>
+           href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'><%= dgettext("general", "navigation-contact") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
-           href='/blog'>BLOG</a>
+           href='/blog'><%= dgettext("general", "navigation-blog") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "" do %> nav-active <% end %>'
-           href='/question'>FAQ</a>
+           href='/question'><%= dgettext("general", "navigation-faq") %></a>
         </div>
 
         <div class="hamburger hidden-md hidden-lg">
+          
+          <!-- MOBILE LANGUAGE -->
+          <div class="language-container-mobile">
+            <ul>
+              <li>
+                <a href="<%= page_path(@conn, :locale, [locale: "en", redirect: @conn.request_path]) %>">
+                    <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <%= end %>>
+                </a>
+              </li>
+              <li>
+                <a href="<%= page_path(@conn, :locale, [locale: "nl", redirect: @conn.request_path]) %>">
+                    <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <%= end %>>
+                </a>
+              </li>
+            </ul>
+          </div>
+
             <div id="hamburger-icon">
               <span></span>
               <span></span>

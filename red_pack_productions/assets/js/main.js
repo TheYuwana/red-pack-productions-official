@@ -7,10 +7,13 @@ $(document).ready(function(){
 
 	$('#hamburger-icon').click(function(){
 		$(this).toggleClass('open');
-	});
-
-	$('#hamburger-icon').click(function(){
 		$("header").toggleClass('header-open');
+
+		if($(this).hasClass("open")){
+			$(".language-container-mobile").fadeIn(300);
+		}else{
+			$(".language-container-mobile").fadeOut(300);
+		}
 	});
 
 	$('.nav-scroller').click(function(){
@@ -23,7 +26,7 @@ $(document).ready(function(){
 	// Share button
 	shareButton = new ShareButton({
 	  ui: {
-            buttonText: "SHARE WITH THE WORLD!"
+            buttonText: $(".share-button").data("label")
         },
         networks: {
             googlePlus: { enabled: true },

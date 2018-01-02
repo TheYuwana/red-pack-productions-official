@@ -1,9 +1,9 @@
 <div class="content-introduction">
   
   <div class="introduction-text">
-    <h1>Sample Shop</h1>
-    <h3>Coming soon!</h3>
-    <h3>Subscribe below for a free sample pack!</h3>
+    <h1><%= dgettext("general", "navigation-samples") %></h1>
+    <h3><%= dgettext("general", "soon") %></h3>
+    <h3><%= dgettext("general", "subscribe-below") %></h3>
   </div>
 
   <div class="underconstruction-space"></div>
@@ -15,14 +15,14 @@
 		<div class="shop-samples">
 		  <img src="/images/free_pack.png" class="hidden-xs">
 		  <div class="shop-samples-details">
-		    <h2>Stop sounding like</h2>
-		    <h2><span class="span-space"></span>everybody else</h2>
+		    <h2><%= dgettext("index", "index-sample-title-1") %></h2>
+		    <h2><span class="span-space"></span><%= dgettext("index", "index-sample-title-2") %></h2>
 		    
-		    <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg">Sign up for a free sample pack</h3>
+		    <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg"><%= dgettext("index", "index-sample-sign-up") %></h3>
 
 		    <div class="sample-subscribe-text hidden-xs">
-		    	<h3><span class="span-space-extra">Sign up for a</h3>
-		    	<h3>free sample pack</h3>
+		    	<h3><span class="span-space-extra"><%= dgettext("general", "sign-up-1") %></h3>
+		    	<h3><%= dgettext("general", "sign-up-2") %></h3>
 		    	<img src="/images/arrow_sample.png">
 		    </div>
 			
@@ -33,7 +33,7 @@
 				    <div style="position: absolute; left: -5000px;" aria-hidden="true">
 				    	<input type="text" name="b_6bf1bf9059744fe52696d0f48_d5dae95bbf" tabindex="-1" value="">
 				    </div>
-				    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">SUBSCRIBE</button>
+				    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green"><%= dgettext("general", "subscribe") %></button>
 			    </div>
 			</form>
 
@@ -44,18 +44,8 @@
 
 	<div class="shop-samples-spam">
 		<div class="spam-text-container">
-			<h2><span class="glyphicon glyphicon-remove error"></span>NO SPAM</h2>
-			<h2><span class="glyphicon glyphicon-ok success"></span>YES FREE STUFF</h2>
-			<%# <div class="spam-text-left">
-				<p>
-					
-				</p>
-			</div>
-			<div class="spam-text-right">
-				<p>
-					
-				</p>
-			</div> %>
+			<h2><span class="glyphicon glyphicon-remove error"></span><%= dgettext("general", "no-spam") %></h2>
+			<h2><span class="glyphicon glyphicon-ok success"></span><%= dgettext("general", "free-stuff") %></h2>
 		</div>
 	</div>
 

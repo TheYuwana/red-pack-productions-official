@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+# ===========================
+# Package Form
+# ===========================
+
+msgid "package-form-title"
+msgstr "Book now!"
+
+msgid "package-form-select-package"
+msgstr "Select package"
+
+msgid "package-form-select-date"
+msgstr "Select date"
+
+msgid "package-form-select-hours"
+msgstr "Select hours"
+
+msgid "package-form-contact-title"
+msgstr "Contact information"
+
+msgid "package-form-contact-name"
+msgstr "Name"
+
+msgid "package-form-contact-phone"
+msgstr "Phone number"
+
+msgid "package-form-contact-email"
+msgstr "Email"
+
+msgid "package-form-contact-comment"
+msgstr "Tell us a little about your project!"
+
+msgid "package-form-contact-button"
+msgstr "RESERVE"

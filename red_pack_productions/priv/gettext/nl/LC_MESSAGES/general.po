@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+
+# ===========================
+# General
+# ===========================
+
+msgid "email"
+msgstr "Email"
+
+msgid "phone"
+msgstr "Telefoon"
+
+msgid "free-samples"
+msgstr "-- need translation --"
+
+msgid "subscribe"
+msgstr "-- need translation --"
+
+msgid "soon"
+msgstr "-- need translation --"
+
+msgid "subscribe-below"
+msgstr "-- need translation --"
+
+msgid "no-spam"
+msgstr "-- need translation --"
+
+msgid "free-stuff"
+msgstr "-- need translation --"
+
+msgid "sign-up-1"
+msgstr "-- need translation --"
+
+msgid "sign-up-2"
+msgstr "-- need translation --"
+
+# ===========================
+# Navigation
+# ===========================
+
+msgid "navigation-home"
+msgstr "-- need translation --"
+
+msgid "navigation-packages"
+msgstr "-- need translation --"
+
+msgid "navigation-recordings"
+msgstr "-- need translation --"
+
+msgid "navigation-samples"
+msgstr "-- need translation --"
+
+msgid "navigation-instruments"
+msgstr "-- need translation --"
+
+msgid "navigation-contact"
+msgstr "-- need translation --"
+
+msgid "navigation-blog"
+msgstr "-- need translation --"
+
+msgid "navigation-faq"
+msgstr "-- need translation --"

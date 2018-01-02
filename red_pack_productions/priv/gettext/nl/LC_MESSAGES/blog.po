@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+
+# ===========================
+# General
+# ===========================
+
+msgid "blog-read-button"
+msgstr "Lees meer!"
+
+msgid "blog-share-button"
+msgstr "-- need translation --"

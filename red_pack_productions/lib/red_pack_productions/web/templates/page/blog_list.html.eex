@@ -15,7 +15,7 @@
 		  	<% end %>
 		  	<h3><%= post.title %></h3>
 		  	<div class="blog-button">
-		  		<p>Read more</p>
+		  		<p><%= dgettext("blog", "blog-read-button") %></p>
 		  	</div>
 		  </div>
 		</a>

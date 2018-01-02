@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+# ===========================
+# General
+# ===========================
+
+msgid "email"
+msgstr "Email"
+
+msgid "phone"
+msgstr "Phone"
+
+msgid "free-samples"
+msgstr "Free samples? Sign up here!"
+
+msgid "subscribe"
+msgstr "SUBSCRIBE"
+
+msgid "soon"
+msgstr "Coming soon!"
+
+msgid "subscribe-below"
+msgstr "Subscribe below for a free sample pack!"
+
+msgid "no-spam"
+msgstr "NO SPAM"
+
+msgid "free-stuff"
+msgstr "YES FREE STUFF"
+
+msgid "sign-up-1"
+msgstr "Sign up for a"
+
+msgid "sign-up-2"
+msgstr "free sample pack"
+
+# ===========================
+# Navigation
+# ===========================
+
+msgid "navigation-home"
+msgstr "HOME"
+
+msgid "navigation-packages"
+msgstr "PACKAGES"
+
+msgid "navigation-recordings"
+msgstr "RECORDINGS"
+
+msgid "navigation-samples"
+msgstr "SAMPLES"
+
+msgid "navigation-instruments"
+msgstr "REFURBISHED INSTRUMENTS"
+
+msgid "navigation-contact"
+msgstr "CONTACT"
+
+msgid "navigation-blog"
+msgstr "BLOG"
+
+msgid "navigation-faq"
+msgstr "FAQ"

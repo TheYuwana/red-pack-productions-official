@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+# ===========================
+# General
+# ===========================
+
+msgid "blog-read-button"
+msgstr "Read more!"
+
+msgid "blog-share-button"
+msgstr "SHARE WITH THE WORLD!"
