@@ -13,53 +13,58 @@ msgid "phone"
 msgstr "Telefoon"
 
 msgid "free-samples"
-msgstr "-- need translation --"
+msgstr "Gratis samples? Abonneer nu!"
 
 msgid "subscribe"
-msgstr "-- need translation --"
+msgstr "ABONNEER"
 
 msgid "soon"
-msgstr "-- need translation --"
+msgstr "Binnenkort beschikbaar"
 
 msgid "subscribe-below"
-msgstr "-- need translation --"
+msgstr "Abonneer voor een gratis sample pakket"
 
 msgid "no-spam"
-msgstr "-- need translation --"
+msgstr "GEEN SPAM"
 
 msgid "free-stuff"
-msgstr "-- need translation --"
+msgstr "WEL GRATIS DINGEN"
 
 msgid "sign-up-1"
-msgstr "-- need translation --"
+msgstr "Abonneer beneden"
 
 msgid "sign-up-2"
-msgstr "-- need translation --"
+msgstr "voor een gratis sample pakket"
 
 # ===========================
 # Navigation
 # ===========================
 
 msgid "navigation-home"
-msgstr "-- need translation --"
+msgstr "HOME"
 
 msgid "navigation-packages"
-msgstr "-- need translation --"
+msgstr "PAKKETTEN"
 
 msgid "navigation-recordings"
-msgstr "-- need translation --"
+msgstr "PRODUCTIES"
 
 msgid "navigation-samples"
-msgstr "-- need translation --"
+msgstr "SAMPLES"
 
 msgid "navigation-instruments"
-msgstr "-- need translation --"
+msgstr "REFURBISHED INSTRUMENTEN"
 
 msgid "navigation-contact"
-msgstr "-- need translation --"
+msgstr "CONTACT"
 
 msgid "navigation-blog"
-msgstr "-- need translation --"
+msgstr "BLOG"
 
 msgid "navigation-faq"
-msgstr "-- need translation --"
+msgstr "FAQ"
+
+# ===========================
+# Footer
+# ===========================
+

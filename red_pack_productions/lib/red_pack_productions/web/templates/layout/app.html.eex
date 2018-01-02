@@ -50,10 +50,10 @@
       <div class="pre-header hidden-xs hidden-sm">
         <div class="language-container">
           <a href="<%= page_path(@conn, :locale, [locale: "en", redirect: @conn.request_path]) %>">
-              <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <%= end %>>
+              <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <% end %>>
           </a>
           <a href="<%= page_path(@conn, :locale, [locale: "nl", redirect: @conn.request_path]) %>">
-              <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <%= end %>>
+              <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <% end %>>
           </a>
         </div>
       </div>
@@ -168,12 +168,12 @@
             <ul>
               <li>
                 <a href="<%= page_path(@conn, :locale, [locale: "en", redirect: @conn.request_path]) %>">
-                    <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <%= end %>>
+                    <img src="<%= static_path(@conn, "/images/locale/en.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "en" do %> class="active" <% end %>>
                 </a>
               </li>
               <li>
                 <a href="<%= page_path(@conn, :locale, [locale: "nl", redirect: @conn.request_path]) %>">
-                    <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <%= end %>>
+                    <img src="<%= static_path(@conn, "/images/locale/nl.png") %>" <%= if Plug.Conn.get_session(@conn, :locale) == "nl" do %> class="active" <% end %>>
                 </a>
               </li>
             </ul>

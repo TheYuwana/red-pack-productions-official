@@ -6,9 +6,6 @@ msgstr ""
 # Top Introduction
 # ===========================
 
-msgid "index-introduction"
-msgstr "Need audio recordings?"
-
 msgid "index-sub-introduction"
 msgstr "At Red Pack productions we help people create, write and perform their greatest music."
 

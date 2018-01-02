@@ -6,17 +6,20 @@ msgstr ""
 # Package Form
 # ===========================
 
+msgid "package-details-title"
+msgstr "Package"
+
 msgid "package-form-title"
 msgstr "Book now!"
 
 msgid "package-form-select-package"
-msgstr "Select package"
+msgstr "Select your package"
 
 msgid "package-form-select-date"
-msgstr "Select date"
+msgstr "Select your date"
 
 msgid "package-form-select-hours"
-msgstr "Select hours"
+msgstr "Select your hours"
 
 msgid "package-form-contact-title"
 msgstr "Contact information"

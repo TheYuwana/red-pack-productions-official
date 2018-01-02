@@ -6,32 +6,35 @@ msgstr ""
 # Package Form
 # ===========================
 
+msgid "package-details-title"
+msgstr "Pakket"
+
 msgid "package-form-title"
-msgstr "-- need translation --"
+msgstr "Boek nu!"
 
 msgid "package-form-select-package"
-msgstr "-- need translation --"
+msgstr "Kies je pakket"
 
 msgid "package-form-select-date"
-msgstr "-- need translation --"
+msgstr "Kies je datum"
 
 msgid "package-form-select-hours"
-msgstr "-- need translation --"
+msgstr "Kies je tijd"
 
 msgid "package-form-contact-title"
-msgstr "-- need translation --"
+msgstr "Contact informatie"
 
 msgid "package-form-contact-name"
-msgstr "-- need translation --"
+msgstr "Naam"
 
 msgid "package-form-contact-phone"
-msgstr "-- need translation --"
+msgstr "Telefoon nummer"
 
 msgid "package-form-contact-email"
-msgstr "-- need translation --"
+msgstr "E-mail"
 
 msgid "package-form-contact-comment"
-msgstr "-- need translation --"
+msgstr "Vertel iets meer over je project"
 
 msgid "package-form-contact-button"
-msgstr "-- need translation --"
+msgstr "Reserveer"

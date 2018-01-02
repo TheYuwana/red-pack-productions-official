@@ -10,4 +10,4 @@ msgid "blog-read-button"
 msgstr "Lees meer!"
 
 msgid "blog-share-button"
-msgstr "-- need translation --"
+msgstr "DELEN MET DE WERELD!"

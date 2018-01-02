@@ -1,145 +1,141 @@
 msgid ""
 msgstr ""
 "Language: nl\n"
-
 # ===========================
 # Top Introduction
 # ===========================
 
-msgid "index-introduction"
-msgstr "Audio opnames nodig?"
-
 msgid "index-sub-introduction"
-msgstr "-- need translation --"
+msgstr "Wij helpen mensen hun beste werk schrijven, creëren en uitvoeren! "
 
 # ===========================
 # Top Introduction List
 # ===========================
 
 msgid "index-introduction-list-item-1"
-msgstr "-- need translation --"
+msgstr "Snel resultaat"
 
 msgid "index-introduction-list-item-2"
-msgstr "-- need translation --"
+msgstr "Professionele opnames"
 
 msgid "index-introduction-list-item-3"
-msgstr "-- need translation --"
+msgstr "Vaste prijzen"
 
 msgid "index-introduction-list-item-4"
-msgstr "-- need translation --"
+msgstr "Meer dan 20 jaar evaring in muziek"
 
 msgid "index-introduction-list-item-5"
-msgstr "-- need translation --"
+msgstr "Het is klaar wanneer jij dat zegt"
 
 msgid "index-introduction-list-item-6"
-msgstr "-- need translation --"
+msgstr "Praatjes"
 
 # ===========================
 # Latest Productions
 # ===========================
 
 msgid "index-latest-title"
-msgstr "-- need translation --"
+msgstr "Onze laatste producties"
 
 msgid "index-latest-more"
-msgstr "-- need translation --"
+msgstr "Klik hier voor meer "
 
 # ===========================
 # Samples
 # ===========================
 
 msgid "index-sample-title-1"
-msgstr "-- need translation --"
+msgstr "Stop met klinken"
 
 msgid "index-sample-title-2"
-msgstr "-- need translation --"
+msgstr "als iedereen!"
 
 msgid "index-sample-sign-up"
-msgstr "-- need translation --"
+msgstr "Schrijf je nu in voor kortingen en gratis samples"
 
 msgid "index-sample-subscribe"
-msgstr "-- need translation --"
+msgstr "ABONNEER"
 
 # ===========================
 # Instruments
 # ===========================
 
 msgid "index-intruments-title-1"
-msgstr "-- need translation --"
+msgstr "Refurbished instrumenten"
 
 msgid "index-intruments-title-2"
-msgstr "-- need translation --"
+msgstr "en studio apparatuur"
 
 msgid "index-intruments-shop"
-msgstr "-- need translation --"
+msgstr "NAAR WEBWINKEL"
 
 msgid "index-intruments-list-1"
-msgstr "-- need translation --"
+msgstr "Verzoek opdrachten"
 
 msgid "index-intruments-list-2"
-msgstr "-- need translation --"
+msgstr "Uitgebreid getest"
 
 msgid "index-intruments-list-3"
-msgstr "-- need translation --"
+msgstr "Gratis bezorging"
 
 msgid "index-intruments-list-4"
-msgstr "-- need translation --"
+msgstr "30 dagen niet goed geld terug garantie"
 
 msgid "index-intruments-list-5"
-msgstr "-- need translation --"
+msgstr "Schoon gemaakt"
 
 msgid "index-intruments-list-6"
-msgstr "-- need translation --"
+msgstr "Ophaal punt in Ridderkerk"
 
 # ===========================
 # Shop Samples
 # ===========================
 
 msgid "index-shop-title"
-msgstr "-- need translation --"
+msgstr "Exclusieve drum samples"
 
 msgid "index-shop-list-1"
-msgstr "-- need translation --"
+msgstr "Hoge kwaliteit drumstellen"
 
 msgid "index-shop-list-2"
-msgstr "-- need translation --"
+msgstr "44Khz 24 bit wave formaat"
 
 msgid "index-shop-list-3"
-msgstr "-- need translation --"
+msgstr "10 unieke slagen"
 
 msgid "index-shop-list-4"
-msgstr "-- need translation --"
+msgstr "Bewerkte samples"
 
 msgid "index-shop-list-5"
-msgstr "-- need translation --"
+msgstr "Verschillende microfoons"
 
 msgid "index-shop-list-6"
-msgstr "-- need translation --"
+msgstr "Onbewerkte sporen"
 
 msgid "index-shop-link"
-msgstr "-- need translation --"
+msgstr "NAAR WEBWINKEL"
 
 msgid "index-shop-free-link"
-msgstr "-- need translation --"
+msgstr "GRATIS SAMPLES HIER!"
 
 # ===========================
 # Youtube
 # ===========================
 
 msgid "index-youtube-title"
-msgstr "-- need translation --"
+msgstr "Youtube kanaal"
 
 msgid "index-youtube-list-1"
-msgstr "-- need translation --"
+msgstr "Opname tutorials"
 
 msgid "index-youtube-list-2"
-msgstr "-- need translation --"
+msgstr "Muziek video's"
 
 msgid "index-youtube-list-3"
-msgstr "-- need translation --"
+msgstr "Apparatuur beoordelingen"
 
 msgid "index-youtube-list-4"
-msgstr "-- need translation --"
+msgstr "Band opnames"
 
 msgid "index-youtube-link"
-msgstr "-- need translation --"
+msgstr "GA NAAR YOUTUBE"

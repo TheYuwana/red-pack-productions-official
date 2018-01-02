@@ -783,6 +783,7 @@ p, a{
 			.shop-samples{
 				max-width: 800px;
 				margin: 0px auto;
+				position: relative;
 				
 				h2, h3{
 					margin:0px;
@@ -793,22 +794,22 @@ p, a{
 					margin-right: 25px;
 				}
 
+				.subscribe-arrow{
+					width: 40px;
+					position: absolute;
+					bottom: 60px;
+					right: 450px;
+				}
+
 				.mobile-subscribe-text{
 					text-align: center;
 					margin-top: 25px;
 				}
 
 				.sample-subscribe-text{
-					position: relative;
+					
 					margin: 30px 210px 0px 0px;
 					float: right;
-
-					img{
-						width: 55px;
-						position: absolute;
-						top: 55px;
-						left: -30px;
-					}
 
 					h3{
 						width: 275px;

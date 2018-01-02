@@ -1,6 +1,6 @@
 <div class="content-introduction">
   <div class="introduction-text">
-    <h1><%= dgettext("index", "index-introduction") %></h1>
+    <h1>Red Pack Productions</h1>
     <h3><%= dgettext("index", "index-sub-introduction") %></h3>
   </div>
   <div class="list-container">
@@ -93,13 +93,13 @@
   <div class="shop-samples-container">
     <div class="shop-samples">
       <img src="/images/free_pack.png" class="hidden-xs">
+      <img class="subscribe-arrow hidden-xs" src="/images/arrow_sample.png">
       <div class="shop-samples-details">
         <h2><%= dgettext("index", "index-sample-title-1") %></h2>
         <h2><span class="span-space"></span><%= dgettext("index", "index-sample-title-2") %></h2>
         <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg"><%= dgettext("index", "index-sample-sign-up") %></h3>
         <div class="sample-subscribe-text hidden-xs">
           <h3><%= dgettext("index", "index-sample-sign-up") %></h3>
-          <img src="/images/arrow_sample.png">
         </div>
         <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">

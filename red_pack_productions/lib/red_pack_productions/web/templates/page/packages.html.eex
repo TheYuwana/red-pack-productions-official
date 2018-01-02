@@ -5,7 +5,7 @@
       <img src="<%= @packageDetails.thumbnail %>" />
       
       <div class="blog-header-title">
-        <h1><%= @packageDetails.title %> Pakket</h1>
+        <h1><%= @packageDetails.title %> <%= dgettext("packages", "package-details-title") %></h1>
       </div>
     </div>
 
