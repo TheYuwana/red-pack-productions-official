@@ -36,6 +36,9 @@ config :plug_ets_cache,
   ttl_check: 86400, # 24 hours
   ttl: 43200 # 12 hours
 
+config :red_pack_productions, RedPackProductions.Web.Gettext,
+  default_locale: "nl"
+
 # Mailer
 config :red_pack_productions, RedPackProductions.Mailer,
   adapter: Bamboo.SMTPAdapter,
