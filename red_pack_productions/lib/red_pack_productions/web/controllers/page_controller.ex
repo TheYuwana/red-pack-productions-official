@@ -15,7 +15,7 @@ defmodule RedPackProductions.Web.PageController do
   def index(conn, _params) do
 
     # Get soundcloud songs
-    soundcloud = Enum.map(CachedContentful.Api.getEntriesByType("soundcloud"), fn(song) ->
+    soundcloud = Enum.map(CachedContentful.Api.getEntriesByType("soundcloud", get_session(conn, :locale)), fn(song) ->
       %{
         url: song["fields"]["url"],
         show: song["fields"]["showOnPage"]
@@ -27,7 +27,7 @@ defmodule RedPackProductions.Web.PageController do
       "content_type": "packages",
       "order": "fields.order"
     }
-  	packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false), fn(package) ->
+  	packages = Enum.map(CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true, get_session(conn, :locale)), fn(package) ->
       asset = CachedContentful.Api.getAssetById(package["fields"]["thumbnail"]["sys"]["id"])["fields"]
       
       items = case package["fields"]["items"] do
@@ -52,7 +52,7 @@ defmodule RedPackProductions.Web.PageController do
     end)
 
     #Get Testimonials form Contentful
-  	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial"), fn(testimonial) ->
+  	testimonials = Enum.map(CachedContentful.Api.getEntriesByType("testimonial", get_session(conn, :locale)), fn(testimonial) ->
       asset = CachedContentful.Api.getAssetById(testimonial["fields"]["thumbnail"]["sys"]["id"])["fields"]
       %{
         artist: testimonial["fields"]["artist"],
@@ -117,7 +117,7 @@ defmodule RedPackProductions.Web.PageController do
       "content_type": "packages",
       "order": "fields.order"
     }
-    packagesFromContentful = CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, false)
+    packagesFromContentful = CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true, get_session(conn, :locale))
 
     # Get countries
     countries = Enum.map(Countries.all, fn(country) -> country.name end)
@@ -173,7 +173,8 @@ defmodule RedPackProductions.Web.PageController do
     blogPosts = CachedContentful.Api.customEntrySearch(
       "ordered_blogposts",
       %{"content_type": "blogPost", "order": "sys.createdAt"}, 
-      false
+      true,
+      get_session(conn, :locale)
     )
 
     blogPosts = Enum.map(blogPosts, fn(post) ->
@@ -200,7 +201,7 @@ defmodule RedPackProductions.Web.PageController do
 
   def blog_item(conn, %{"slug" => slug}) do
 
-    blogposts = CachedContentful.Api.getEntriesByType("blogPost");
+    blogposts = CachedContentful.Api.getEntriesByType("blogPost", get_session(conn, :locale));
 
     # Get details for one blog post
     blogPost = Enum.map(blogposts, fn(post) ->
@@ -238,7 +239,7 @@ defmodule RedPackProductions.Web.PageController do
   # ==================================
   def question(conn, _params) do
     
-    questions = Enum.map(CachedContentful.Api.getEntriesByType("questions"), fn(question) ->
+    questions = Enum.map(CachedContentful.Api.getEntriesByType("questions", get_session(conn, :locale)), fn(question) ->
       
       htmlDetails = case question["fields"]["answer"] do
         nil -> 

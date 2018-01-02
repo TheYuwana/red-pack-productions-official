@@ -9,10 +9,10 @@ defmodule RedPackProductions.Web.ApiController do
   def reset_cache(conn, _params) do
 
     packageOptions = %{"content_type": "packages", "order": "fields.order"}
-    CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true)
+    CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true, get_session(conn, :locale))
 
     blogPostOptions = %{"content_type": "blogPost", "order": "sys.createdAt"}
-    CachedContentful.Api.customEntrySearch("ordered_blogposts", blogPostOptions, true)
+    CachedContentful.Api.customEntrySearch("ordered_blogposts", blogPostOptions, true, get_session(conn, :locale))
 
     RedPackProductions.EtsHelper.clear_all_cache()
     CachedContentful.Api.updateAssets()
@@ -24,7 +24,7 @@ defmodule RedPackProductions.Web.ApiController do
 
   def reservation_dates(conn, _params) do 
   	
-  	reservations = Enum.map(CachedContentful.Api.getEntriesByType("reservations"), fn(reservation) ->
+  	reservations = Enum.map(CachedContentful.Api.getEntriesByType("reservations", get_session(conn, :locale)), fn(reservation) ->
       startDate = String.split(reservation["fields"]["startDate"], "T")
       startHour = startDate
         |> Enum.at(1)
