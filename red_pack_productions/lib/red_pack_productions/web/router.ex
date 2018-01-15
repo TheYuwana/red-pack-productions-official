@@ -11,6 +11,7 @@ defmodule RedPackProductions.Web.Router do
   end
 
   pipeline :api do
+    plug :fetch_session
     plug :accepts, ["json"]
   end
 
