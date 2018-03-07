@@ -14,6 +14,9 @@ defmodule RedPackProductions.Application do
       supervisor(RedPackProductions.Web.Endpoint, []),
       # Start your own worker by calling: RedPackProductions.Worker.start_link(arg1, arg2, arg3)
       # worker(RedPackProductions.Worker, [arg1, arg2, arg3]),
+
+      # Contentful worker
+      # worker(RedPackProductions.Scheduler, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

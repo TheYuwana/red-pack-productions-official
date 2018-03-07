@@ -32,11 +32,21 @@ defmodule RedPackProductions.Web.Router do
     post "/reserve", PageController, :reserve
   end
 
+  # scope "/shop", RedPackProductions.Web do
+  #   pipe_through :browser # Use the default browser stack
+  #   get "/", ShopController, :index
+  #   get "/product/:slug", ShopController, :show
+  # end
+
   scope "/api", RedPackProductions.Web do
     pipe_through :api 
     post "/resetcache", ApiController, :reset_cache
     get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
+
+    # scope "/mollie" , RedPackProductions.Web do
+    #   post "/payment/update/:id", MollieController, :status_update
+    # end
   end
 
 end

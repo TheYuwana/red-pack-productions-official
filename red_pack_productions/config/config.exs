@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :red_pack_productions,
-  ecto_repos: [RedPackProductions.Repo]
+  ecto_repos: [RedPackProductions.Repo],
+  mollie_api_key: System.get_env("MOLLIE_API_KEY")
 
 # Configures the endpoint
 config :red_pack_productions, RedPackProductions.Web.Endpoint,
@@ -24,11 +25,17 @@ config :logger, :console,
 
 # Contentful
 config :cached_contentful,
-	space_id: "6t670ovmra8o",
-	access_token: "365c0c9b6dabf434bffdd06bcc662b526a33785cffeb5249697de4633bef1caf",
+	space_id: System.get_env("CONTENTFUL_SPACE_ID"),
+	access_token: System.get_env("CONTENTFUL_ACCESS_TOKEN"),
   default_language: "nl",
 	auto_update: true,
 	update_interval: 24 * 60 * 60 * 1000
+
+# Contentul worker
+config :red_pack_productions, RedPackProductions.Scheduler,
+  jobs: [
+    {"* * * * *", {RedPackProductions.ContentfulWorker, :refresh_contentful, []}}
+  ]
 
 # ETS Cache
 config :plug_ets_cache,
@@ -42,15 +49,14 @@ config :red_pack_productions, RedPackProductions.Web.Gettext,
 # Mailer
 config :red_pack_productions, RedPackProductions.Mailer,
   adapter: Bamboo.SMTPAdapter,
-  server: {:system, "MAIL_SERVER"},
-  port: {:system, "MAIL_PORT"},
-  username: {:system, "MAIL_USER"}, 
-  password: {:system, "MAIL_PASS"},
+  server: System.get_env("MAIL_SERVER"),
+  port: System.get_env("MAIL_PORT"),
+  username: System.get_env("MAIL_USER"), 
+  password: System.get_env("MAIL_PASS"),
   tls: :if_available, 
   allowed_tls_versions: [:"tlsv1", :"tlsv1.1", :"tlsv1.2"], 
   ssl: false,
   retries: 1
-
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

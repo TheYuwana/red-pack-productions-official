@@ -7,7 +7,6 @@ defmodule RedPackProductions.Web.ApiController do
   plug :put_layout, false
 
   def reset_cache(conn, _params) do
-
     packageOptions = %{"content_type": "packages", "order": "fields.order"}
     CachedContentful.Api.customEntrySearch("ordered_packages", packageOptions, true, get_session(conn, :locale))
 
@@ -18,8 +17,8 @@ defmodule RedPackProductions.Web.ApiController do
     CachedContentful.Api.updateAssets()
     CachedContentful.Api.updateEntries()
     conn
-      |> put_status(200)
-      |> render(ReservationView, "reset.json")
+    |> put_status(200)
+    |> json(%{status: 200, message: "Cache Reset!"})
   end
 
   def reservation_dates(conn, _params) do 

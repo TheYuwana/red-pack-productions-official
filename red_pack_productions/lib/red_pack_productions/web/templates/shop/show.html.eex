@@ -1,0 +1,4 @@
+<div class="content-blog">
+
+</div>
+<%= render(RedPackProductions.Web.PageView, "big_footer.html") %>
