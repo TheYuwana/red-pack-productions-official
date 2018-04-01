@@ -17,7 +17,7 @@ defmodule RedPackProductions.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {RedPackProductions.Application, []},
-     extra_applications: [:logger, :cached_contentful, :plug_ets_cache, :timex, :bamboo, :bamboo_smtp, :httpoison]]
+     extra_applications: [:logger, :plug_ets_cache, :timex, :bamboo, :bamboo_smtp, :httpoison, :cached_contentful]]
   end
 
   # Specifies which paths to compile per environment.

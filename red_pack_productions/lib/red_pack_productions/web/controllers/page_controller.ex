@@ -102,7 +102,9 @@ defmodule RedPackProductions.Web.PageController do
     changeset = Context.create_reservation(reservation)
     case changeset.valid? do
       true ->
-        Email.reservation(reservation) |> Mailer.deliver_now
+        Email.reservation(reservation)
+        |> Mailer.deliver_now()
+        
         conn
           |> redirect(to: page_path(conn, :success))
       false ->

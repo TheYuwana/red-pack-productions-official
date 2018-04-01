@@ -24,5 +24,3 @@ RUN cd assets \
 
 RUN mix compile
 RUN mix phx.digest
-
-CMD ["mix", "phx.server"]

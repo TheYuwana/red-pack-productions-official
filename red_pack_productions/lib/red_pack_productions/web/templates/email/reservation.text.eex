@@ -1,0 +1,8 @@
+
+Package: <%= "#{assigns.details["package"]}" %>
+Reservation date: <%= "#{assigns.details["date"]}" %>
+Reservation hours: <%= for hour <- assigns.details["hours"] do "#{hour}, " end %>
+name: <%= "#{assigns.details["name"]}" %>
+Phone: <%= "#{assigns.details["phone"]}" %>
+Email: <%= "#{assigns.details["email"]}" %>
+Project details: <%= "#{assigns.details["comments"]}" %>

@@ -1,0 +1,13 @@
+<h1>A new reservation has been requested!</h1>
+
+<p>Package: <%= "#{assigns.details["package"]}" %></p>
+<p>Reservation date: <%= "#{assigns.details["date"]}" %></p>
+<p>Reservation hours: <%= for hour <- assigns.details["hours"] do "#{hour} " end %></p>
+
+<h2>Contact details</h2>
+<p>Name: <%= "#{assigns.details["name"]}" %></p>
+<p>Phone: <%= "#{assigns.details["phone"]}" %></p>
+<p>Email: <%= "#{assigns.details["email"]}" %></p>
+
+<h2>A little about the project</h2>
+<p><%= "#{assigns.details["comments"]}" %></p>

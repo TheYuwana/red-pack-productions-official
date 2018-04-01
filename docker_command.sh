@@ -12,5 +12,4 @@ cd /application/red_pack_productions/assets \
 
 cd /application/red_pack_productions \
   && mix compile \
-  && mix phx.digest default \
-  && mix phx.server
+  && mix phx.digest default
