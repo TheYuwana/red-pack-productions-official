@@ -54,7 +54,7 @@ config :red_pack_productions, RedPackProductions.Mailer,
   username: System.get_env("MAIL_USER"), 
   password: System.get_env("MAIL_PASS"),
   tls: :if_available, 
-  allowed_tls_versions: [:"tlsv1", :"tlsv1.1", :"tlsv1.2"], 
+  allowed_tls_versions: [:"STARTTLS"], 
   ssl: false,
   retries: 1
 

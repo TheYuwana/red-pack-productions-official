@@ -6,7 +6,6 @@ defmodule RedPackProductions.Email do
 		new_email()
 			|> to("jmerrelaar@icloud.com")
 			|> cc("hope_industries@hotmail.com")
-			#|> to("hope_industries@hotmail.com")
 			|> from("-finfo@redpackproductions.com")
 			|> subject("Someone requested a new reservation!")
 			|> put_html_layout({RedPackProductions.Web.EmailView, "reservation.html"})
