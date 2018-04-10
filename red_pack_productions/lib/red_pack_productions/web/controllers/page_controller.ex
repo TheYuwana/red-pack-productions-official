@@ -102,23 +102,10 @@ defmodule RedPackProductions.Web.PageController do
     changeset = Context.create_reservation(reservation)
     case changeset.valid? do
       true ->
-        
 
-        try do
-          Email.reservation(reservation)
+        Email.reservation(reservation)
           |> Mailer.deliver_now()
-        rescue
-          error in Bamboo.SMTPAdapter.SMTPError ->
-            case error.raw do
-              {:retries_exceeded, _} ->
-                IO.inspect("I can do some stuff when this error match")
-              _ ->
-                IO.inspect "I don't care about these ones"
-            end
-            # Here, I can re-raise the error
-            raise error
-        end
-        
+          
         conn
           |> redirect(to: page_path(conn, :success))
       false ->

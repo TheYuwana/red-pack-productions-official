@@ -48,15 +48,8 @@ config :red_pack_productions, RedPackProductions.Web.Gettext,
 
 # Mailer
 config :red_pack_productions, RedPackProductions.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  server: System.get_env("MAIL_SERVER"),
-  port: System.get_env("MAIL_PORT"),
-  username: System.get_env("MAIL_USER"), 
-  password: System.get_env("MAIL_PASS"),
-  tls: :if_available, 
-  allowed_tls_versions: [:"STARTTLS"], 
-  ssl: false,
-  retries: 1
+  adapter: Bamboo.MandrillAdapter,
+  api_key: System.get_env("MANDRILL_API_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
