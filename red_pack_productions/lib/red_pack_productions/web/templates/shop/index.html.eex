@@ -31,8 +31,11 @@
 
 <!-- Packages -->
 <div class="product-container">
+  <div class="product-filter">
+    fjslkfdjsklfjslkdfjdslk
+  </div>
   <div class="product-items">
-    <!--
+<!--     
     <%= for product <- @products do %>
     <div class="product-item">
       <img src="<%= product.photo %>">
@@ -42,7 +45,7 @@
       <a href="/shop/product/<%= product.slug %>" class="btn-orange">Details</a>
     </div>
     <% end %>
-	-->
+	 -->
 	<%= for _ <- 1..7 do %>
 		<div class="product-item">
 	      <img src="http://images.contentful.com/6t670ovmra8o/6hdmtCx1deKy2iEOWMM6w0/a2c70866e28e179a533aec97de7b4deb/Ludwig_Supraphonic_Black_Beauty_Snare.jpg">
