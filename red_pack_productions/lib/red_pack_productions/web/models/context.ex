@@ -1,7 +1,7 @@
-defmodule RedPackProductions.Web.Context do
+defmodule RedPackProductionsWeb.Context do
 
 	import Ecto.{Changeset}, warn: false
-	alias RedPackProductions.Web.Reservation
+	alias RedPackProductionsWeb.Reservation
 
 	# Reservation
 	def create_reservation(attrs \\ %{}) do

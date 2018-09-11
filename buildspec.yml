@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - eval $(aws ecr get-login --no-include-email --region eu-west-1)
+      - IMAGE_TAG=$(/bin/bash ./docker_files/get_version.sh)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -f ./docker_files/Dockerfile.build -t build_image .
+      - docker create --name build_container build_image
+      - docker cp build_container:/application/. ./build_project
+      - docker build -f ./build_project/docker_files/Dockerfile.prod -t $REPOSITORY_URI:latest ./build_project
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json

@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :red_pack_productions, RedPackProductions.Web.Endpoint,
+config :red_pack_productions, RedPackProductionsWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -31,13 +31,13 @@ config :red_pack_productions, RedPackProductions.Web.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :red_pack_productions, RedPackProductions.Web.Endpoint,
+config :red_pack_productions, RedPackProductionsWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/red_pack_productions/web/views/.*(ex)$},
-      ~r{lib/red_pack_productions/web/templates/.*(eex)$}
+      ~r{lib/red_pack_productions_web/views/.*(ex)$},
+      ~r{lib/red_pack_productions_web/templates/.*(eex)$}
     ]
   ]
 
@@ -48,7 +48,7 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# # Configure your database
+# Configure your database
 # config :red_pack_productions, RedPackProductions.Repo,
 #   adapter: Ecto.Adapters.Postgres,
 #   username: "postgres",

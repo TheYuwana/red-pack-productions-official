@@ -63,41 +63,50 @@
       <header class="header">
 
         <!-- MOBILE NAVIGATION -->
+
+        <!-- HOME -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/"><%= dgettext("general", "navigation-home") %></a>
         </div>
 
+        <!-- PACKAGES -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'><%= dgettext("general", "navigation-packages") %></a>
         </div>
 
+        <!-- RECORDINGS -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'><%= dgettext("general", "navigation-recordings") %></a>
         </div>
         
+        <!-- SAMPLES -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
         </div>
         
+        <!-- INSTRUMENTS -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
         </div>
 
+        <!-- CONTACT -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'><%= dgettext("general", "navigation-contact") %></a>
         </div>
 
+        <!-- BLOG -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
            href="/blog"><%= dgettext("general", "navigation-blog") %></a>
         </div>
 
+        <!-- FAQ -->
         <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='<%= if @conn.request_path == "/question" do %> nav-active <% end %>'
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
@@ -105,6 +114,8 @@
 
 
         <!-- DESKTOP NAVIGATION -->
+
+        <!-- HOME -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/"><%= dgettext("general", "navigation-home") %></a>
@@ -112,6 +123,7 @@
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- PACKAGES -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #packages <% else %> /#packages <% end %>'><%= dgettext("general", "navigation-packages") %></a>
@@ -119,6 +131,7 @@
         
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- RECORDINGS -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #soundcloud <% else %> /#soundcloud <% end %>'><%= dgettext("general", "navigation-recordings") %></a>
@@ -126,6 +139,7 @@
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- SAMPLES -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
@@ -135,6 +149,7 @@
           <a href="/"><img src="/images/rp_logo.png"></a>
         </div>
         
+        <!-- INSTRUMENTS -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
@@ -142,6 +157,7 @@
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- CONTACT -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/contact" do %> nav-active <% end %>'
            href='<%= if @conn.request_path == "/" do %> #contact <% else %> /#contact <% end %>'><%= dgettext("general", "navigation-contact") %></a>
@@ -149,6 +165,7 @@
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- BLOG -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/blog" do %> nav-active <% end %>'
            href='/blog'><%= dgettext("general", "navigation-blog") %></a>
@@ -156,6 +173,7 @@
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
 
+        <!-- FAQ -->
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
