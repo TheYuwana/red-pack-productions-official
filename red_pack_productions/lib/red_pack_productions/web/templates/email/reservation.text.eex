@@ -1,4 +1,3 @@
-
 Package: <%= "#{assigns.details["package"]}" %>
 Reservation date: <%= "#{assigns.details["date"]}" %>
 Reservation hours: <%= for hour <- assigns.details["hours"] do "#{hour}, " end %>

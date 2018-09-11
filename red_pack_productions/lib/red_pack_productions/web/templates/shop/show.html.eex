@@ -1,4 +1,30 @@
-<div class="content-blog">
+<div class="product-details-container">
+
+	<div class="product-back">
+		<h2> < Back</h2>
+	</div>
+
+	<div class="product-details">
+		
+		<div class="product-image">
+			<img src="<%= @product.photo %>" />
+		</div>
+
+		<div class="product-detail">
+			<p><%= @product.subtitle %></p>
+			<h3><%= @product.title %></h3>
+			<p class="product-price">
+				&euro; <%= @product.old_price %>
+				<span class="real-price">&euro; <%= @product.new_price %></span>
+			</p>
+			<p>ex btw</p>
+
+			<p><%= @product.description %></p>
+			<button class="btn-orange">ADD TO CART</a>
+		</div>
+
+		<div class="clear"></div>
+	</div>
 
 </div>
 <%= render(RedPackProductions.Web.PageView, "big_footer.html") %>

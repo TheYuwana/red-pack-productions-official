@@ -1144,6 +1144,47 @@ p, a{
 		}
  	}
 
+ 	.product-details-container{
+
+ 		background-color: $gray;
+ 		width: 100%;
+
+ 		.product-back{
+ 			background-color: white;
+ 			max-width: 900px;
+ 			margin: 25px auto 0px auto;
+
+ 			h2{
+ 				margin: 0px;
+ 			}
+ 		}
+
+ 		.product-details{
+ 			max-width: 900px;
+			margin: 0px auto 0px auto;
+
+			.product-image{
+				margin: 15px 2px 15px 15px;
+				background-color: white;
+				max-width: 434px;
+				height: 500px;
+				float: left;
+				img{
+					width: 100%;
+				}
+			}
+
+			.product-detail{
+				margin: 15px 0px 15px 2px;
+				background-color: white;
+				padding: 15px;
+				max-width: 434px;
+				min-height: 500px;
+				float: left;
+			}
+ 		}
+ 	}
+
  	/****************************************
 				Contact page
  	****************************************/
