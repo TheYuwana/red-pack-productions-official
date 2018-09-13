@@ -31,6 +31,17 @@
 			<p class="product-subtitle">Exclusuve drum samples</p>
 			<h2>Hendrix sample mix</h2>
 			<p class="product-price">&euro;900 <span class="real-price">&euro;50</span></p>
+			<p>ex btw</p>
+			<p class="product-description">
+			Fat and aggressive with tons of attack and low-end punch.  This sample is taken from the new solid brass U-Drum snare, used during the recording of Silverstein’s album “This Is How the Wind Shifts.” 
+			Includes separate direct and room samples for full control, along with a mix-ready blended sample
+			</p>
+			<p>Read more ...</p>
+			<audio controls>
+				<source src="horse.ogg" type="audio/ogg">
+				<source src="horse.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
 			<a href="/shop/product/test" class="btn-orange">SPEC &amp; LISTEN</a>
 		</div>
 	</div>
