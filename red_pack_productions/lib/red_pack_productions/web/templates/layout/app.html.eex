@@ -106,12 +106,15 @@
 
 
         <!-- DESKTOP NAVIGATION -->
-        <div class="navigation-item hidden-xs hidden-sm">
+        <!-- <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/"><%= dgettext("general", "navigation-home") %></a>
+        </div> -->
+        <div class="navigation-item-logo hidden-xs hidden-sm">
+          <a href="/"><img src="/images/rp_logo.png"></a>
         </div>
-
-        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+        
+        <!-- <div class="navigation-item-separator hidden-xs hidden-sm">|</div>-->
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
@@ -132,9 +135,11 @@
            href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
         </div>
         
-        <div class="navigation-item-logo hidden-xs hidden-sm">
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+
+        <%# <div class="navigation-item-logo hidden-xs hidden-sm">
           <a href="/"><img src="/images/rp_logo.png"></a>
-        </div>
+        </div> %>
         
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
@@ -160,6 +165,11 @@
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
+        </div>
+
+        <div class="navigation-item hidden-xs hidden-sm bag">
+            <span class="my-bag">MY BAG </span>
+            <span class="cart-items">0</span>
         </div>
 
         <div class="hamburger hidden-md hidden-lg">

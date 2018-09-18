@@ -49,6 +49,7 @@ p, a{
 	margin-bottom: 15px;
 	border-radius: 5px;
 	cursor: pointer;
+	text-transform: uppercase;
 
 	&:hover{
 		color: white;
@@ -1161,8 +1162,8 @@ p, a{
 				float: left;
 
 				img{
-					width: 100%;
-					height: 150px;
+					width: calc(100% - 40px);
+					margin-top: 20px;					
 				}
 
 				h2{

@@ -42,7 +42,12 @@
 				<source src="horse.mp3" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
-			<a href="/shop/product/test" class="btn-orange">SPEC &amp; LISTEN</a>
+			<%# <a href="/shop/product/test" class="btn-orange">SPEC &amp; LISTEN</a> %>
+			<button class="btn-orange add-to-cart"
+					data-product-name="Pen"
+					data-product-price="9.99">
+					Add to Cart
+			</button>
 		</div>
 	</div>
 
