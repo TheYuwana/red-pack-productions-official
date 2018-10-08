@@ -67,4 +67,4 @@
     <div class="clear"></div>
   </div>
 </div>
-<%= render(RedPackProductions.Web.PageView, "big_footer.html") %>
+<%= render(RedPackProductionsWeb.LayoutView, "big_footer.html") %>

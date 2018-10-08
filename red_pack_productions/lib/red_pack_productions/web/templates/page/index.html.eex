@@ -219,14 +219,3 @@
     <p class="gray"><%= dgettext("general", "phone") %>: 0641189513</p>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

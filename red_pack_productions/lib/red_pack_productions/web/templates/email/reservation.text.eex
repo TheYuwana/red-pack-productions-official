@@ -1,7 +1,6 @@
-
 Package: <%= "#{assigns.details["package"]}" %>
 Reservation date: <%= "#{assigns.details["date"]}" %>
-Reservation hours: <%= for hour <- assigns.details["hours"] do "#{hour}, " end %>
+Reservation hours: <%= parse_hours(assigns.details) %>
 name: <%= "#{assigns.details["name"]}" %>
 Phone: <%= "#{assigns.details["phone"]}" %>
 Email: <%= "#{assigns.details["email"]}" %>

@@ -1,11 +1,19 @@
-version: '2'
+version: '3.3'
 services:
-  redpackproductions:
-    container_name: "red_pack_productions"
-    build: .
-    ports:
-     - "4000:4000"
-    volumes:
-     - .:/application
-     - /data
-    command: /bin/bash /application/docker_command.sh
+    red_pack_productions:
+        container_name: "red_pack_productions"
+        image: "red_pack_productions_image_dev"
+        build:
+            context: .
+            dockerfile: ./docker_files/Dockerfile.compose
+            args:
+                MIX_ENV: dev
+        working_dir: /application/red_pack_productions
+        ports:
+            - "4000:4000" 
+        volumes:
+            - .:/application:cached
+        environment:
+            MIX_ENV: dev
+            PORT: 4000
+        command: /bin/bash /application/docker_files/docker_command.sh

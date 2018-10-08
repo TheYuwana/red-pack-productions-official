@@ -1,3 +1,3 @@
-defmodule RedPackProductions.Web.ShopView do
-  use RedPackProductions.Web, :view
+defmodule RedPackProductionsWeb.ShopView do
+  use RedPackProductionsWeb, :view
 end

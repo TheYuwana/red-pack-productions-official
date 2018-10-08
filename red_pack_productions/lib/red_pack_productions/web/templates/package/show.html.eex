@@ -24,7 +24,7 @@
 
   <div class="contact-form-container">
 
-  	<%= form_for @conn, page_path(@conn, :reserve), [as: :reservation], fn f -> %>
+  	<%= form_for @conn, package_path(@conn, :reserve), [as: :reservation], fn f -> %>
 
   		<h2><%= dgettext("packages", "package-form-select-package") %></h2>
 
@@ -106,4 +106,4 @@
 
 </div>
 
-<%= render "big_footer.html" %>
+<%= render(RedPackProductionsWeb.LayoutView, "big_footer.html") %>

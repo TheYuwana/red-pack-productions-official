@@ -1,5 +1,5 @@
-defmodule RedPackProductions.Web.ShopController do
-  use RedPackProductions.Web, :controller
+defmodule RedPackProductionsWeb.ShopController do
+  use RedPackProductionsWeb, :controller
 
   alias RedPackProductions.Mollie
 
@@ -83,7 +83,5 @@ defmodule RedPackProductions.Web.ShopController do
       |> assign(:title, "Red Pack Productions - Shop")
       |> render("index.html", payment_request: payment_request)
   end
-
-
 
 end
