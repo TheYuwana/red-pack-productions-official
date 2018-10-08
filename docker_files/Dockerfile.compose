@@ -1,0 +1,13 @@
+FROM weareyipyip/elixir-sass:1.6.2
+LABEL maintainer "Jonathan van Putten <hope_industries@hotmail.com>"
+
+ARG MIX_ENV
+ENV MIX_ENV=$MIX_ENV
+
+ADD . /application
+WORKDIR /application/red_pack_productions
+
+RUN mix local.hex --force
+RUN mix local.rebar --force
+
+CMD ["mix", "phx.server"]

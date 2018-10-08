@@ -1,0 +1,11 @@
+FROM elixir:1.6.2
+LABEL maintainer "Jonathan van Putten <hope_industries@hotmail.com>"
+
+ADD . /application
+WORKDIR /application/red_pack_productions
+
+RUN mix local.hex --force
+RUN mix local.rebar --force
+RUN mix clean
+
+CMD ["mix", "phx.server"]

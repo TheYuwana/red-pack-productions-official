@@ -25,4 +25,4 @@
 
 </div>
 
-<%= render "big_footer.html" %>
+<%= render(RedPackProductionsWeb.LayoutView, "big_footer.html") %>

@@ -1,8 +1,8 @@
-defmodule RedPackProductions.Web.Reservation do
+defmodule RedPackProductionsWeb.Reservation do
  	use Ecto.Schema
  	import Ecto.Changeset
 
- 	alias RedPackProductions.Web.Reservation
+ 	alias RedPackProductionsWeb.Reservation
 
 	schema "reservation" do
 		field :comments, :string
@@ -16,11 +16,11 @@ defmodule RedPackProductions.Web.Reservation do
 
 	def changeset(%Reservation{} = reservation, attrs) do
 		reservation
-			|> cast(attrs, [:comments, :date, :email, :name, :package, :phone, :hours])
-			|> validate_format(:email, ~r/(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)/, message: "Not a valid email")
-			|> validate_required(:email, message: "An email is required")
-			|> validate_required(:phone, message: "A phone number is required")
-			|> validate_required(:package, message: "Please select a package")
+		|> cast(attrs, [:comments, :date, :email, :name, :package, :phone, :hours])
+		|> validate_format(:email, ~r/(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)/, message: "Not a valid email")
+		|> validate_required(:email, message: "An email is required")
+		|> validate_required(:phone, message: "A phone number is required")
+		|> validate_required(:package, message: "Please select a package")
 	end
 
 end

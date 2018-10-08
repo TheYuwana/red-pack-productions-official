@@ -1,5 +1,5 @@
-defmodule RedPackProductions.Web.ReservationView do
-  use RedPackProductions.Web, :view
+defmodule RedPackProductionsWeb.ReservationView do
+  use RedPackProductionsWeb, :view
 
   def render("index.json", %{reservations: reservations}) do
     reservations

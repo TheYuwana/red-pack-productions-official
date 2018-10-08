@@ -49,6 +49,7 @@ p, a{
 	margin-bottom: 15px;
 	border-radius: 5px;
 	cursor: pointer;
+	text-transform: uppercase;
 
 	&:hover{
 		color: white;
@@ -153,6 +154,44 @@ p, a{
 		list-style-type: none;
 		margin: 0px 0px 0px 0px;
 		float: left;
+
+		li{
+			padding:5px 0px;
+			span{
+				padding-right:5px;
+			}
+		}
+	}
+
+	img{
+		width: 150px;
+		position: absolute;
+		top: -35px;
+		right: -55px;
+	}
+}
+.green-container {
+	width: 100%;
+	background: $gray;
+	margin-top: -25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.list-container-green {
+	max-width: 960px;
+	margin: 0px auto;
+	background-color: $green;
+	color: white;
+	padding: 15px;
+	margin-top: 25px;
+	position: relative;
+
+	ul{
+		list-style-type: none;
+		margin: 0px 0px 0px 0px;
+		float: left;
+		width: 33%;
 
 		li{
 			padding:5px 0px;
@@ -1082,107 +1121,161 @@ p, a{
 
  	.product-container{
 
- 		background-color: white;
+ 		background-color: $gray;
  		width: 100%;
  		position: relative;
  		text-align: center;
 
  		a{
 			font-size: 1em;
-			margin: 0px 15px 15px 15px;
+			margin: 20px;
 			display: block;
 			color: white;
-			margin-top: 10px;
 		} 		
 
+		.product-filter,
+		.product-navigation {
+			background-color: #FFF;
+			max-width: 960px;
+			margin: 0px auto -5px auto;
+			text-align: center;
+			position: relative;
+			height: 70px;
+			top: -35px;
+		}
+		.product-navigation {
+			margin: 0px auto 20px auto;
+			top: 0;
+		}
  		.product-items{
-			max-width: 900px;
+			max-width: 960px;
 			margin: 0px auto 0px auto;
 			text-align: center;
 			position: relative;
 			
 			.product-item{
-				width: 200px;
+				width: 225px;
 				display: inline-block;
-				margin: 0px 10px 20px 0px;
+				margin: 0px 20px 30px 0px;
 				text-align: center;
 				background-color: white;
-				-webkit-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
-				-moz-box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
-				box-shadow: 3px 7px 24px -11px rgba(0,0,0,0.75);
+				float: left;
 
 				img{
-					width: 100%;
-					height: 150px;
+					width: calc(100% - 40px);
+					margin-top: 20px;					
 				}
 
 				h2{
-					font-size: 1.8em;
+					font-size: 1.9rem;
 					padding: 0px 5px;
+					font-family: 'Open Sans', sans-serif;
+					text-transform: uppercase;
 				}
 
 				.product-subtitle{
 					color: $mediumGray;
+					padding: 0 20px;
+					font-size: 1.1rem ;
+					text-transform: uppercase;
 				}
 
 				.product-price{
 					font-size: 1.2em;
 					font-weight: 600;
 					margin-bottom: 0px;
+					font-weight: bold; 
+					text-decoration: line-through;
 				}
 
 				.real-price{
 					color: $lightRed;
 					font-size: 1.5em;
+					display: inline-block;
 				}
 
 				.product-btw{
 
 				}
+				&:nth-child(4n) {
+					margin-right: 0;
+				}
 
 			}
+			
 		}
- 	}
 
- 	.product-details-container{
+		// SHOP DETAIL
+		.big-product {
+			height: 480px;
+			margin-bottom: 20px;
+			position: relative;
+			background: #FFF;
 
- 		background-color: $gray;
- 		width: 100%;
-
- 		.product-back{
- 			background-color: white;
- 			max-width: 900px;
- 			margin: 25px auto 0px auto;
-
- 			h2{
- 				margin: 0px;
- 			}
- 		}
-
- 		.product-details{
- 			max-width: 900px;
-			margin: 0px auto 0px auto;
-
-			.product-image{
-				margin: 15px 2px 15px 15px;
-				background-color: white;
-				max-width: 434px;
-				height: 500px;
+			.big-image {
+				display: inline-block;
 				float: left;
-				img{
-					width: 100%;
+				height: 480px;
+				width: 50%;
+				padding: 50px;
+
+				img {
+					max-width: calc(100% - 20px);
 				}
 			}
+			.item-description {
+				display: inline-block;
+				padding: 50px;
+				width: 50%;
+				height: 480px;
+				text-align: left;
 
-			.product-detail{
-				margin: 15px 0px 15px 2px;
-				background-color: white;
-				padding: 15px;
-				max-width: 434px;
-				min-height: 500px;
-				float: left;
+				.product-subtitle {
+					text-transform: uppercase;
+					font-size: 1.1rem;
+					color: $mediumGray;
+				}
+
+				h2 {
+					font-size: 1.9rem;
+					font-family: 'Open Sans', sans-serif;
+					text-transform: uppercase;
+					margin-top: 0;
+				}
+
+				p {
+					font-size: 1.2rem
+				}
+
+				.product-price {
+					font-size: 1.2em;
+					font-weight: 600;
+					margin-bottom: 0px;
+					font-weight: bold;
+					text-decoration: line-through;
+				
+					.real-price {
+						color: #e83426;
+						font-size: 1.5em;
+						display: inline-block;
+					}
+				}
+
+				audio {
+					width: 380px;
+					margin-top: 20px;
+				}
+
+				a {
+					display: inline-block;
+					margin: 0;
+					margin-top: 20px;
+					position: absolute;
+					bottom: 50px;
+				}
 			}
- 		}
+		}
+
  	}
 
  	/****************************************

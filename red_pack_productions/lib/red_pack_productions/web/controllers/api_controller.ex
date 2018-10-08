@@ -1,8 +1,7 @@
-defmodule RedPackProductions.Web.ApiController do
-  use RedPackProductions.Web, :controller
-  use PlugEtsCache.Phoenix
+defmodule RedPackProductionsWeb.ApiController do
+  use RedPackProductionsWeb, :controller
 
-  alias RedPackProductions.Web.ReservationView
+  alias RedPackProductionsWeb.ReservationView
 
   plug :put_layout, false
 
