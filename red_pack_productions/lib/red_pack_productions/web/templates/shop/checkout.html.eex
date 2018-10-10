@@ -1,0 +1,3 @@
+<h1>Checkout Page</h1>
+
+<a href="<%= @checkout_url %>">Checkout now</a>

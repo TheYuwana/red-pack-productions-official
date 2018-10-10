@@ -38,6 +38,12 @@ defmodule RedPackProductionsWeb.Router do
     pipe_through :browser # Use the default browser stack
     get "/", ShopController, :index
     get "/product/:slug", ShopController, :show
+    get "/checkout", ShopController, :checkout_page
+    get "/payment-loading", ShopController, :payment_loading_page
+    get "/payment-result", ShopController, :payment_result_page
+
+    # Remove later
+    get "/error", ShopController, :error_page
   end
 
   scope "/api", RedPackProductionsWeb do

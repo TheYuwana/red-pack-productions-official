@@ -69,19 +69,66 @@ defmodule RedPackProductionsWeb.ShopController do
       |> render("show.html")
   end
 
-  def test(conn, _) do
-    IO.puts "========== Get all Payments =========="
-    IO.inspect Mollie.get_all_payments()
+  # ==================================
+  #         Checkout process
+  # ==================================
+  def checkout_page(conn, _) do
+    case Mollie.create_payment_request() do
+      {:ok, payment_request} ->
 
-    IO.puts "========== Get payment =========="
-    payment_request = Mollie.get_payment("tr_frFP2RPFB3")
+        checkout_url = payment_request["_links"]["checkout"]["href"]
+        payment_id = payment_request["id"]
 
-    IO.inspect payment_request
+        conn
+        |> put_session(:payment_id, payment_id)
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - payment result")
+        |> render("checkout.html", checkout_url: checkout_url)
 
+      {:error, _error} ->
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - error")
+        |> render("error.html")
+    end
+  end
+
+  # ==================================
+  #         Payment loading
+  # ==================================
+  def payment_loading_page(conn, _) do
     conn
-      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-      |> assign(:title, "Red Pack Productions - Shop")
-      |> render("index.html", payment_request: payment_request)
+    |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+    |> assign(:title, "Red Pack Productions - Shop - payment result")
+    |> render("payment_loading.html")
+  end
+
+  # ==================================
+  #         Payment result
+  # ==================================
+  def payment_result_page(conn, _) do
+    case Mollie.get_payment("get_session(conn, :payment_id)") do
+      {:ok, payment} ->
+        payment_status = payment["status"]
+
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - payment result")
+        |> render("payment_result.html", payment_status: payment_status)
+      {:error, _error} ->
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - error")
+        |> render("error.html")
+    end    
+  end
+
+  # REMOVE THIS
+  def error_page(conn, _) do
+    conn
+    |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+    |> assign(:title, "Red Pack Productions - Shop - error")
+    |> render("error.html")
   end
 
 end
