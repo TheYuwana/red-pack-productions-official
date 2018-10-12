@@ -40,13 +40,16 @@
 
   <div class="product-filter">
     <span>Filter:</span>
-    <select id="selector">
-        <option selected="" disabled="">Sample Type</option>
-        <option value="drum-sample">Exclusive Drum Sample</option>
-        <option value="massive-sample">Exclusive Massive Sample</option>
-        <option value="field-record">Exclusive Field Record</option>
-        <option value="0">All Samples</option>
-    </select>
+
+    <div class="styled-select">
+      <select id="selector">
+          <option selected="" disabled="">Sample Type</option>
+          <option value="drum-sample">Exclusive Drum Sample</option>
+          <option value="massive-sample">Exclusive Massive Sample</option>
+          <option value="field-record">Exclusive Field Record</option>
+          <option value="0">All Samples</option>
+      </select>
+    </div>
   </div>
 
 
@@ -64,7 +67,7 @@
     </div>
     <% end %>
 	 -->
-   
+
 	<%= for _ <- 1..8 do %>
 		<div class="product-item drum-sample">
 	      <img src="http://images.contentful.com/6t670ovmra8o/6hdmtCx1deKy2iEOWMM6w0/a2c70866e28e179a533aec97de7b4deb/Ludwig_Supraphonic_Black_Beauty_Snare.jpg">
