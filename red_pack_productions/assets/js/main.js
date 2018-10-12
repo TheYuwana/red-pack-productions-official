@@ -300,3 +300,22 @@ function sb_sum_total(){
 
   console.log(sb_sum_total);
 }
+
+
+
+
+
+// FILTER SELECTOR
+
+$(function() {
+	$('select').change(function() {
+  	var _this = $(this);
+  	if ( _this.val() == 0 )
+        $('.product-item').css("opacity","1").css("display", "inline");
+        // $('.recept').css("opacity","1");
+    else {
+    	$('.product-item').hide();
+    	$('.product-item.' + _this.val()).css("display","inline").css("opacity","1");
+    }
+  });
+});
