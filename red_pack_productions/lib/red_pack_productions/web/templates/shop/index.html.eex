@@ -1,9 +1,3 @@
-<!-- Basket -->
-<%# <div class="bag">
-    <span class="my-bag">My Bag</span>
-    <span class="cart-items">0</span>
-</div> %>
-
 <!-- Samples -->
 <div id="samples" class="content-samples">
   <div class="shop-samples-container">

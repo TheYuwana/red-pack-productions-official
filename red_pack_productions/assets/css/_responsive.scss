@@ -2,9 +2,25 @@
 		Custom, iPhone Retina
  ****************************************/
 @media only screen and (min-width : 320px) {
-	header{ 
-		height: 63px;
-		position: fixed;
+	.container {
+		header{ 
+			height: 63px;
+			position: fixed;
+			overflow: hidden;
+
+			
+				.bag {
+					position: absolute;
+					top: 0; 
+					right: 0;
+				}
+				.basket-container {
+					top: 0;
+					right: 0;
+				}
+			
+
+		}
 	}
 	.content-introduction{
 		padding-top: 80px;
@@ -66,7 +82,18 @@
  				display: block;
  			}
  		}
- 	}
+	 }
+	 
+	 .container {
+		.product-container {
+			.product-items {
+				.product-item {
+					width: calc(100% - 20px);
+				}
+			}
+		}
+	 }   
+	 
 
  	/* Footer */
  	.big-footer{
@@ -154,7 +181,18 @@
  				display: block;
  			}
  		}
- 	}
+	 }
+	 
+	  
+	 .container {
+		.product-container {
+			.product-items {
+				.product-item {
+					width: calc(50% - 20px);
+				}
+			}
+		}
+	 }   
 
  	/* Footer */
  	.big-footer{
@@ -239,7 +277,17 @@
  				display: inline;
  			}
  		}
- 	}
+	 }
+	 
+	 .container {
+		.product-container {
+			.product-items {
+				.product-item {
+					width: calc(33% - 20px);
+				}
+			}
+		}
+	}
 
  	/* Footer */
  	.big-footer{
@@ -264,6 +312,7 @@
 	header{ 
 		height: 105px;
 		position: relative;
+		overflow: visible;
 	}
 	.content-introduction{
 		padding-top: 45px;
@@ -323,7 +372,17 @@
  				display: inline;
  			}
  		}
- 	}
+	 }
+	 
+	 .container {
+		.product-container {
+			.product-items {
+				.product-item {
+					width: calc(25% - 20px);
+				}
+			}
+		}
+	 }   
 
  	/* Footer */
  	.big-footer{
@@ -407,7 +466,8 @@
  				display: inline;
  			}
  		}
- 	}
+	 }
+	 
 
  	/* Footer */
  	.big-footer{

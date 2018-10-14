@@ -278,12 +278,12 @@ function sb_set_basket_events(){
 function sb_add_to_basket(pid, name, price){
   if(sb_product_not_exist(pid)){
     var shortName = name;
-    if(name.length > 10){
-      shortName = name.substring(15, 0) + "...";
+    if(name.length > 20){
+      shortName = name.substring(25, 0) + "...";
     }
     $(".basket-products ul").append(
       $("<li>").append(
-        $("<span>", {"class": "oi oi-x remove-product"}).click(function(){
+        $("<span>", {"class": "remove-product"}).click(function(){
           sb_remove_from_basket($(this));
         }),
         $("<input>", {"type": "number", "min": "1"}).val(1).change(function(){
