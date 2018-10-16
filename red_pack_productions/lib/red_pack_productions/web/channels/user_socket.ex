@@ -2,7 +2,7 @@ defmodule RedPackProductionsWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", RedPackProductionsWeb.RoomChannel
+  channel "room:*", RedPackProductionsWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

@@ -52,8 +52,10 @@ defmodule RedPackProductionsWeb.Router do
     get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
 
-    # scope "/mollie" , RedPackProductionsWeb do
-    #   post "/payment/update/:id", MollieController, :status_update
-    # end
+    scope "/basket" , RedPackProductionsWeb do
+      post "/add/:item_id", MollieController, :add_to_basket
+      post "/remove/:item_id", MollieController, :remove_from_basket
+      post "/clear", MollieController, :clear_basket
+    end
   end
 end

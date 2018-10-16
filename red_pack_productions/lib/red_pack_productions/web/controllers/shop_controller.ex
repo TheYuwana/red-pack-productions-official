@@ -2,6 +2,7 @@ defmodule RedPackProductionsWeb.ShopController do
   use RedPackProductionsWeb, :controller
 
   alias RedPackProductions.Mollie
+  alias RedPackProductionsWeb.Utils
 
   # ==================================
   #               Index
@@ -78,12 +79,13 @@ defmodule RedPackProductionsWeb.ShopController do
 
         checkout_url = payment_request["_links"]["checkout"]["href"]
         payment_id = payment_request["id"]
+        basket = Utils.get_shopping_basket(conn)
 
         conn
         |> put_session(:payment_id, payment_id)
         |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
         |> assign(:title, "Red Pack Productions - Shop - payment result")
-        |> render("checkout.html", checkout_url: checkout_url)
+        |> render("checkout.html", checkout_url: checkout_url, basket: basket)
 
       {:error, _error} ->
         conn

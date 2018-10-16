@@ -228,7 +228,6 @@ function process_get_request(url, callback){
 
 
 // SHOPPING BASKET
-
 $(document).ready(function(){
 
   $(".button").on("click", function() {
