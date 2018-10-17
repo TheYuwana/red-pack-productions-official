@@ -8,6 +8,7 @@ defmodule RedPackProductionsWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug RedPackProductionsWeb.Locale
+    plug RedPackProductionsWeb.Basket
   end
 
   pipeline :api do
@@ -52,10 +53,10 @@ defmodule RedPackProductionsWeb.Router do
     get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
 
-    scope "/basket" , RedPackProductionsWeb do
-      post "/add/:item_id", MollieController, :add_to_basket
-      post "/remove/:item_id", MollieController, :remove_from_basket
-      post "/clear", MollieController, :clear_basket
+    scope "/basket" do
+      post "/add/:item_id", ApiController, :add_to_basket
+      post "/remove/:item_id", ApiController, :remove_from_basket
+      post "/clear", ApiController, :clear_basket
     end
   end
 end

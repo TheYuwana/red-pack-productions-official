@@ -43,8 +43,6 @@ defmodule RedPackProductionsWeb.ShopController do
     end)
     |> Enum.uniq()
 
-    IO.inspect categories
-
   	conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
       |> assign(:title, "Red Pack Productions - Shop")
@@ -62,7 +60,6 @@ defmodule RedPackProductionsWeb.ShopController do
     photo = CachedContentful.Api.getAssetById(selected_product["fields"]["photo"]["sys"]["id"])["fields"]
     sample_link = CachedContentful.Api.getAssetById(selected_product["fields"]["sampleLink"]["sys"]["id"])["fields"]
 
-    # IO.inspect Enum.find(products, fn product -> slug == product["fields"]["slug"] end)
     # Do a nil check for 404
     product = %{
       id: selected_product["id"],
@@ -75,8 +72,6 @@ defmodule RedPackProductionsWeb.ShopController do
       sample_link: "https:" <> sample_link["file"]["url"],
       photo: photo["file"]["url"]
     }
-
-    IO.inspect product
 
     conn
     |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -93,13 +88,12 @@ defmodule RedPackProductionsWeb.ShopController do
 
         checkout_url = payment_request["_links"]["checkout"]["href"]
         payment_id = payment_request["id"]
-        basket = Utils.get_shopping_basket(conn)
 
         conn
         |> put_session(:payment_id, payment_id)
         |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
         |> assign(:title, "Red Pack Productions - Shop - payment result")
-        |> render("checkout.html", checkout_url: checkout_url, basket: basket)
+        |> render("checkout.html", checkout_url: checkout_url)
 
       {:error, _error} ->
         conn

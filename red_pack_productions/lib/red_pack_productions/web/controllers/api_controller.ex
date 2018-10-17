@@ -62,7 +62,13 @@ defmodule RedPackProductionsWeb.ApiController do
   #      shopping basket
   # ==================================
   def add_to_basket(conn, %{"item_id" => item_id}) do
-    basket = Utils.get_shopping_basket(conn) ++ [item_id]
+    basket = Utils.get_shopping_basket(conn)
+    basket = if Enum.any?(basket, fn i -> i == item_id end) do
+      basket
+    else
+      basket ++ [item_id]
+    end
+
     conn
     |> put_session(:shopping_basket, basket)
     |> json(%{status: 200, message: "Item added"})

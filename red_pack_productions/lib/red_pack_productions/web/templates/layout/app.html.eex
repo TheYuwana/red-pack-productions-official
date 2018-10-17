@@ -200,14 +200,15 @@
               </div>
               <div class="basket-content">
                 <h3>Products</h3>
-                <div class="basket-products">
+                <div class="basket-products" data-pre-basket="<%= jsonfy(@basket) %>">
                   <ul>
                   </ul>
                 </div>
                 <p class="basket-total">TOTAL:</p>
                 <p class="basket-total-amount">&euro; 0</p>
                 <div class="clear"></div>
-                <button class="basket-checkout">CHECKOUT</button>
+                <button class="basket-clear">CLEAR</button>
+                <a href="/shop/checkout" class="basket-checkout">CHECKOUT</button>
               </div>
             </div>
           </div>

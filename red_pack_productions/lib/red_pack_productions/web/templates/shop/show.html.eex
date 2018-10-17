@@ -37,14 +37,11 @@
 				<source src="<%= @product.sample_link %>" type="audio/wav">
 				Your browser does not support the audio element.
 			</audio>
-			<%# <a href="/shop/product/test" class="btn-orange">SPEC &amp; LISTEN</a> %>
-
 
 			<button class="btn-orange basket-add"
-              data-basket-product-price="100"
-              data-basket-product-id="prod1"
-              data-basket-product-name="Hendrix Sample Mix jclkjcljc zlkcjzlkcj zlxck">ADD TO CART</button>
-			  
+              data-basket-product-price="<%= @product.new_price %>"
+              data-basket-product-id="<%= @product.id %>"
+              data-basket-product-name="<%= @product.title %>">ADD TO CART</button>
 		</div>
 	</div>
 
