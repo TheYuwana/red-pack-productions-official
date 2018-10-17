@@ -15,4 +15,15 @@ defmodule RedPackProductionsWeb.Utils do
 		end
 	end
 
+	def parse_slug(title) do
+		title
+		|> String.normalize(:nfd)
+		|> String.downcase()
+		|> String.replace(~r/&amp;/, "")
+		|> String.replace(~r/&nbsp;/, " ")
+		|> String.replace(~r/[^a-z-0-9\s]/u, "") 
+		|> String.replace(~r/\s/, "-")
+		|> String.replace(~r/--/, "-")
+	end
+
 end

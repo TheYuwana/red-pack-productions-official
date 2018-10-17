@@ -16,7 +16,6 @@ defmodule RedPackProductionsWeb.ApiController do
     blogPostOptions = %{"content_type": "blogPost", "order": "sys.createdAt"}
     CachedContentful.Api.customEntrySearch("ordered_blogposts", blogPostOptions, true, get_session(conn, :locale))
 
-    RedPackProductions.EtsHelper.clear_all_cache()
     CachedContentful.Api.updateAssets()
     CachedContentful.Api.updateEntries()
     conn

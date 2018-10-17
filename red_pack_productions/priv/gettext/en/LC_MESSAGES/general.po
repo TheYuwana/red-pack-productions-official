@@ -52,8 +52,8 @@ msgstr "RECORDINGS"
 msgid "navigation-samples"
 msgstr "SAMPLES"
 
-msgid "navigation-instruments"
-msgstr "REFURBISHED INSTRUMENTS"
+msgid "navigation-shop"
+msgstr "SHOP"
 
 msgid "navigation-contact"
 msgstr "CONTACT"

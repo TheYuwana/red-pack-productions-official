@@ -13,17 +13,37 @@ defmodule RedPackProductionsWeb.ShopController do
     products = Enum.map(CachedContentful.Api.getEntriesByType("products", get_session(conn, :locale)), fn(product) ->
       photo = CachedContentful.Api.getAssetById(product["fields"]["photo"]["sys"]["id"])["fields"]
       sample_link = CachedContentful.Api.getAssetById(product["fields"]["sampleLink"]["sys"]["id"])["fields"]
+      
+      category =  if product["fields"]["category"] == nil do
+        ""
+      else
+        product["fields"]["category"]
+      end
+
+
       %{
+        id: product["id"],
         title: product["fields"]["title"],
-        subtitle: product["fields"]["subtitle"],
+        category: product["fields"]["category"],
+        category_class: Utils.parse_slug(category),
         slug: product["fields"]["slug"],
         old_price: product["fields"]["oldPrice"],
         new_price: product["fields"]["newPrice"],
         description: product["fields"]["description"],
-        sample_link: sample_link["file"]["url"],
+        sample_link: "https:" <> sample_link["file"]["url"],
         photo: photo["file"]["url"]
       }
-    end) 
+    end)
+
+    categories = Enum.map(products, fn p -> 
+      %{
+        category: p.category,
+        category_class: p.category_class,
+      }
+    end)
+    |> Enum.uniq()
+
+    IO.inspect categories
 
   	conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -36,38 +56,32 @@ defmodule RedPackProductionsWeb.ShopController do
   # ==================================
   def show(conn, %{"slug" => slug}) do
     
-    # # Get all products
-    # products = CachedContentful.Api.getEntriesByType("products", get_session(conn, :locale))
+    # Get all products
+    products = CachedContentful.Api.getEntriesByType("products", get_session(conn, :locale))
+    selected_product = Enum.find(products, fn product -> slug == product["fields"]["slug"] end)
+    photo = CachedContentful.Api.getAssetById(selected_product["fields"]["photo"]["sys"]["id"])["fields"]
+    sample_link = CachedContentful.Api.getAssetById(selected_product["fields"]["sampleLink"]["sys"]["id"])["fields"]
 
-    # # Get product by slug
-    # product = Enum.map(products, fn(product) -> 
-    #   if slug == product["fields"]["slug"] do
-    #     photo = CachedContentful.Api.getAssetById(product["fields"]["photo"]["sys"]["id"])["fields"]
-    #     sample_link = CachedContentful.Api.getAssetById(product["fields"]["sampleLink"]["sys"]["id"])["fields"]
-    #     %{
-    #       title: product["fields"]["title"],
-    #       subtitle: product["fields"]["subtitle"],
-    #       slug: product["fields"]["slug"],
-    #       old_price: product["fields"]["oldPrice"],
-    #       new_price: product["fields"]["newPrice"],
-    #       description: product["fields"]["description"],
-    #       sample_link: sample_link["file"]["url"],
-    #       photo: photo["file"]["url"]
-    #     }
-    #   end
-    # end)
-    #   |> Enum.filter(fn(x) -> x != nil end)
-    #   |> Enum.fetch!(0)
+    # IO.inspect Enum.find(products, fn product -> slug == product["fields"]["slug"] end)
+    # Do a nil check for 404
+    product = %{
+      id: selected_product["id"],
+      title: selected_product["fields"]["title"],
+      category: selected_product["fields"]["category"],
+      slug: selected_product["fields"]["slug"],
+      old_price: selected_product["fields"]["oldPrice"],
+      new_price: selected_product["fields"]["newPrice"],
+      description: selected_product["fields"]["description"],
+      sample_link: "https:" <> sample_link["file"]["url"],
+      photo: photo["file"]["url"]
+    }
 
-    # conn
-    #   |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-    #   |> assign(:title, "Red Pack Productions - Shop - #{product.title}")
-    #   |> render("show.html", product: product)
+    IO.inspect product
 
     conn
-      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-      |> assign(:title, "Red Pack Productions - Shop - test")
-      |> render("show.html")
+    |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+    |> assign(:title, "Red Pack Productions - Shop - #{product.title}")
+    |> render("show.html", product: product)
   end
 
   # ==================================

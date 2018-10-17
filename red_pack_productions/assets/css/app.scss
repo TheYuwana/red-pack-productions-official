@@ -76,6 +76,7 @@ p, a{
 	}
 }
 
+
 .underconstruction-space{
 	margin: 100px 0px;
 }
@@ -266,7 +267,7 @@ p, a{
 		text-align: center;
 		z-index: 3;
 		background-color: white;
-		overflow: hidden;
+		// overflow: hidden;
 		
 		-webkit-box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
 		-moz-box-shadow: 0px 7px 28px 0px rgba(128,127,131,0.87);
@@ -296,6 +297,7 @@ p, a{
 		.navigation-item, .navigation-item-logo{
 			margin: 0px 10px;
 			display: inline-block;
+			position: relative;
 
 			a{
 				color: black;
@@ -357,6 +359,169 @@ p, a{
 	.header-open{
 		height: 350px;
 	}
+
+
+
+
+	/****************************************
+				Basket
+	 ****************************************/
+
+	 .basket-container{
+		position: absolute;
+		top: -27px;
+		right: -50px;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		background-color: black;
+		color: black;
+		padding: 15px;
+		transition: width 0.5s, height 0.5s, top 0.2s;
+		
+		.basket-icon{
+			color: white;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: green;
+			width: 20px;
+			height: 20px;
+			background: url(../images/svg/basket.svg);
+			background-repeat: no-repeat;
+		  
+		  &:hover{
+			color: red;
+			cursor: pointer;
+		  }
+		}
+		
+		.basket-count{
+		  width: 20px;
+		  height: 20px;
+		  z-index: 2;
+		  background-color: red;
+		  border-radius: 10px;
+		  text-align: center;
+		  position: absolute;
+		  top: -5px;
+		  right: -5px;
+		  
+		  p{
+			padding: 0px;
+			margin: 4px 0px 0px -2px;
+			color: white;
+			font-size: 0.7em;
+		  }
+		}
+		
+		.basket-content{
+		  
+		  opacity: 0;
+		  width: 0px;
+		  overflow: hidden;
+		  transition: opacity 0.2s;
+		  transition-delay: 0.4s;
+		  
+		  .basket-products{
+			border-top: 1px solid white;
+			border-bottom: 1px solid white;
+			height: 200px;
+			overflow-y: auto;
+	
+			ul{
+			  list-style-type: none;
+			  margin: 0px;
+			  padding: 0px;
+			  li{
+	
+				width: 100%;
+				padding: 10px 0px;
+				
+				input{
+				  margin-right: 5px;
+				  width: 50px;
+				  height: 20px;
+				  background: black;
+				  border: none;
+				}
+				
+				.remove-product{
+				//   color: red;
+					margin-right: 5px;
+					margin-top: 5px;
+					width: 12px;
+					height: 12px;
+					background: url(../images/svg/cross.svg);
+					background-repeat: no-repeat; 
+					position: absolute;
+					left: 15px;
+					display: none;
+
+				//   &:hover{
+				// 	color: orange;
+				// 	cursor: pointer;
+				//   }
+				}
+	
+				.amount{
+				  float: right;
+				  margin-right: 5px;
+				}
+			  }
+			}
+		  }
+		  
+		  .basket-total-amount{
+			margin-top: 5px;
+			float: right;
+		  }
+	
+		  .basket-total{
+			margin-top: 5px;
+			float: left;
+		  }
+		  
+		  .basket-checkout{
+			background-color: red;
+			color: white;
+			border: 0px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			float: right;
+	
+			&:hover{
+			  background-color: orange;
+			  cursor: pointer;
+			}
+		  }
+		}
+	  }
+
+	
+	.open-basket{
+		width: 350px;
+		height: 360px;
+		color: white;
+		
+		.basket-content{
+		opacity: 1;
+		width: 100%;
+		}
+
+		.remove-product {
+			display: block !important;
+		}
+	}
+
+	.basket-add {
+		margin-top: 20px;
+	}
+
+	
+	 
+
+	
 
 	/****************************************
 			Content Introduction
@@ -1115,16 +1280,62 @@ p, a{
 		}
 	}
 
+
 	/****************************************
 				Shop Page
- 	****************************************/
+	 ****************************************/
+	 
+	.product-filter {
+		 span {
+			font-size: 1.2em;
+			margin-bottom: 0px;
+			font-weight: bold;
+			text-transform: uppercase;
+			display: block;
+			height: 70px;
+			position: absolute;
+			line-height: 70px;
+			margin-left: 20px;
+		}
+
+		.styled-select {
+			background: url(../images/svg/arrow-down.svg);
+			background-position: top 5px right 0px;
+			background-repeat: no-repeat;
+			background-color: #FFF;
+			height: 50px;
+			overflow: hidden;
+			font-family: 'museo300';
+			padding-left: 6px;
+			width: 50%;
+			margin: 10px auto;
+			top: 10px;
+			position: relative;
+
+			select {
+				background: transparent;
+				border: none;
+				font-size: 16px;
+				height: 50px;
+				padding: 0;
+				width: calc(100% + 20px);
+				-webkit-appearance: none;
+				font-size: 1.2em;
+				font-family: 'Open Sans', sans-serif;
+				text-transform: uppercase;
+				font-weight: bold;
+				outline: none;
+			}
+		}
+	}
 
  	.product-container{
 
  		background-color: $gray;
  		width: 100%;
  		position: relative;
- 		text-align: center;
+		text-align: center;
+		margin-top: -10px;
 
  		a{
 			font-size: 1em;
@@ -1148,15 +1359,15 @@ p, a{
 			top: 0;
 		}
  		.product-items{
-			max-width: 960px;
+			max-width: 980px;
 			margin: 0px auto 0px auto;
 			text-align: center;
 			position: relative;
 			
 			.product-item{
-				width: 225px;
+				width: calc(25% - 20px);
 				display: inline-block;
-				margin: 0px 20px 30px 0px;
+				margin: 0px 10px 30px 10px;
 				text-align: center;
 				background-color: white;
 				float: left;
@@ -1197,9 +1408,9 @@ p, a{
 				.product-btw{
 
 				}
-				&:nth-child(4n) {
-					margin-right: 0;
-				}
+				// &:nth-child(4n) {
+				// 	margin-right: 0;
+				// }
 
 			}
 			
@@ -1208,9 +1419,9 @@ p, a{
 		// SHOP DETAIL
 		.big-product {
 			height: 480px;
-			margin-bottom: 20px;
 			position: relative;
 			background: #FFF;
+			margin: 0 10px 20px 10px;
 
 			.big-image {
 				display: inline-block;
@@ -1262,7 +1473,7 @@ p, a{
 				}
 
 				audio {
-					width: 380px;
+					width: 100%;
 					margin-top: 20px;
 				}
 

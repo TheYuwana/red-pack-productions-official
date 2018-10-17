@@ -226,76 +226,109 @@ function process_get_request(url, callback){
 
 
 
+// FILTER SELECTOR
+
+$(function() {
+	$('select').change(function() {
+  	var _this = $(this);
+  	if ( _this.val() == 0 )
+        $('.product-item').css("opacity","1").css("display", "inline");
+ 
+    else {
+    	$('.product-item').hide();
+    	$('.product-item.' + _this.val()).css("display","inline").css("opacity","1");
+    }
+  });
+});
 
 // SHOPPING BASKET
 $(document).ready(function(){
-
-  $(".button").on("click", function() {
-
-      var $button = $(this);
-      var oldValue = $button.parent().find("input").val();
-    
-      if ($button.text() == "+") {
-          var newVal = parseFloat(oldValue) + 1;
-        } else {
-      // Don't allow decrementing below zero
-        if (oldValue > 0) {
-          var newVal = parseFloat(oldValue) - 1;
-        } else {
-          newVal = 0;
-        }
-      }
-    
-      $button.parent().find("input").val(newVal);
-    
-    });
-
-
-    // Add number to shopping bag
-  $(".add-to-cart").on("click", function() {
-    var num = parseInt($('.cart-items').text());
-    $('.cart-items').text(num+1);
-
-  });
-
-
-  $(".my-bag").on("click", function() {
-    $(".cart-container").toggleClass("open");
-  });
-
-  sb_set_basket_events();  
-  sb_sum_total();
+  sb_set_basket_events();
 });
-
-
 
 function sb_set_basket_events(){
 
- $(".add-to-cart").click(function(){
-  sb_add_to_basket($(this));
- });
-
+  // Set Icon open and close
+  $(".basket-icon").click(function(){
+		$(this).parent().toggleClass("open-basket");
+  });
+  
+  // Set add to basket events
+  $(".basket-add").click(function(){
+   sb_add_to_basket(
+    $(this).data("basket-product-id"),
+    $(this).data("basket-product-name"),
+    $(this).data("basket-product-price")
+   ); 
+  });
+  
+  // Set remove product from basket
+  $(".remove-product").click(function(){
+    sb_remove_from_basket($(this));
+  });
+  
+  // Set on change for prouct amounts
+  $(".basket-products input").change(function(){
+    sb_sum_total();
+  });
+	
 }
 
+function sb_add_to_basket(pid, name, price){
+  if(sb_product_not_exist(pid)){
+    var shortName = name;
+    if(name.length > 20){
+      shortName = name.substring(25, 0) + "...";
+    }
+    $(".basket-products ul").append(
+      $("<li>").append(
+        $("<span>", {"class": "remove-product"}).click(function(){
+          sb_remove_from_basket($(this));
+        }),
+        $("<input>", {"type": "number", "min": "1"}).val(1).change(function(){
+          sb_sum_total();
+        }),
+        shortName,
+        $("<span>", {"class": "amount"}).text("\u20AC " + price)
+      ).data("price", price).data("pid", pid)
+    );
+  }
+  sb_sum_total();
+  sb_update_basket_amount();
+}
 
-function sb_add_to_basket(e){
+function sb_product_not_exist(pid){
+  var notFound = true;
+  $(".basket-products ul").find("li").each(function(){
+    if($(this).data("pid") == pid){
+      var val = Number($(this).find("input").val()) + 1;
+      $(this).find("input").val(val);
+      notFound = false;
+      return false;
+    }else{
+      notFound = true;
+    }
+  });
+  return notFound;
+}
 
-  $(".cart-body ul").append(
-    "<li>" + "<span>" + $(e).data("product-name") + "</span>" +
-    "<span>" + "€ " + $(e).data("product-price") + "</span>" + 
-    '<input type="number" value="1">' +
-    '<span class="basket-total-amount">' + "€ " + "TOTAL" + "</span>" + 
-    "<span>" + "X" + "</span>" + "</li>"); 
-
+function sb_remove_from_basket(product){
+  $(product).parent().remove();
+  sb_sum_total();
+  sb_update_basket_amount();
 }
 
 function sb_sum_total(){
   var total = 0;
-  $(".cart-body ul").find("li").each(function(){
+  $(".basket-products ul").find("li").each(function(){
     var amount = Number($(this).find("input").val());
     total = total + (amount * Number($(this).data("price")));
   });
   $(".basket-total-amount").text("\u20AC " + total);
-
-  console.log(sb_sum_total);
 }
+
+function sb_update_basket_amount(){
+  $(".basket-count p").text($(".basket-products ul").find("li").length);
+}
+
+
