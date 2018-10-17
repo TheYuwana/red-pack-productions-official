@@ -7,12 +7,13 @@
 			height: 63px;
 			position: fixed;
 			overflow: hidden;
+			max-width: 100vw;
 
 			
 				.bag {
 					position: absolute;
-					top: 0; 
-					right: 0;
+					top: 10px;
+					right: 50px;
 				}
 				.basket-container {
 					top: 0;
@@ -22,8 +23,11 @@
 
 		}
 	}
+	main {
+		margin-top: 60px;
+	}
 	.content-introduction{
-		padding-top: 80px;
+		padding-top: 20px;
 	}
 
 	.shop-samples-container{
@@ -86,9 +90,18 @@
 	 
 	 .container {
 		.product-container {
+
+			.big-product {
+				.big-image {
+					width: 100%;
+				}
+				.item-description {
+					width: 100%;
+				}
+			}
 			.product-items {
 				.product-item {
-					width: calc(100% - 20px);
+					width: calc(50% - 20px);
 				}
 			}
 		}
@@ -115,9 +128,11 @@
 	Extra Small Devices, Phones
  ****************************************/
 @media only screen and (min-width : 480px) {
-	header{ 
-		height: 63px;
-		position: fixed;
+	.container {
+		header{ 
+			height: 63px;
+			position: fixed;
+		}
 	}
 	.content-introduction{
 		padding-top: 80px;
@@ -164,7 +179,6 @@
 	.front-google-maps-infobox{
 		position: relative;
 		top: 0px;
-		left: 50px;
 		padding: 30px 30px 55px 30px;
 	}
 	#front-maps{ display: none; }
@@ -186,6 +200,15 @@
 	  
 	 .container {
 		.product-container {
+
+			.big-product {
+				.big-image {
+					width: 50%;
+				}
+				.item-description {
+					width: 50%;
+				}
+			}
 			.product-items {
 				.product-item {
 					width: calc(50% - 20px);
@@ -214,9 +237,11 @@
 		Small Devices, Tablets
  ****************************************/
 @media only screen and (min-width : 768px) {
-	header{ 
-		height: 63px;
-		position: fixed;
+	.container {
+		header{ 
+			height: 63px;
+			position: fixed;
+		}
 	}
 	.content-introduction{
 		padding-top: 80px;
@@ -309,10 +334,22 @@
 		Medium Devices, Desktops
  ****************************************/
 @media only screen and (min-width : 992px) {
-	header{ 
-		height: 105px;
-		position: relative;
-		overflow: visible;
+	.container {
+		header{ 
+			height: 105px;
+			position: relative;
+			overflow: visible;
+
+			.bag {
+				position: absolute;
+				top: 25px;
+				margin-left: 50px;
+				right: auto;
+			}
+		}
+	}
+	main {
+		margin-top: 0;
 	}
 	.content-introduction{
 		padding-top: 45px;
@@ -404,9 +441,19 @@
 		Large Devices, Wide Screens
  ****************************************/
 @media only screen and (min-width : 1200px) {
-	header{ 
-		height: 105px;
-		position: relative;
+	.container {
+		header{ 
+			height: 105px;
+			position: relative;
+			overflow: visible;
+
+			// .bag {
+			// 	position: absolute;
+			// 	top: 25px;
+			// 	margin-left: 50px;
+			// 	right: auto;
+			// }
+		}
 	}
 	.content-introduction{
 		padding-top: 45px;
