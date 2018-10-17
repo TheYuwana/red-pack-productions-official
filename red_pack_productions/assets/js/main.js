@@ -5,6 +5,10 @@ var shareButton = {};
 
 $(document).ready(function(){
 
+	// SHOPPING BASKET
+	sb_set_basket_events();
+
+	// Hamburger Icon
 	$('#hamburger-icon').click(function(){
 		$(this).toggleClass('open');
 		$("header").toggleClass('header-open');
@@ -151,6 +155,18 @@ $(document).ready(function(){
         }
 	});
 
+	// FILTER SELECTOR
+	$('select').change(function() {
+		var _this = $(this);
+		if ( _this.val() == 0 )
+	    	$('.product-item').css("opacity","1").css("display", "inline");
+
+		else {
+			$('.product-item').hide();
+			$('.product-item.' + _this.val()).css("display","inline").css("opacity","1");
+		}
+	});
+
 });
 
 function initMap() {
@@ -221,30 +237,6 @@ function process_get_request(url, callback){
 	  }
 	});
 }
-
-
-
-
-
-// FILTER SELECTOR
-
-$(function() {
-	$('select').change(function() {
-  	var _this = $(this);
-  	if ( _this.val() == 0 )
-        $('.product-item').css("opacity","1").css("display", "inline");
- 
-    else {
-    	$('.product-item').hide();
-    	$('.product-item.' + _this.val()).css("display","inline").css("opacity","1");
-    }
-  });
-});
-
-// SHOPPING BASKET
-$(document).ready(function(){
-  sb_set_basket_events();
-});
 
 function sb_set_basket_events(){
 
@@ -331,4 +323,32 @@ function sb_update_basket_amount(){
   $(".basket-count p").text($(".basket-products ul").find("li").length);
 }
 
+// Ajax request handlers
+function process_post(url, data, callback){
+	$.ajax({
+      url: url,
+      type: 'POST',
+      data: data,
+      fail: function(response) {
+        callback(response);
+      },
+      success: function(response){
+        callback(response);
+      }
+    });
+}
+
+function process_get(url, callback){
+	$.ajax({
+      url: url,
+      type: 'POST',
+      data: data,
+      fail: function(response) {
+        callback(response);
+      },
+      success: function(response){
+        callback(response);
+      }
+    });
+}
 
