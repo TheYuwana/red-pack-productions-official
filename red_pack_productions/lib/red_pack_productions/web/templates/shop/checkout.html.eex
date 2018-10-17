@@ -1,3 +1,15 @@
-<h1>Checkout Page</h1>
+<div class="shop-container">
+    <div class="product-checkout">
 
-<a href="<%= @checkout_url %>">Checkout now</a>
+    <h1>Checkout Page</h1>
+
+    <div class="product-item">
+        <p class="product-subtitle">Exclusuve drum samples</p>
+        <h2>Hendrix sample mix</h2>
+        <p class="product-price"><span class="real-price">&euro;50</span></p>
+    </div>
+
+    <a href="<%= @checkout_url %>" class="btn-orange">Checkout now</a>
+
+    </div>
+</div>
