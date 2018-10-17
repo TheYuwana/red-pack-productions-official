@@ -50,10 +50,12 @@
 
 	<%= for _ <- 1..4 do %>
 		<div class="product-item">
-	      <img src="http://images.contentful.com/6t670ovmra8o/6hdmtCx1deKy2iEOWMM6w0/a2c70866e28e179a533aec97de7b4deb/Ludwig_Supraphonic_Black_Beauty_Snare.jpg">
-	      <p class="product-subtitle">Exclusuve drum samples</p>
+			<div class="image-container">		
+	      		<img src="http://images.contentful.com/6t670ovmra8o/6hdmtCx1deKy2iEOWMM6w0/a2c70866e28e179a533aec97de7b4deb/Ludwig_Supraphonic_Black_Beauty_Snare.jpg">
+	      	</div>
+		  <p class="product-subtitle">Exclusuve drum samples</p>
 	      <h2>Hendrix sample mix</h2>
-	      <p class="product-price">&euro;900 <span class="real-price">&euro;50</span></p>
+	      <p class="product-price">&euro;900 <span>&nbsp;</span><span class="real-price">&euro;50</span></p>
 	      <a href="/shop/product/test" class="btn-orange">SPEC &amp; LISTEN</a>
 	    </div>
 	<% end %>

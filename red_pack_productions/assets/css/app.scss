@@ -63,6 +63,7 @@ p, a{
 	border-radius: 5px;
 	cursor: pointer;
 	text-transform: uppercase;
+	font-weight: bold;
 
 	&:hover{
 		color: white;
@@ -471,6 +472,7 @@ p, a{
 					position: absolute;
 					left: 15px;
 					display: none;
+					cursor: pointer;
 
 				//   &:hover{
 				// 	color: orange;
@@ -1385,17 +1387,26 @@ p, a{
 				text-align: center;
 				background-color: white;
 				float: left;
-
-				img{
-					width: calc(100% - 40px);
-					margin-top: 20px;					
+				
+				.image-container {
+					height: 185px;
+					width: 100%;
+					margin-top: 20px;
+				
+					img{
+						max-width: calc(100% - 40px);
+						max-height: 184px;			
+					}
 				}
 
 				h2{
-					font-size: 1.9rem;
-					padding: 0px 5px;
+					font-size: 1.75rem;
+					padding: 0px 20px;
 					font-family: 'Open Sans', sans-serif;
 					text-transform: uppercase;
+					font-weight: bold;
+					min-height: 80px;
+    				max-height: 80px;
 				}
 
 				.product-subtitle{
@@ -1411,6 +1422,10 @@ p, a{
 					margin-bottom: 0px;
 					font-weight: bold; 
 					text-decoration: line-through;
+
+					span {
+						display: inline-block;
+					}
 				}
 
 				.real-price{
@@ -1498,7 +1513,34 @@ p, a{
 			}
 		}
 
- 	}
+	 }
+	 
+	/****************************************
+				Shop Checkout page
+ 	****************************************/
+
+	 .shop-container {
+		background-color: #ebebeb;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		margin-top: -20px;
+		min-height: calc(100vh - 240px);
+
+
+		.product-checkout {
+			background-color: #FFF;
+			max-width: 960px;
+			margin: 20px auto;
+			text-align: left;
+			position: relative;
+			padding: 30px 50px;
+			top: 40px;
+		}
+	}
+
+
+
 
  	/****************************************
 				Contact page

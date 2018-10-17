@@ -51,10 +51,12 @@
 
     <%= for product <- @products do %>
     <div class="product-item drum-sample">
-      <img src="<%= product.photo %>">
+      <div class="image-container">
+            <img src="<%= product.photo %>">
+      </div>
       <p class="product-subtitle"><%= product.category %></p>
       <h2><%= product.title %></h2>
-      <p class="product-price">&euro; <%= product.old_price %><span class="real-price">&euro; <%= product.new_price %></span></p>
+      <p class="product-price">&euro;<%= product.old_price %><span>&nbsp;&nbsp;</span><span class="real-price">&euro;<%= product.new_price %></span></p>
       <a href="/shop/product/<%= product.slug %>" class="btn-orange">Details</a>
       <input type="hidden" value="<%= product.id %>" />
     </div>
