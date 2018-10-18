@@ -9,14 +9,17 @@ defmodule RedPackProductions.Mollie do
 		send_request("/payments/#{id}")
 	end
 
-	def create_payment_request() do
+	def create_payment_request(total_price, items) do
 		body = %{
 			amount: %{
-					currency: "EUR",
-					value: "100.00"
-				},
-			description: "someproductid",
-			redirectUrl: @redirect_url # show ordered product or succesfull page
+				currency: "EUR",
+				value: "#{total_price}"
+			},
+			description: "Red Pack Productions Samples",
+			redirectUrl: @redirect_url, # show ordered product or succesfull page
+			metadata: %{
+				products: items
+			}
 			# webhookUrl: @webhook_url # Where the payment status is sent to
 		}
 		post_request("/payments", body)

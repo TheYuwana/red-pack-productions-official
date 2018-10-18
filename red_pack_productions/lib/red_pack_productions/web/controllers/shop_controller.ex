@@ -20,7 +20,6 @@ defmodule RedPackProductionsWeb.ShopController do
         product["fields"]["category"]
       end
 
-
       %{
         id: product["id"],
         title: product["fields"]["title"],
@@ -73,17 +72,46 @@ defmodule RedPackProductionsWeb.ShopController do
       photo: photo["file"]["url"]
     }
 
+    suggestions = products
+    |> Enum.reject(fn p -> p["id"] == product.id end)
+    |> Enum.take_random(4)
+    |> Enum.map(fn p -> 
+      photo = CachedContentful.Api.getAssetById(p["fields"]["photo"]["sys"]["id"])["fields"]
+      sample_link = CachedContentful.Api.getAssetById(p["fields"]["sampleLink"]["sys"]["id"])["fields"]
+      category =  if p["fields"]["category"] == nil do
+        ""
+      else
+        p["fields"]["category"]
+      end
+      %{
+        id: p["id"],
+        title: p["fields"]["title"],
+        category: p["fields"]["category"],
+        category_class: Utils.parse_slug(category),
+        slug: p["fields"]["slug"],
+        old_price: p["fields"]["oldPrice"],
+        new_price: p["fields"]["newPrice"],
+        description: p["fields"]["description"],
+        sample_link: "https:" <> sample_link["file"]["url"],
+        photo: photo["file"]["url"]
+      }
+    end)
+
     conn
     |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
     |> assign(:title, "Red Pack Productions - Shop - #{product.title}")
-    |> render("show.html", product: product)
+    |> render("show.html", product: product, suggestions: suggestions)
   end
 
   # ==================================
   #         Checkout process
   # ==================================
   def checkout_page(conn, _) do
-    case Mollie.create_payment_request() do
+
+    products = conn.assigns.basket
+    total_price = Enum.reduce(products, 0, fn p, acc -> acc + p.price end)
+
+    case Mollie.create_payment_request(total_price, products) do
       {:ok, payment_request} ->
 
         checkout_url = payment_request["_links"]["checkout"]["href"]
@@ -93,7 +121,7 @@ defmodule RedPackProductionsWeb.ShopController do
         |> put_session(:payment_id, payment_id)
         |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
         |> assign(:title, "Red Pack Productions - Shop - payment result")
-        |> render("checkout.html", checkout_url: checkout_url)
+        |> render("checkout.html", checkout_url: checkout_url, total_price: total_price)
 
       {:error, _error} ->
         conn
@@ -101,6 +129,22 @@ defmodule RedPackProductionsWeb.ShopController do
         |> assign(:title, "Red Pack Productions - Shop - error")
         |> render("error.html")
     end
+  end
+
+  # ==================================
+  #         Payment loading
+  # ==================================
+  def process_checkout(conn, %{"contact" => contact}) do
+
+    # Create new order on Contentful
+    # Get order id and create new mollie payment request
+    # If all success, then redirect to mollie checkout
+    # If fail, then redirect to wbe checkout and show errors 
+
+    conn
+    |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+    |> assign(:title, "Red Pack Productions - Shop - payment result")
+    |> render("payment_loading.html")
   end
 
   # ==================================
