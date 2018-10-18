@@ -18,9 +18,23 @@
 </div>
 <!-- Packages -->
 <div class="product-container">
-  <div class="product-navigation">
-    Product navigation
+  <div class="product-filter product-navigation">
+    <a href="/shop"><span>Back</span></a>
   </div>
+<%# 
+  <div class="product-filter">
+    <span>Back</span>
+
+		<div class="styled-select">
+		<select id="selector">
+			<option selected="" disabled="">Sample Type</option>
+			<option value="drum-sample">Exclusive Drum Sample</option>
+			<option value="massive-sample">Exclusive Massive Sample</option>
+			<option value="field-record">Exclusive Field Record</option>
+			<option value="0">All Samples</option>
+		</select>
+		</div>
+	</div> %>
 
   <div class="product-items">
 	<div class="big-product">

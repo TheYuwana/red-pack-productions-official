@@ -1300,47 +1300,54 @@ p, a{
 	/****************************************
 				Shop Page
 	 ****************************************/
-	 
-	.product-filter {
-		 span {
-			font-size: 1.2em;
-			margin-bottom: 0px;
-			font-weight: bold;
-			text-transform: uppercase;
-			display: block;
-			height: 70px;
-			position: absolute;
-			line-height: 70px;
-			margin-left: 20px;
-		}
-
-		.styled-select {
-			background: url(../images/svg/arrow-down.svg);
-			background-position: top 5px right 0px;
-			background-repeat: no-repeat;
-			background-color: #FFF;
-			height: 50px;
-			overflow: hidden;
-			font-family: 'museo300';
-			padding-left: 6px;
-			width: 50%;
-			margin: 10px auto;
-			top: 10px;
-			position: relative;
-
-			select {
-				background: transparent;
-				border: none;
-				font-size: 16px;
-				height: 50px;
-				padding: 0;
-				width: calc(100% + 20px);
-				-webkit-appearance: none;
+	.product-container{
+		.product-filter {
+			a {
+				font-size: 1em;
+				margin: 0px;
+				display: block;
+				color: $black;
+			}
+			span {
 				font-size: 1.2em;
-				font-family: 'Open Sans', sans-serif;
-				text-transform: uppercase;
+				margin-bottom: 0px;
 				font-weight: bold;
-				outline: none;
+				text-transform: uppercase;
+				display: block;
+				height: 70px;
+				position: absolute;
+				line-height: 70px;
+				margin-left: 20px;
+			}
+
+			.styled-select {
+				background: url(../images/svg/arrow-down.svg);
+				background-position: top 5px right 0px;
+				background-repeat: no-repeat;
+				background-color: #FFF;
+				height: 50px;
+				overflow: hidden;
+				font-family: 'museo300';
+				padding-left: 6px;
+				width: 50%;
+				margin: 10px auto;
+				top: 10px;
+				position: relative;
+
+				select {
+					background: transparent;
+					border: none;
+					font-size: 16px;
+					height: 50px;
+					padding: 0;
+					width: calc(100% + 20px);
+					-webkit-appearance: none;
+					font-size: 1.2em;
+					font-family: 'Open Sans', sans-serif;
+					text-transform: uppercase;
+					font-weight: bold;
+					outline: none;
+				}
 			}
 		}
 	}
@@ -1525,7 +1532,7 @@ p, a{
 		position: relative;
 		text-align: center;
 		margin-top: -20px;
-		min-height: calc(100vh - 240px);
+		padding-bottom: 60px;
 
 
 		.product-checkout {
@@ -1536,6 +1543,8 @@ p, a{
 			position: relative;
 			padding: 30px 50px;
 			top: 40px;
+
+			
 		}
 	}
 
