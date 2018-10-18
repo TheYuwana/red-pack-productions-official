@@ -421,6 +421,21 @@
 		}
 	 }   
 
+	 .shop-container {
+	
+		.product-checkout {
+			.order-md-1 {
+				.payment-checkout-container {
+					margin-top: 50px;
+					float: right;
+				}
+			}
+			.order-md-2 {
+				float: right;
+			}
+		}
+	}
+
  	/* Footer */
  	.big-footer{
  		text-align: left;
@@ -436,6 +451,8 @@
  		}
  	}
 }
+
+
 
 /****************************************
 		Large Devices, Wide Screens

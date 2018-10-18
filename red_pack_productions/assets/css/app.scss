@@ -1525,7 +1525,7 @@ p, a{
 		position: relative;
 		text-align: center;
 		margin-top: -20px;
-		min-height: calc(100vh - 240px);
+		padding-bottom: 60px;
 
 
 		.product-checkout {
@@ -1536,6 +1536,8 @@ p, a{
 			position: relative;
 			padding: 30px 50px;
 			top: 40px;
+
+			
 		}
 	}
 
