@@ -27,6 +27,12 @@ msgstr "Contact information"
 msgid "package-form-contact-name"
 msgstr "Name"
 
+msgid "package-form-contact-first-name"
+msgstr "First Name"
+
+msgid "package-form-contact-last-name"
+msgstr "Last Name"
+
 msgid "package-form-contact-phone"
 msgstr "Phone number"
 

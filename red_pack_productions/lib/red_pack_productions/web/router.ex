@@ -40,6 +40,7 @@ defmodule RedPackProductionsWeb.Router do
     get "/", ShopController, :index
     get "/product/:slug", ShopController, :show
     get "/checkout", ShopController, :checkout_page
+    post "/checkout", ShopController, :process_checkout
     get "/payment-loading", ShopController, :payment_loading_page
     get "/payment-result", ShopController, :payment_result_page
 
