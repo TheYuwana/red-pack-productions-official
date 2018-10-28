@@ -1,5 +1,11 @@
-<h1>Payment loading page</h1>
+<div class="shop-container">
+    <div class="product-checkout">
+    
+        <h1>Payment loading page</h1>
 
-<p>Page is loading for 2 seconds with javascript, then redirect to payment result</p>
+        <p>Page is loading for 2 seconds with javascript, then redirect to payment result</p>
 
-<a href="/shop/payment-result">GO to payment result page</a>
+        <a href="/shop/payment-result">GO to payment result page</a>
+
+    </div>
+</div>

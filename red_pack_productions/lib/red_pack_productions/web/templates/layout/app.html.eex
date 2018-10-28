@@ -59,9 +59,11 @@
         </div>
       </div>
       
-      <img src="/images/rp_logo.png" class="header-logo-mobile hidden-md hidden-lg">
+     
 
       <header class="header">
+
+       <img src="/images/rp_logo.png" class="header-logo-mobile hidden-md hidden-lg">
 
         <!-- MOBILE NAVIGATION -->
         <div class="navigation-item-mobile hidden-md hidden-lg">

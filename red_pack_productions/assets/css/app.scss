@@ -272,7 +272,6 @@ p, a{
 		position: fixed;
 		top: 15px;
 		left: 15px;
-		z-index: 11;
 	}
 
 	header{
@@ -295,6 +294,12 @@ p, a{
 		.navigation-item-mobile{
 			width: 100%;
 			margin: 15px 0px;
+			display: none;
+			
+
+			&:first-of-type {
+				margin-top: 20vh;
+			}
 			a{
 				color: black;
 			}
@@ -303,9 +308,7 @@ p, a{
 				color: $lightRed;
 			}
 
-			&:first-child{
-				margin-top: 75px;
-			}
+
 		}
 
 		.navigation-item, .navigation-item-logo{
@@ -373,6 +376,10 @@ p, a{
 	.header-open{
 		height: 100vh;
 		overflow: auto;
+
+		.navigation-item-mobile{
+			display: block;
+		}
 	}
 
 
@@ -497,7 +504,14 @@ p, a{
 			margin-top: 5px;
 			float: left;
 		  }
-		  
+		  .basket-clear {
+			background-color: #FFF;
+			color: #000;
+			border: 0px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			float: left;
+		  }
 		  .basket-checkout{
 			background-color: red;
 			color: white;
@@ -516,7 +530,8 @@ p, a{
 
 	
 	.open-basket{
-		width: 350px;
+		width: calc(100vw - 70px);
+		max-width: 350px;
 		height: 360px;
 		color: white;
 		
@@ -1533,6 +1548,7 @@ p, a{
 		text-align: center;
 		margin-top: -20px;
 		padding-bottom: 60px;
+		min-height: calc(100vh - 180px);
 
 
 		.product-checkout {
@@ -1543,6 +1559,7 @@ p, a{
 			position: relative;
 			padding: 30px 50px;
 			top: 40px;
+			min-height: 50vh;
 
 			
 		}

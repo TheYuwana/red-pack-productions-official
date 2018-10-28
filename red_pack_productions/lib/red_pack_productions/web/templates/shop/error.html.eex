@@ -1,1 +1,9 @@
-<h1>Erro page - Somethign went wrong went creating a new payment</h1>
+<div class="shop-container">
+    <div class="product-checkout">
+
+    <h1>Oh no!</h1>
+    <p>Something went wrong</p>
+ 
+
+    </div>
+</div>

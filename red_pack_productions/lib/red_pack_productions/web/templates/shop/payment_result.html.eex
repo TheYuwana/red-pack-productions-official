@@ -1,5 +1,10 @@
-<h1>Payment result</h1>
+<div class="shop-container">
+    <div class="product-checkout">
+        <h1>Payment result</h1>
 
-<h2>Payment status: <%= @payment_status %></h2>
+        <h2>Payment status: <%= @payment_status %></h2>
 
-<p>In the backend, a mail is sent to the user and the owner</p>
+        <p>In the backend, a mail is sent to the user and the owner</p>
+        
+    </div>
+</div>

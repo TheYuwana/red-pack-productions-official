@@ -6,7 +6,7 @@
 		header{ 
 			height: 63px;
 			position: fixed;
-			overflow: hidden;
+			// overflow: hidden;
 			max-width: 100vw;
 
 			
@@ -22,6 +22,9 @@
 			
 
 		}
+		.open-basket {
+			width: 250px;
+		 }
 	}
 	main {
 		margin-top: 60px;
@@ -242,6 +245,9 @@
 			height: 63px;
 			position: fixed;
 		}
+		.open-basket {
+			width: 350px;
+		 }
 	}
 	.content-introduction{
 		padding-top: 80px;
@@ -347,6 +353,7 @@
 				right: auto;
 			}
 		}
+		
 	}
 	main {
 		margin-top: 0;
