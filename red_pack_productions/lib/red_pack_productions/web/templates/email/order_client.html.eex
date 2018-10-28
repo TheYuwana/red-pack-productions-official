@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<style>
+			table{
+				border-collapse: collapse;
+			}
+			table, td, th{
+				border: 1px solid black;
+			}
+			th{
+				text-align: left;
+			}
+			td, th{
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Your sample(s) has been ordered!</h1>
+		<p>Hi <%= "#{@order["fields"]["consumerFirstName"]["nl"]} #{@order["fields"]["consumerLastName"]["nl"]}" %>,</p>
+
+		<p>We have received your order and we will send you the samples as soon as possible! Please keep your order reference in case something goes wrong!</p>
+
+		<h3>Order information</h3>
+		<p>Order reference: <%= @order["fields"]["mollieId"]["nl"] %></p>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Price</th>
+			</tr>
+			<%= raw(parse_orders_client(@order)) %>
+			<tr>
+				<td>total</td>
+				<td><%= order_total(@order) %></td>
+			</tr>
+		</table>
+	</body>
+
+	<p>For any questions, feel free to call or send us an email!</p>
+
+	<p>Cheers, </p>
+
+	<p>Red Pack Productions</p>
+</html>

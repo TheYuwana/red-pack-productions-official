@@ -2,6 +2,7 @@
     <div class="product-checkout">
 
     <h1>Checkout</h1>
+    <%= form_for @changeset, shop_path(@conn, :process_checkout), [as: :contact], fn f -> %>
 
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
@@ -21,40 +22,40 @@
           <li class="list-group-item d-flex justify-content-between">
             <span>Total</span>
             <strong>&euro;<%= @total_price %></strong>
+            <%= hidden_input f, :total_price %>
           </li>
         </ul>
+        <div class="invalid-feedback error"><%= check_for_errors(@changeset, :total_price) %></div>
       </div>
       
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Contact information</h4>
-
-        <%= form_for @conn, shop_path(@conn, :process_checkout), [as: :contact], fn f -> %>
           <div class="row">
             <div class="col-md-6 mb-3">
               <%= label(f, :first_name, dgettext("packages", "package-form-contact-first-name")) %>
               <%= text_input f, :first_name, class: "form-control" %>
-              <div class="invalid-feedback"></div>
+              <div class="invalid-feedback error"><%= check_for_errors(@changeset, :first_name) %></div>
             </div>
             <div class="col-md-6 mb-3">
               <%= label(f, :last_name, dgettext("packages", "package-form-contact-last-name")) %>
               <%= text_input f, :last_name, class: "form-control" %>
-              <div class="invalid-feedback"></div>
+              <div class="invalid-feedback error"><%= check_for_errors(@changeset, :last_name) %></div>
             </div>
           </div>
           <br>
           <div class="mb-3">
             <%= label(f, :email, dgettext("packages", "package-form-contact-email")) %>
             <%= text_input f, :email, class: "form-control" %>
-            <div class="invalid-feedback"></div>
+            <div class="invalid-feedback error"><%= check_for_errors(@changeset, :email) %></div>
           </div>
           <hr class="mb-4">
           <div class="payment-checkout-container">
               <%= submit "Checkout now", class: "btn-orange" %>
           </div>
-        <% end %>
-
       </div>
     </div>
+
+    <% end %>
 
     </div>
 </div>

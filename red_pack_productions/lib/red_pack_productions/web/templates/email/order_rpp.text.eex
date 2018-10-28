@@ -1,0 +1,3 @@
+Samples has been ordered!
+Get more info on Contentful
+Mollie ID: <%= @order["fields"]["mollieId"]["nl"] %> /n

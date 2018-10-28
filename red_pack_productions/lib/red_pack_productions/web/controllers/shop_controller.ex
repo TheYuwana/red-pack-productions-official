@@ -5,6 +5,10 @@ defmodule RedPackProductionsWeb.ShopController do
   alias RedPackProductionsWeb.Utils
   alias RedPackProductions.ContentfulCms
   alias RedPackProductionsWeb.ApiController
+  alias RedPackProductions.Email
+  alias RedPackProductions.Mailer
+  alias RedPackProductionsWeb.Context
+  alias RedPackProductionsWeb.Order
 
   # ==================================
   #               Index
@@ -112,11 +116,12 @@ defmodule RedPackProductionsWeb.ShopController do
 
     products = conn.assigns.basket
     total_price = Enum.reduce(products, 0, fn p, acc -> acc + p.price end)
+    changeset = Context.change_order(%Order{})
 
     conn
     |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
     |> assign(:title, "Red Pack Productions - Shop - payment result")
-    |> render("checkout.html", total_price: total_price)
+    |> render("checkout.html", total_price: total_price, changeset: changeset)
   end
 
   # ==================================
@@ -136,6 +141,7 @@ defmodule RedPackProductionsWeb.ShopController do
     }
 
     with(
+      {:ok, :valid} <- Context.create_order(data),
       {:ok, order_data} <- ContentfulCms.create_order(data),
       {:ok, published_data} <- ContentfulCms.publish_order(order_data["sys"]["id"], order_data["sys"]["version"]),
       {:ok, payment_request} <- Mollie.create_payment_request(total_price, order_data["sys"]["id"]),
@@ -150,6 +156,14 @@ defmodule RedPackProductionsWeb.ShopController do
         |> put_session(:payment_id, payment_request["id"])
         |> redirect(external: checkout_url)
     else
+      {:error, changeset} ->
+        products = conn.assigns.basket
+        total_price = Enum.reduce(products, 0, fn p, acc -> acc + p.price end)
+
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - payment result")
+        |> render("checkout.html", total_price: total_price, changeset: changeset)
       {:error, _error} ->
         conn
         |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -172,22 +186,30 @@ defmodule RedPackProductionsWeb.ShopController do
   #         Payment result
   # ==================================
   def payment_result_page(conn, _) do
-    mollie_payment_id = get_session(conn, :payment_id)
     with(
+      mollie_payment_id when not is_nil(mollie_payment_id) <- get_session(conn, :payment_id),
       {:ok, mollie_payment} = Mollie.get_payment(mollie_payment_id),
       {:ok, order} = ContentfulCms.get_order(mollie_payment["metadata"]["order_id"]),
       {:ok, updated_order} <- ContentfulCms.update_order(
             mollie_payment["id"], 
             mollie_payment["metadata"]["order_id"], 
             mollie_payment["status"],
-            order)
+            order),
+      email <- Mailer.deliver_now(Email.order_confirmation(updated_order)),
+      email <- Mailer.deliver_now(Email.order_confirmation_client(updated_order, updated_order["fields"]["consumerEmail"]["nl"]))
     )do
       conn
       |> put_session(:shopping_basket, [])
+      |> put_session(:payment_id, nil)
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
       |> assign(:title, "Red Pack Productions - Shop - payment result")
       |> render("payment_result.html", payment_status: mollie_payment["status"])
     else
+      nil ->
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - error")
+        |> render("error.html")
       {:error, _error} ->
         conn
         |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
@@ -196,7 +218,6 @@ defmodule RedPackProductionsWeb.ShopController do
     end
   end
 
-  # REMOVE THIS
   def error_page(conn, _) do
     conn
     |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
