@@ -15,7 +15,8 @@
         <h1>Thank you!</h1>
         <h2>Payment status: <%= @payment_status %></h2>
 
-        <h2>Your order has been send. You got mail!</h2>
-
+        <h2>Your order has been processed!</h2>
+        <p>It may take up to 24 hours to receive your sample in your mailbox. </p>
+        <p>If you have not received your sample yet. Please contact us with your name and order number. </p>
     </div>
 </div>
