@@ -47,6 +47,8 @@ defmodule RedPackProductions.Mixfile do
       {:earmark, "~> 1.2"},
       {:httpoison, "~> 1.0", override: true},
       {:poison, "~> 3.1"},
+      {:edeliver, "~> 1.4.3"},
+      {:distillery, "~> 1.4"},
       {:cached_contentful, git: "https://github.com/weareyipyip/elixir-cached-contentful.git", tag: "0.3.4"}
     ]
   end
