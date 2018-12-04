@@ -8,6 +8,7 @@ defmodule RedPackProductionsWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug RedPackProductionsWeb.Locale
+    plug RedPackProductionsWeb.Basket
   end
 
   pipeline :api do
@@ -38,6 +39,13 @@ defmodule RedPackProductionsWeb.Router do
     pipe_through :browser # Use the default browser stack
     get "/", ShopController, :index
     get "/product/:slug", ShopController, :show
+    get "/checkout", ShopController, :checkout_page
+    post "/checkout", ShopController, :process_checkout
+    get "/payment-loading", ShopController, :payment_loading_page
+    get "/payment-result", ShopController, :payment_result_page
+
+    # Remove later
+    get "/error", ShopController, :error_page
   end
 
   scope "/api", RedPackProductionsWeb do
@@ -46,8 +54,10 @@ defmodule RedPackProductionsWeb.Router do
     get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
 
-    # scope "/mollie" , RedPackProductionsWeb do
-    #   post "/payment/update/:id", MollieController, :status_update
-    # end
+    scope "/basket" do
+      post "/add/:item_id", ApiController, :add_to_basket
+      post "/remove/:item_id", ApiController, :remove_from_basket
+      post "/clear", ApiController, :clear_basket
+    end
   end
 end

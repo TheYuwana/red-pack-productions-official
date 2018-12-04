@@ -58,37 +58,6 @@ msgid "index-sample-subscribe"
 msgstr "ABONNEER"
 
 # ===========================
-# Instruments
-# ===========================
-
-msgid "index-intruments-title-1"
-msgstr "Refurbished instrumenten"
-
-msgid "index-intruments-title-2"
-msgstr "en studio apparatuur"
-
-msgid "index-intruments-shop"
-msgstr "NAAR WEBWINKEL"
-
-msgid "index-intruments-list-1"
-msgstr "Verzoek opdrachten"
-
-msgid "index-intruments-list-2"
-msgstr "Uitgebreid getest"
-
-msgid "index-intruments-list-3"
-msgstr "Gratis bezorging"
-
-msgid "index-intruments-list-4"
-msgstr "30 dagen niet goed geld terug garantie"
-
-msgid "index-intruments-list-5"
-msgstr "Schoon gemaakt"
-
-msgid "index-intruments-list-6"
-msgstr "Ophaal punt in Ridderkerk"
-
-# ===========================
 # Shop Samples
 # ===========================
 

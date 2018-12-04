@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<style>
+			table{
+				border-collapse: collapse;
+			}
+			table, td, th{
+				border: 1px solid black;
+			}
+			th{
+				text-align: left;
+			}
+			td, th{
+				padding: 10px;
+			}
+			.bold{
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Samples has been ordered!</h1>
+		<h3>Order</h3>
+		<p><span class="bold">Mollie ID:</span> <%= @order["fields"]["mollieId"]["nl"] %></p>
+
+		<table>
+			<tr>
+				<th>Contentful Sample ID</th>
+				<th>Title</th>
+				<th>Price</th>
+			</tr>
+			<%= raw(parse_orders(@order)) %>
+			<tr>
+				<td>total</td>
+				<td></td>
+				<td><%= order_total(@order) %></td>
+			</tr>
+		</table>
+
+		<h1>Client contact details</h1>
+		<p>Please send the samples to the following client as soon as possible:</p>
+		<p><span class="bold">Name:</span> <%= "#{@order["fields"]["consumerFirstName"]["nl"]} #{@order["fields"]["consumerLastName"]["nl"]}" %></p>
+		<p><span class="bold">Email:</span> <%= "#{@order["fields"]["consumerEmail"]["nl"]}" %></p>
+	</body>
+</html>
