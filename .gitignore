@@ -71,3 +71,4 @@ staging.env
 production.env
 
 /dotoo_umbrella/.elixir_ls/*
+red_pack_productions/.deliver/releases/

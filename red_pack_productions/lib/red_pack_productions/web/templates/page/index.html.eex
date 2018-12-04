@@ -57,12 +57,8 @@
 
 <div class="production-container">
   <div class="latest-productions">
-    <%= for song <- @soundcloud do %>
-      <%= if song.show do %>
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=<%= song.url %>&show_artwork=true&show_user=true"></iframe>
-      <% end %>
-    <% end %>
-     <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/45025664&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">
        <%= dgettext("index", "index-latest-more") %>
      </a>
   </div>
