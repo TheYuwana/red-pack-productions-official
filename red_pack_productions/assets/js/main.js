@@ -5,6 +5,10 @@ var shareButton = {};
 
 $(document).ready(function(){
 
+	// SHOPPING BASKET
+	sb_set_basket_events();
+
+	// Hamburger Icon
 	$('#hamburger-icon').click(function(){
 		$(this).toggleClass('open');
 		$("header").toggleClass('header-open');
@@ -151,6 +155,18 @@ $(document).ready(function(){
         }
 	});
 
+	// FILTER SELECTOR
+	$('select').change(function() {
+		var _this = $(this);
+		if ( _this.val() == 0 )
+	    	$('.product-item').css("opacity","1").css("display", "inline");
+
+		else {
+			$('.product-item').hide();
+			$('.product-item.' + _this.val()).css("display","inline").css("opacity","1");
+		}
+	});
+
 });
 
 function initMap() {
@@ -209,15 +225,152 @@ function leadingZero(number){
 	}
 }
 
-function process_get_request(url, callback){
-	$.ajax({
-	  url: url,
-	  type: 'GET',
-	  fail: function(response) {
-	    callback(response);
-	  },
-	  success: function(response){
-	    callback(response);
-	  }
+function sb_set_basket_events(){
+
+	// Set Icon open and close
+	$(".basket-icon").click(function(){
+		$(this).parent().toggleClass("open-basket");
+	});
+
+	// Set add to basket events
+	$(".basket-add").click(function(){
+		sb_add_to_basket(
+			$(this).data("basket-product-id"),
+			$(this).data("basket-product-name"),
+			$(this).data("basket-product-price")
+			); 
+	});
+
+	// Clear basket
+	$(".basket-clear").click(function(){
+		sb_clear_basket();
+	});
+
+	// Set remove product from basket
+	$(".remove-product").click(function(){
+		sb_remove_from_basket($(this));
+	});
+
+	// Set on change for prouct amounts
+	$(".basket-products input").change(function(){
+	sb_sum_total();
+	});
+
+	sb_pre_populate();
+}
+
+function sb_pre_populate(){
+	var products = $(".basket-products").data("pre-basket");
+	for(var i = 0; i < products.length; i++){
+		sb_add_to_basket_process(
+			products[i].id, 
+			products[i].title, 
+			products[i].price);
+	}
+}
+
+function sb_add_to_basket(pid, name, price){
+	process_post(`/api/basket/add/${pid}`, {}, function(response){
+		sb_add_to_basket_process(pid, name, price)
 	});
 }
+
+function sb_add_to_basket_process(pid, name, price){
+	if(sb_product_not_exist(pid, name, price)){
+	  var shortName = name;
+	  if(name.length > 20){
+	    shortName = name.substring(25, 0) + "...";
+	  }
+	  $(".basket-products ul").append(
+	    $("<li>").append(
+	      $("<span>", {"class": "remove-product"}).click(function(){
+	        sb_remove_from_basket($(this));
+	      }),
+	      shortName,
+	      $("<span>", {"class": "amount"}).text("\u20AC " + price)
+	    ).data("price", price).data("pid", pid)
+	  );
+	}
+	sb_sum_total();
+	sb_update_basket_amount();
+}
+
+function sb_clear_basket(){
+	process_post("/api/basket/clear", {}, function(){
+		$(".remove-product").each(function(){
+			sb_remove_from_basket($(this));
+		});
+	});
+}
+
+function sb_product_not_exist(pid){
+  var notFound = true;
+  $(".basket-products ul").find("li").each(function(){
+    if($(this).data("pid") == pid){
+      var val = Number($(this).find("input").val()) + 1;
+      $(this).find("input").val(val);
+      notFound = false;
+      return false;
+    }else{
+      notFound = true;
+    }
+  });
+  return notFound;
+}
+
+function sb_remove_from_basket_process(product){
+  $(product).parent().remove();
+  sb_sum_total();
+  sb_update_basket_amount();
+}
+
+function sb_remove_from_basket(product){
+	var pid = $(product).parent().data("pid");
+	sb_remove_from_basket_process(product);
+	process_post(`/api/basket/remove/${pid}`, {}, function(response){
+		// Nothing special yet
+		return true;
+	});
+}
+
+function sb_sum_total(){
+  var total = 0;
+  $(".basket-products ul").find("li").each(function(){
+    total = total + Number($(this).data("price"));
+  });
+  $(".basket-total-amount").text("\u20AC " + total);
+}
+
+function sb_update_basket_amount(){
+  $(".basket-count p").text($(".basket-products ul").find("li").length);
+}
+
+// Ajax request handlers
+function process_post(url, data, callback){
+	$.ajax({
+      url: url,
+      type: 'POST',
+      data: data,
+      fail: function(response) {
+        callback(response);
+      },
+      success: function(response){
+        callback(response);
+      }
+    });
+}
+
+function process_get(url, callback){
+	$.ajax({
+      url: url,
+      type: 'POST',
+      data: data,
+      fail: function(response) {
+        callback(response);
+      },
+      success: function(response){
+        callback(response);
+      }
+    });
+}
+

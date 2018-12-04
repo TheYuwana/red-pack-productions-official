@@ -29,7 +29,7 @@ msgid "index-introduction-list-item-5"
 msgstr "It's ready when you say it's ready"
 
 msgid "index-introduction-list-item-6"
-msgstr "Bullshit"
+msgstr "No bullshit"
 
 # ===========================
 # Latest Productions
@@ -56,37 +56,6 @@ msgstr "Sign up for discounts and a free sample pack"
 
 msgid "index-sample-subscribe"
 msgstr "SUBSCRIBE"
-
-# ===========================
-# Instruments
-# ===========================
-
-msgid "index-intruments-title-1"
-msgstr "Refurbished instruments"
-
-msgid "index-intruments-title-2"
-msgstr "and studio gear"
-
-msgid "index-intruments-shop"
-msgstr "GO TO SHOP"
-
-msgid "index-intruments-list-1"
-msgstr "Request finds"
-
-msgid "index-intruments-list-2"
-msgstr "Thoroughly tested"
-
-msgid "index-intruments-list-3"
-msgstr "Free delivery"
-
-msgid "index-intruments-list-4"
-msgstr "30 days refund"
-
-msgid "index-intruments-list-5"
-msgstr "Cleaned"
-
-msgid "index-intruments-list-6"
-msgstr "Pick up in Rotterdam"
 
 # ===========================
 # Shop Samples

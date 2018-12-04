@@ -1,0 +1,23 @@
+FROM weareyipyip/elixir-sass:1.6.2
+LABEL maintainer "Jonathan van Putten <hope_industries@hotmail.com>"
+
+ARG MIX_ENV
+
+ADD . /application
+WORKDIR /application/red_pack_productions
+
+RUN mix local.hex --force
+RUN mix local.rebar --force
+
+RUN mix clean
+
+RUN mix deps.unlock --all
+RUN mix deps.clean --all
+RUN mix deps.get
+
+RUN cd apps/red_pack_productions/assets \
+ && npm install \
+ && brunch build --production \
+ && npm prune --production
+
+CMD MIX_ENV=$MIX_ENV mix phx.server

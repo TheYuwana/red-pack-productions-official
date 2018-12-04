@@ -37,7 +37,8 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Open+Sans" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=PT+Sans|Open+Sans" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendor.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
@@ -84,8 +85,8 @@
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
+          <a class='nav-scroller <%= if @conn.request_path == "/shop" do %> nav-active <% end %>'
+           href='/shop'><%= dgettext("general", "navigation-shop") %></a>
         </div>
 
         <div class="navigation-item-mobile hidden-md hidden-lg">
@@ -103,14 +104,39 @@
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
         </div>
 
+        <!-- Basket -->
+          <%# <div class="navigation-item hidden-md hidden-lg bag">
+            <div class="basket-container">
+              <div class="basket-count">
+                <p>0</p>
+              </div>
+              <div class="basket-icon">
+                <span class="oi oi-box"></span>
+              </div>
+              <div class="basket-content">
+                <h3>Products</h3>
+                <div class="basket-products">
+                  <ul>
+                  </ul>
+                </div>
+                <p class="basket-total">TOTAL:</p>
+                <p class="basket-total-amount">&euro; 0</p>
+                <div class="clear"></div>
+                <button class="basket-checkout">CHECKOUT</button>
+              </div>
+            </div>
+          </div> %>
 
         <!-- DESKTOP NAVIGATION -->
-        <div class="navigation-item hidden-xs hidden-sm">
+        <!-- <div class="navigation-item hidden-xs hidden-sm">
           <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
            href="/"><%= dgettext("general", "navigation-home") %></a>
+        </div> -->
+        <div class="navigation-item-logo hidden-xs hidden-sm">
+          <a href="/"><img src="/images/rp_logo.png"></a>
         </div>
-
-        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+        
+        <!-- <div class="navigation-item-separator hidden-xs hidden-sm">|</div>-->
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
@@ -131,13 +157,15 @@
            href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
         </div>
         
-        <div class="navigation-item-logo hidden-xs hidden-sm">
+        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
+
+        <%# <div class="navigation-item-logo hidden-xs hidden-sm">
           <a href="/"><img src="/images/rp_logo.png"></a>
-        </div>
+        </div> %>
         
         <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/instruments" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #instruments <% else %> /#instruments <% end %>'><%= dgettext("general", "navigation-instruments") %></a>
+          <a class='nav-scroller <%= if @conn.request_path == "/shop" do %> nav-active <% end %>'
+           href='/shop'><%= dgettext("general", "navigation-shop") %></a>
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
@@ -160,6 +188,30 @@
           <a class='<%= if @conn.request_path == "" do %> nav-active <% end %>'
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
         </div>
+
+          <!-- Basket -->
+          <div class="navigation-item bag">
+            <div class="basket-container">
+              <div class="basket-count">
+                <p>0</p>
+              </div>
+              <div class="basket-icon">
+                <span class="oi oi-box"></span>
+              </div>
+              <div class="basket-content">
+                <h3>Products</h3>
+                <div class="basket-products" data-pre-basket="<%= jsonfy(@basket) %>">
+                  <ul>
+                  </ul>
+                </div>
+                <p class="basket-total">TOTAL:</p>
+                <p class="basket-total-amount">&euro; 0</p>
+                <div class="clear"></div>
+                <button class="basket-clear">CLEAR</button>
+                <a href="/shop/checkout" class="basket-checkout">CHECKOUT</button>
+              </div>
+            </div>
+          </div>
 
         <div class="hamburger hidden-md hidden-lg">
           
@@ -194,7 +246,7 @@
       </main>
 
       <div class="front-footer">
-        <p>COPYRIGHT 2017</p>
+        <p>COPYRIGHT 2018</p>
       </div>
 
     </div> <!-- /container -->

@@ -1,5 +1,5 @@
-defmodule RedPackProductions.Web.Router do
-  use RedPackProductions.Web, :router
+defmodule RedPackProductionsWeb.Router do
+  use RedPackProductionsWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -7,7 +7,8 @@ defmodule RedPackProductions.Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug RedPackProductions.Web.Locale
+    plug RedPackProductionsWeb.Locale
+    plug RedPackProductionsWeb.Basket
   end
 
   pipeline :api do
@@ -15,38 +16,48 @@ defmodule RedPackProductions.Web.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", RedPackProductions.Web do
+  scope "/", RedPackProductionsWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/samples", PageController, :samples
-    get "/instruments", PageController, :instruments
-    get "/contact", PageController, :contact
     get "/success", PageController, :success
-    get "/packages/:package", PageController, :packages
     get "/question", PageController, :question
-    get "/blog", PageController, :blog
-    get "/blog/:slug", PageController, :blog_item
     get "/locale", PageController, :locale
 
-    post "/reserve", PageController, :reserve
+    scope "/blog" do
+      get "/", BlogController, :index
+      get "/:slug", BlogController, :show
+    end
+
+    scope "/packages" do
+      get "/:package", PackageController, :show
+      post "/reserve", PackageController, :reserve
+    end
   end
 
-  # scope "/shop", RedPackProductions.Web do
-  #   pipe_through :browser # Use the default browser stack
-  #   get "/", ShopController, :index
-  #   get "/product/:slug", ShopController, :show
-  # end
+  scope "/shop", RedPackProductionsWeb do
+    pipe_through :browser # Use the default browser stack
+    get "/", ShopController, :index
+    get "/product/:slug", ShopController, :show
+    get "/checkout", ShopController, :checkout_page
+    post "/checkout", ShopController, :process_checkout
+    get "/payment-loading", ShopController, :payment_loading_page
+    get "/payment-result", ShopController, :payment_result_page
 
-  scope "/api", RedPackProductions.Web do
+    # Remove later
+    get "/error", ShopController, :error_page
+  end
+
+  scope "/api", RedPackProductionsWeb do
     pipe_through :api 
     post "/resetcache", ApiController, :reset_cache
     get "/resetcache-manual", ApiController, :reset_cache
     get "/dates", ApiController, :reservation_dates
 
-    # scope "/mollie" , RedPackProductions.Web do
-    #   post "/payment/update/:id", MollieController, :status_update
-    # end
+    scope "/basket" do
+      post "/add/:item_id", ApiController, :add_to_basket
+      post "/remove/:item_id", ApiController, :remove_from_basket
+      post "/clear", ApiController, :clear_basket
+    end
   end
-
 end

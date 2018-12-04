@@ -27,6 +27,12 @@ msgstr "Contact informatie"
 msgid "package-form-contact-name"
 msgstr "Naam"
 
+msgid "package-form-contact-first-name"
+msgstr "Voornaam"
+
+msgid "package-form-contact-last-name"
+msgstr "Achternaam"
+
 msgid "package-form-contact-phone"
 msgstr "Telefoon nummer"
 

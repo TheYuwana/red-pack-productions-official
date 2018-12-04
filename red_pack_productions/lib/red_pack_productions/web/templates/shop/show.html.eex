@@ -1,4 +1,78 @@
-<div class="content-blog">
-
+<!-- Green Checklist -->
+<div class="green-container">
+	<div class="list-container-green">
+		<ul>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-1") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-2") %></li>
+		</ul>
+		<ul>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-4") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-5") %></li>
+		</ul>
+		<ul>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-3") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-6") %></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
 </div>
-<%= render(RedPackProductions.Web.PageView, "big_footer.html") %>
+<!-- Packages -->
+<div class="product-container">
+  <div class="product-filter product-navigation">
+    <a href="/shop"><span>Back</span></a>
+  </div>
+<%# 
+  <div class="product-filter">
+    <span>Back</span>
+
+		<div class="styled-select">
+		<select id="selector">
+			<option selected="" disabled="">Sample Type</option>
+			<option value="drum-sample">Exclusive Drum Sample</option>
+			<option value="massive-sample">Exclusive Massive Sample</option>
+			<option value="field-record">Exclusive Field Record</option>
+			<option value="0">All Samples</option>
+		</select>
+		</div>
+	</div> %>
+
+  <div class="product-items">
+	<div class="big-product">
+		<div class="big-image">
+			<img src="<%= @product.photo %>">
+		</div>
+		<div class="item-description">
+			<p class="product-subtitle"><%= @product.category %></p>
+			<h2><%= @product.title %></h2>
+			<p class="product-price">&euro;<%= @product.old_price %> <span class="real-price">&euro;<%= @product.new_price %></span></p>
+			<p>ex btw</p>
+			<p class="product-description"><%= @product.description %></p>
+			<audio controls>
+				<source src="<%= @product.sample_link %>" type="audio/wav">
+				Your browser does not support the audio element.
+			</audio>
+
+			<button class="btn-orange basket-add"
+              data-basket-product-price="<%= @product.new_price %>"
+              data-basket-product-id="<%= @product.id %>"
+              data-basket-product-name="<%= @product.title %>">ADD TO CART</button>
+		</div>
+	</div>
+
+	<%= for product <- @suggestions do %>
+		<div class="product-item">
+			<div class="image-container">		
+	      		<img src="<%= product.photo %>">
+	      	</div>
+		  <p class="product-subtitle"><%= product.category %></p>
+	      <h2><%= product.title %></h2>
+	      <p class="product-price">&euro;<%= product.old_price %> <span>&nbsp;</span><span class="real-price">&euro;<%= product.new_price %></span></p>
+	      <a href="/shop/product/<%= product.slug %>" class="btn-orange">SPEC &amp; LISTEN</a>
+	    </div>
+	<% end %>
+
+    <div class="clear"></div>
+  </div>
+</div>
+<%= render(RedPackProductionsWeb.LayoutView, "big_footer.html") %>
+

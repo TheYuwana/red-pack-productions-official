@@ -1,4 +1,4 @@
-defmodule RedPackProductions.Web.Locale do
+defmodule RedPackProductionsWeb.Locale do
   import Plug.Conn
 
   def init(_) do
@@ -9,7 +9,7 @@ defmodule RedPackProductions.Web.Locale do
       nil ->
         conn |> put_session(:locale, "nl")
       locale  ->
-        Gettext.put_locale(RedPackProductions.Web.Gettext, locale)
+        Gettext.put_locale(RedPackProductionsWeb.Gettext, locale)
         conn |> put_session(:locale, locale)
     end
   end

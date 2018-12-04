@@ -1,0 +1,8 @@
+Your sample(s) has been ordered!
+Hi <%= "#{@order["fields"]["consumerFirstName"]["nl"]} #{@order["fields"]["consumerLastName"]["nl"]}" %>.
+
+We have received your order and we will send you the samples as soon as possible! Please keep your order reference in case something goes wrong!
+
+
+Order reference: <%= @order["fields"]["mollieId"]["nl"] %>
+		
