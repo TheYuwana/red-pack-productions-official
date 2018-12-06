@@ -49,11 +49,8 @@ msgstr "PAKKETTEN"
 msgid "navigation-recordings"
 msgstr "PRODUCTIES"
 
-msgid "navigation-samples"
-msgstr "SAMPLES"
-
 msgid "navigation-shop"
-msgstr "SHOP"
+msgstr "WEBSHOP"
 
 msgid "navigation-contact"
 msgstr "CONTACT"

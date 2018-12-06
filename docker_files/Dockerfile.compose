@@ -9,5 +9,3 @@ WORKDIR /application/red_pack_productions
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
-
-CMD ["mix", "phx.server"]

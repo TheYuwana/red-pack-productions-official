@@ -2,16 +2,16 @@
 <div class="green-container">
 	<div class="list-container-green">
 		<ul>
-		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-1") %></li>
-		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-2") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("shop", "shop-introduction-list-item-1") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("shop", "shop-introduction-list-item-2") %></li>
 		</ul>
 		<ul>
-		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-4") %></li>
-		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-5") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("shop", "shop-introduction-list-item-4") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("shop", "shop-introduction-list-item-5") %></li>
 		</ul>
 		<ul>
-		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("index", "index-introduction-list-item-3") %></li>
-		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("index", "index-introduction-list-item-6") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span>  <%= dgettext("shop", "shop-introduction-list-item-3") %></li>
+		<li><span class="glyphicon glyphicon-ok"></span> <%= dgettext("shop", "shop-introduction-list-item-6") %></li>
 		</ul>
 		<div class="clear"></div>
 	</div>
@@ -21,20 +21,6 @@
   <div class="product-filter product-navigation">
     <a href="/shop"><span>Back</span></a>
   </div>
-<%# 
-  <div class="product-filter">
-    <span>Back</span>
-
-		<div class="styled-select">
-		<select id="selector">
-			<option selected="" disabled="">Sample Type</option>
-			<option value="drum-sample">Exclusive Drum Sample</option>
-			<option value="massive-sample">Exclusive Massive Sample</option>
-			<option value="field-record">Exclusive Field Record</option>
-			<option value="0">All Samples</option>
-		</select>
-		</div>
-	</div> %>
 
   <div class="product-items">
 	<div class="big-product">
@@ -46,7 +32,7 @@
 			<h2><%= @product.title %></h2>
 			<p class="product-price">&euro;<%= @product.old_price %> <span class="real-price">&euro;<%= @product.new_price %></span></p>
 			<p>ex btw</p>
-			<p class="product-description"><%= @product.description %></p>
+			<p class="product-description"><%= raw(@product.description) %></p>
 			<audio controls>
 				<source src="<%= @product.sample_link %>" type="audio/wav">
 				Your browser does not support the audio element.

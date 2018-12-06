@@ -57,11 +57,37 @@
 
 <div class="production-container">
   <div class="latest-productions">
-    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/45025664&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/657926079&color=%23c7201e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
     <a class="soundcloud-home" href="https://soundcloud.com/rpproductions" target="_blank">
        <%= dgettext("index", "index-latest-more") %>
      </a>
   </div>
+</div>
+
+<!-- Shop Samples -->
+<div class="shop-samples-container">
+  <div class="shop-samples">
+    <img src="/images/products.png" class="hidden-xs">
+    <div class="shop-samples-details">
+      <h2><%= dgettext("index", "index-shop-title") %></h2>
+      <div class="list-container front-shop-samples">
+        <ul>
+          <li><%= dgettext("index", "index-shop-list-1") %></li>
+          <li><%= dgettext("index", "index-shop-list-2") %></li>
+          <li><%= dgettext("index", "index-shop-list-3") %></li>
+        </ul>
+        <ul>
+          <li><%= dgettext("index", "index-shop-list-4") %></li>
+          <li><%= dgettext("index", "index-shop-list-5") %></li>
+          <li><%= dgettext("index", "index-shop-list-6") %></li>
+        </ul>
+        <a href="/shop" class="btn-red"><%= dgettext("index", "index-shop-link") %></a>
+        <a href="#samples" class="btn-red"><%= dgettext("index", "index-shop-free-link") %></a>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>   
 </div>
 
 <!-- Testimonials --> 
@@ -113,32 +139,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- Shop Samples -->
-<div class="shop-samples-container">
-  <div class="shop-samples">
-    <img src="/images/products.png" class="hidden-xs">
-    <div class="shop-samples-details">
-      <h2><%= dgettext("index", "index-shop-title") %></h2>
-      <div class="list-container front-shop-samples">
-        <ul>
-          <li><%= dgettext("index", "index-shop-list-1") %></li>
-          <li><%= dgettext("index", "index-shop-list-2") %></li>
-          <li><%= dgettext("index", "index-shop-list-3") %></li>
-        </ul>
-        <ul>
-          <li><%= dgettext("index", "index-shop-list-4") %></li>
-          <li><%= dgettext("index", "index-shop-list-5") %></li>
-          <li><%= dgettext("index", "index-shop-list-6") %></li>
-        </ul>
-        <a href="/shop" class="btn-red"><%= dgettext("index", "index-shop-link") %></a>
-        <a href="#samples" class="btn-red"><%= dgettext("index", "index-shop-free-link") %></a>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>   
 </div>
 
 <!-- Youtube -->

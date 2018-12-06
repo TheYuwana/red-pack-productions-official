@@ -62,28 +62,28 @@ msgstr "SUBSCRIBE"
 # ===========================
 
 msgid "index-shop-title"
-msgstr "Exclusive drum samples"
+msgstr "WEBSHOP"
 
 msgid "index-shop-list-1"
-msgstr "High quality drums"
+msgstr "Exclusive drum samples"
 
 msgid "index-shop-list-2"
-msgstr "44 Khz 24 bits wave format"
+msgstr "Beats"
 
 msgid "index-shop-list-3"
-msgstr "10 different hit values"
+msgstr "Music"
 
 msgid "index-shop-list-4"
-msgstr "Processed hits"
+msgstr "Compositions"
 
 msgid "index-shop-list-5"
-msgstr "Different mics"
+msgstr "Sound FX"
 
 msgid "index-shop-list-6"
-msgstr "Raw tracks"
+msgstr "Backing tracks"
 
 msgid "index-shop-link"
-msgstr "GO TO SHOP"
+msgstr "GO TO WEBSHOP"
 
 msgid "index-shop-free-link"
 msgstr "GET A FREE SAMPLE PACK!"

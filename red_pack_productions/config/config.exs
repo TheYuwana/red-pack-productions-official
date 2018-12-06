@@ -8,7 +8,8 @@ use Mix.Config
 # General application configuration
 config :red_pack_productions,
   ecto_repos: [],
-  mollie_api_key: System.get_env("MOLLIE_API_KEY")
+  mollie_api_key: System.get_env("MOLLIE_API_KEY"),
+  mollie_redirect_url: System.get_env("MOLLIE_REDIRECT_URL")
 
 # Configures the endpoint
 config :red_pack_productions, RedPackProductionsWeb.Endpoint,

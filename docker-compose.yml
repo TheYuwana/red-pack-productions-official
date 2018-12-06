@@ -2,18 +2,18 @@ version: '3.3'
 services:
     red_pack_productions:
         container_name: "red_pack_productions"
-        image: "red_pack_productions_image_dev"
+        image: "theyuwana/rpp-website:2.0.0"
         build:
             context: .
             dockerfile: ./docker_files/Dockerfile.compose
             args:
-                MIX_ENV: dev
+                MIX_ENV: prod
         working_dir: /application/red_pack_productions
         ports:
-            - "4000:4000" 
+            - "80:80" 
         volumes:
             - .:/application:cached
         environment:
-            MIX_ENV: dev
-            PORT: 4000
+            MIX_ENV: prod
+            PORT: 80
         command: /bin/bash /application/docker_files/docker_command.sh

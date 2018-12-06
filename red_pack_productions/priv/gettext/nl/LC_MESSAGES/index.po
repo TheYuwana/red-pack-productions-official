@@ -61,25 +61,25 @@ msgstr "ABONNEER"
 # ===========================
 
 msgid "index-shop-title"
-msgstr "Exclusieve drum samples"
+msgstr "WEBWINKEL"
 
 msgid "index-shop-list-1"
-msgstr "Hoge kwaliteit drumstellen"
+msgstr "Exclusieve Drum samples"
 
 msgid "index-shop-list-2"
-msgstr "44Khz 24 bit wave formaat"
+msgstr "Beats"
 
 msgid "index-shop-list-3"
-msgstr "10 unieke slagen"
+msgstr "Muziek"
 
 msgid "index-shop-list-4"
-msgstr "Bewerkte samples"
+msgstr "Composities"
 
 msgid "index-shop-list-5"
-msgstr "Verschillende microfoons"
+msgstr "Geluid effecten"
 
 msgid "index-shop-list-6"
-msgstr "Onbewerkte sporen"
+msgstr "Orkest banden"
 
 msgid "index-shop-link"
 msgstr "NAAR WEBWINKEL"

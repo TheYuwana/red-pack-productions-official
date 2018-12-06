@@ -10,10 +10,14 @@
     "phoenix_html": "file:../deps/phoenix_html"
   },
   "devDependencies": {
-    "babel-brunch": "6.1.1",
-    "brunch": "2.10.9",
-    "clean-css-brunch": "2.10.0",
-    "uglify-js-brunch": "2.10.0",
-    "sass-brunch": "^2.0.0"
+    "autoprefixer": "^9.1",
+    "babel-brunch": "7.0",
+    "babel-preset-env": "^1.6.1",
+    "brunch": "^2.10.17",
+    "csswring": "^7.0",
+    "imagemin-brunch": "^1.1.0",
+    "postcss-brunch": "^2.10",
+    "sass-brunch": "^2.10.7",
+    "uglify-js-brunch": "2.10.0"
   }
 }

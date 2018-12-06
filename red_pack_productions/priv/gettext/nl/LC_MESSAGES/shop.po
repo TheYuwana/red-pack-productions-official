@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+
+# ===========================
+# Top List
+# ===========================
+
+msgid "shop-introduction-list-item-1"
+msgstr "Gratis beats, muziek en samples"
+
+msgid "shop-introduction-list-item-2"
+msgstr "Top kwaliteit opnames"
+
+msgid "shop-introduction-list-item-3"
+msgstr "Koop of lease jouw Beats"
+
+msgid "shop-introduction-list-item-4"
+msgstr "Unieke geluiden"
+
+msgid "shop-introduction-list-item-5"
+msgstr "Orkest banden"
+
+msgid "shop-introduction-list-item-6"
+msgstr "Drum samples"

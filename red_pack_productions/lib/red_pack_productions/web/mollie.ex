@@ -2,20 +2,23 @@ defmodule RedPackProductions.Mollie do
 
 	@api_key Application.get_env(:red_pack_productions, :mollie_api_key)
 	@base_mollie "https://api.mollie.com/v2"
-	@redirect_url "http://localhost:4000/shop/payment-loading"
+	@redirect_url Application.get_env(:red_pack_productions, :mollie_redirect_url)
 
 	def get_payment(id) do
 		send_request("/payments/#{id}")
 	end
 
 	def create_payment_request(total_price, order_id) do
+
+		redirect_url = "#{@redirect_url}/shop/payment-loading"
+
 		body = %{
 			amount: %{
 				currency: "EUR",
 				value: "#{total_price}"
 			},
 			description: "Red Pack Productions Samples",
-			redirectUrl: @redirect_url, # show ordered product or succesfull page
+			redirectUrl: redirect_url, # show ordered product or succesfull page
 			metadata: %{
 				order_id: order_id
 			}

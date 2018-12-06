@@ -1,34 +1,3 @@
-<!-- Samples -->
-<div id="samples" class="content-samples">
-  <div class="shop-samples-container">
-    <div class="shop-samples">
-      <img src="/images/free_pack.png" class="hidden-xs">
-      <img class="subscribe-arrow hidden-xs" src="/images/arrow_sample.png">
-      <div class="shop-samples-details">
-        <h2><%= dgettext("index", "index-sample-title-1") %></h2>
-        <h2><span class="span-space"></span><%= dgettext("index", "index-sample-title-2") %></h2>
-        <h3 class="mobile-subscribe-text hidden-sm hidden-md hidden-lg"><%= dgettext("index", "index-sample-sign-up") %></h3>
-        <div class="sample-subscribe-text hidden-xs">
-          <h3><%= dgettext("index", "index-sample-sign-up") %></h3>
-        </div>
-        <form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-            <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                <input type="text" name="b_6bf1bf9059744fe52696d0f48_d5dae95bbf" tabindex="-1" value="">
-              </div>
-              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-green">
-                <%= dgettext("index", "index-sample-subscribe") %>
-              </button>
-            </div>
-        </form>
-        <div class="clear"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Packages -->
 <div class="product-container">
 
@@ -38,9 +7,9 @@
     <div class="styled-select">
       <select id="selector">
           <option selected="" disabled="">Sample Type</option>
-          <option value="drum-sample">Exclusive Drum Sample</option>
-          <option value="massive-sample">Exclusive Massive Sample</option>
-          <option value="field-record">Exclusive Field Record</option>
+          <%= for category <- @categories do %>
+          <option value="<%= category.class %>"><%= category.title %></option>
+          <% end %>
           <option value="0">All Samples</option>
       </select>
     </div>
@@ -48,7 +17,7 @@
 
   <div class="product-items">
     <%= for product <- @products do %>
-    <div class="product-item drum-sample">
+    <div class="product-item <%= product.category_class %>">
       <div class="image-container">
             <img src="<%= product.photo %>">
       </div>

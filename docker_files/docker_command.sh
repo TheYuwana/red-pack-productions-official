@@ -11,5 +11,4 @@ cd /application/red_pack_productions/assets \
   && brunch build
 
 cd /application/red_pack_productions \
-  && mix compile \
-  && mix phx.server
+  && mix compile

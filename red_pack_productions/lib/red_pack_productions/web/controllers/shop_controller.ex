@@ -19,7 +19,6 @@ defmodule RedPackProductionsWeb.ShopController do
     products = Enum.map(CachedContentful.Api.getEntriesByType("products", get_session(conn, :locale)), fn(product) ->
       photo = CachedContentful.Api.getAssetById(product["fields"]["photo"]["sys"]["id"])["fields"]
       sample_link = CachedContentful.Api.getAssetById(product["fields"]["sampleLink"]["sys"]["id"])["fields"]
-      
       category =  if product["fields"]["category"] == nil do
         ""
       else
@@ -34,7 +33,6 @@ defmodule RedPackProductionsWeb.ShopController do
         slug: product["fields"]["slug"],
         old_price: product["fields"]["oldPrice"],
         new_price: product["fields"]["newPrice"],
-        description: product["fields"]["description"],
         sample_link: "https:" <> sample_link["file"]["url"],
         photo: photo["file"]["url"]
       }
@@ -42,8 +40,8 @@ defmodule RedPackProductionsWeb.ShopController do
 
     categories = Enum.map(products, fn p -> 
       %{
-        category: p.category,
-        category_class: p.category_class,
+        title: p.category,
+        class: p.category_class
       }
     end)
     |> Enum.uniq()
@@ -51,7 +49,7 @@ defmodule RedPackProductionsWeb.ShopController do
   	conn
       |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
       |> assign(:title, "Red Pack Productions - Shop")
-      |> render("index.html", products: products)
+      |> render("index.html", products: products, categories: categories)
   end
 
   # ==================================
@@ -65,6 +63,7 @@ defmodule RedPackProductionsWeb.ShopController do
     photo = CachedContentful.Api.getAssetById(selected_product["fields"]["photo"]["sys"]["id"])["fields"]
     sample_link = CachedContentful.Api.getAssetById(selected_product["fields"]["sampleLink"]["sys"]["id"])["fields"]
 
+    htmlDetails = Earmark.as_html(selected_product["fields"]["description"])
     # Do a nil check for 404
     product = %{
       id: selected_product["id"],
@@ -73,7 +72,7 @@ defmodule RedPackProductionsWeb.ShopController do
       slug: selected_product["fields"]["slug"],
       old_price: selected_product["fields"]["oldPrice"],
       new_price: selected_product["fields"]["newPrice"],
-      description: selected_product["fields"]["description"],
+      description: elem(htmlDetails, 1),
       sample_link: "https:" <> sample_link["file"]["url"],
       photo: photo["file"]["url"]
     }

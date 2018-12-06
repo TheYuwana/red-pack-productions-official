@@ -19,5 +19,3 @@ RUN cd apps/red_pack_productions/assets \
  && npm install \
  && brunch build --production \
  && npm prune --production
-
-CMD MIX_ENV=$MIX_ENV mix phx.server

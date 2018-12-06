@@ -1,0 +1,21 @@
+# ===========================
+# Top List
+# ===========================
+
+msgid "shop-introduction-list-item-1"
+msgstr "Free beats, music and samples"
+
+msgid "shop-introduction-list-item-2"
+msgstr "High quality recordings"
+
+msgid "shop-introduction-list-item-3"
+msgstr "Buy or Lease your beats"
+
+msgid "shop-introduction-list-item-4"
+msgstr "Unique sounds"
+
+msgid "shop-introduction-list-item-5"
+msgstr "Backing tracks"
+
+msgid "shop-introduction-list-item-6"
+msgstr "Drum samples"

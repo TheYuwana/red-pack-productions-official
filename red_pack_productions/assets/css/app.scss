@@ -497,6 +497,21 @@ p, a{
 			margin-top: 5px;
 			float: left;
 		  }
+
+		  .basket-clear{
+			background-color: red;
+			color: white;
+			border: 0px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			float: right;
+			margin-right: 15px;
+	
+			&:hover{
+			  background-color: orange;
+			  cursor: pointer;
+			}
+		  }
 		  
 		  .basket-checkout{
 			background-color: red;
@@ -1353,12 +1368,12 @@ p, a{
 	}
 
  	.product-container{
-
+ 		margin-top: -25px;
+ 		padding-top: 30px;
  		background-color: $gray;
  		width: 100%;
  		position: relative;
 		text-align: center;
-		margin-top: -10px;
 
  		a{
 			font-size: 1em;
@@ -1375,7 +1390,8 @@ p, a{
 			text-align: center;
 			position: relative;
 			height: 70px;
-			top: -35px;
+			margin-top: 0px;
+			margin-bottom: 15px;
 		}
 		.product-navigation {
 			margin: 0px auto 20px auto;

@@ -80,11 +80,6 @@
         </div>
         
         <div class="navigation-item-mobile hidden-md hidden-lg">
-          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
-        </div>
-        
-        <div class="navigation-item-mobile hidden-md hidden-lg">
           <a class='nav-scroller <%= if @conn.request_path == "/shop" do %> nav-active <% end %>'
            href='/shop'><%= dgettext("general", "navigation-shop") %></a>
         </div>
@@ -104,39 +99,10 @@
            href='/question'><%= dgettext("general", "navigation-faq") %></a>
         </div>
 
-        <!-- Basket -->
-          <%# <div class="navigation-item hidden-md hidden-lg bag">
-            <div class="basket-container">
-              <div class="basket-count">
-                <p>0</p>
-              </div>
-              <div class="basket-icon">
-                <span class="oi oi-box"></span>
-              </div>
-              <div class="basket-content">
-                <h3>Products</h3>
-                <div class="basket-products">
-                  <ul>
-                  </ul>
-                </div>
-                <p class="basket-total">TOTAL:</p>
-                <p class="basket-total-amount">&euro; 0</p>
-                <div class="clear"></div>
-                <button class="basket-checkout">CHECKOUT</button>
-              </div>
-            </div>
-          </div> %>
-
         <!-- DESKTOP NAVIGATION -->
-        <!-- <div class="navigation-item hidden-xs hidden-sm">
-          <a class='<%= if @conn.request_path == "/" do %> nav-active <% end %>'
-           href="/"><%= dgettext("general", "navigation-home") %></a>
-        </div> -->
         <div class="navigation-item-logo hidden-xs hidden-sm">
           <a href="/"><img src="/images/rp_logo.png"></a>
         </div>
-        
-        <!-- <div class="navigation-item-separator hidden-xs hidden-sm">|</div>-->
 
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/packages" do %> nav-active <% end %>'
@@ -151,17 +117,6 @@
         </div>
 
         <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-
-        <div class="navigation-item hidden-xs hidden-sm">
-          <a class='nav-scroller <%= if @conn.request_path == "/samples" do %> nav-active <% end %>'
-           href='<%= if @conn.request_path == "/" do %> #samples <% else %> /#samples <% end %>'><%= dgettext("general", "navigation-samples") %></a>
-        </div>
-        
-        <div class="navigation-item-separator hidden-xs hidden-sm">|</div>
-
-        <%# <div class="navigation-item-logo hidden-xs hidden-sm">
-          <a href="/"><img src="/images/rp_logo.png"></a>
-        </div> %>
         
         <div class="navigation-item hidden-xs hidden-sm">
           <a class='nav-scroller <%= if @conn.request_path == "/shop" do %> nav-active <% end %>'
@@ -207,8 +162,8 @@
                 <p class="basket-total">TOTAL:</p>
                 <p class="basket-total-amount">&euro; 0</p>
                 <div class="clear"></div>
+                <a href="/shop/checkout" class="basket-checkout">CHECKOUT</a>
                 <button class="basket-clear">CLEAR</button>
-                <a href="/shop/checkout" class="basket-checkout">CHECKOUT</button>
               </div>
             </div>
           </div>
