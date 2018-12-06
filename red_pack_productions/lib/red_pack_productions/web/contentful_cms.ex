@@ -18,16 +18,16 @@ defmodule RedPackProductions.ContentfulCms do
 	def create_order(data) do
 		path = "#{@entry_url}"
 		
-		{:ok, datetime} = Timex.format(Timex.now(), "{YYYY}-{M}-{D}T{h24}:{m}:{s}")
+		{:ok, datetime} = Timex.format(Timex.now(), "{YYYY}-{M}-{D}T{h24}:{m}:{s}Z")
 
 		body = %{
 			"fields" => %{
 				"mollieId" => %{
 					"nl" => "coming soon"
 				},
-				"orderDate" => %{
-					"nl" => datetime
-				},
+				# "orderDate" => %{
+				# 	"nl" => datetime
+				# },
 				"consumerFirstName" => %{
 					"nl" => data.first_name
 				},

@@ -13,8 +13,8 @@ defmodule RedPackProductions.Email do
 
 	def order_confirmation(order) do
 		new_email()
-		# |> to("jmerrelaar@icloud.com")
-		|> to("hope_industries@hotmail.com")
+		|> to("jmerrelaar@icloud.com")
+		# |> to("hope_industries@hotmail.com")
 		|> from("info@redpackproductions.com")
 		|> subject("New sample order!")
 		|> put_html_layout({RedPackProductionsWeb.EmailView, "order_rpp.html"})

@@ -272,7 +272,6 @@ p, a{
 		position: fixed;
 		top: 15px;
 		left: 15px;
-		z-index: 11;
 	}
 
 	header{
@@ -295,6 +294,12 @@ p, a{
 		.navigation-item-mobile{
 			width: 100%;
 			margin: 15px 0px;
+			display: none;
+			
+
+			&:first-of-type {
+				margin-top: 20vh;
+			}
 			a{
 				color: black;
 			}
@@ -303,9 +308,7 @@ p, a{
 				color: $lightRed;
 			}
 
-			&:first-child{
-				margin-top: 75px;
-			}
+
 		}
 
 		.navigation-item, .navigation-item-logo{
@@ -373,6 +376,10 @@ p, a{
 	.header-open{
 		height: 100vh;
 		overflow: auto;
+
+		.navigation-item-mobile{
+			display: block;
+		}
 	}
 
 
@@ -497,22 +504,14 @@ p, a{
 			margin-top: 5px;
 			float: left;
 		  }
-
-		  .basket-clear{
-			background-color: red;
-			color: white;
+		  .basket-clear {
+			background-color: #FFF;
+			color: #000;
 			border: 0px;
 			padding: 5px 10px;
 			border-radius: 5px;
-			float: right;
-			margin-right: 15px;
-	
-			&:hover{
-			  background-color: orange;
-			  cursor: pointer;
-			}
+			float: left;
 		  }
-		  
 		  .basket-checkout{
 			background-color: red;
 			color: white;
@@ -529,9 +528,9 @@ p, a{
 		}
 	  }
 
-	
 	.open-basket{
-		width: 350px;
+		width: calc(100vw - 70px);
+		max-width: 350px;
 		height: 360px;
 		color: white;
 		
@@ -1549,6 +1548,7 @@ p, a{
 		text-align: center;
 		margin-top: -20px;
 		padding-bottom: 60px;
+		min-height: calc(100vh - 180px);
 
 
 		.product-checkout {
@@ -1559,8 +1559,11 @@ p, a{
 			position: relative;
 			padding: 30px 50px;
 			top: 40px;
+			min-height: 50vh;
+		}
 
-			
+		.follow-up {
+			text-align: center
 		}
 	}
 
@@ -1741,5 +1744,178 @@ p, a{
 		}
 	}
 }
+
+
+/****************************************
+			Animated Checks
+****************************************/
+
+.svg-box {
+    display:inline-block;
+    position: relative;
+    width:150px;
+}
+
+.green-stroke {
+    stroke: $green;
+	max-width: 150px;
+}
+
+.red-stroke {
+    stroke: $lightRed;
+	max-width: 150px;
+}
+
+.yellow-stroke {
+    stroke: $orange;
+	max-width: 150px;
+}
+
+
+.circular circle.path {
+    stroke-dasharray: 330;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: 0.7s draw-circle ease-out;
+}
+
+/*------- Checkmark ---------*/
+.checkmark{
+	stroke-width: 6.25;
+    stroke-linecap: round;
+	position:absolute;
+    top: 56px;
+    left: 49px;
+    width: 52px;
+    height: 40px;
+}
+
+.checkmark path {
+    animation: 1s draw-check ease-out;
+}
+
+@keyframes draw-circle {
+    0% {
+        stroke-dasharray: 0,330;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    80% {
+        stroke-dasharray: 330,330;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0.4;
+    }
+}
+
+@keyframes draw-check {
+    0% {
+        stroke-dasharray: 49,80;
+        stroke-dashoffset: 48;
+        opacity: 0;
+    }
+
+    50% {
+        stroke-dasharray: 49,80;
+        stroke-dashoffset: 48;
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dasharray: 130,80;
+        stroke-dashoffset: 48;
+    }
+}
+
+/*---------- Cross ----------*/
+
+.cross {
+    stroke-width:6.25;
+    stroke-linecap: round;
+    position: absolute;
+    top: 54px;
+    left: 54px;
+    width: 40px;
+    height: 40px;
+}
+
+.cross .first-line {
+    animation: 0.7s draw-first-line ease-out;
+}
+
+.cross .second-line {
+    animation: 0.7s draw-second-line ease-out;
+}
+
+@keyframes draw-first-line {
+    0% {
+        stroke-dasharray: 0,56;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 0,56;
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dasharray: 56,330;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes draw-second-line {
+    0% {
+        stroke-dasharray: 0,55;
+        stroke-dashoffset: 1;
+    }
+
+    50% {
+        stroke-dasharray: 0,55;
+        stroke-dashoffset: 1;
+    }
+
+    100% {
+        stroke-dasharray: 55,0;
+        stroke-dashoffset: 70;
+    }
+}
+
+.alert-sign {
+    stroke-width:6.25;
+    stroke-linecap: round;
+    position: absolute;
+    top: 40px;
+    left: 68px;
+    width: 15px;
+    height: 70px;
+    animation: 0.5s alert-sign-bounce cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alert-sign .dot {
+    stroke:none;
+    fill: #FFC107;
+}
+
+@keyframes alert-sign-bounce {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 @import "responsive";
