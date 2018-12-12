@@ -9,7 +9,8 @@ use Mix.Config
 config :red_pack_productions,
   ecto_repos: [],
   mollie_api_key: System.get_env("MOLLIE_API_KEY"),
-  mollie_redirect_url: System.get_env("MOLLIE_REDIRECT_URL")
+  mollie_redirect_url: System.get_env("MOLLIE_REDIRECT_URL"),
+  cf_cms_api_key: System.get_env("CF_CMS_API_KEY")
 
 # Configures the endpoint
 config :red_pack_productions, RedPackProductionsWeb.Endpoint,

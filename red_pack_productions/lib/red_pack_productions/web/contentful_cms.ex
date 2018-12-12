@@ -1,6 +1,6 @@
 defmodule RedPackProductions.ContentfulCms do
 
-	@api_key System.get_env("CF_CMS_API_KEY")
+	@api_key Application.get_env(:red_pack_productions, :cf_cms_api_key)
 	@base_url "https://api.contentful.com"
 	@entry_url "/spaces/6t670ovmra8o/environments/master/entries"
 
@@ -148,8 +148,15 @@ defmodule RedPackProductions.ContentfulCms do
 	def post_request(path, body, headers) do
 		body = body |> Poison.encode!
 		url = "#{@base_url}#{path}"
+
+		# IO.puts "==== Request stuff ==="
+		# IO.inspect url
+		# IO.inspect body
+		# IO.inspect headers
 		case HTTPoison.post(url, body, headers, []) do
 			{:ok, response} ->
+				# IO.puts "==== RESPONSE ==="
+				# IO.inspect response
 				decoded = Poison.decode!(response.body)
 				{:ok,  decoded}
 			{:error, error} ->

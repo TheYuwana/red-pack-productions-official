@@ -11,11 +11,16 @@ defmodule RedPackProductions.Mollie do
 	def create_payment_request(total_price, order_id) do
 
 		redirect_url = "#{@redirect_url}/shop/payment-loading"
+		total_price = if String.contains?("#{total_price}", ".") do
+			"#{total_price}"
+		else
+			"#{total_price}.00"
+		end
 
 		body = %{
 			amount: %{
 				currency: "EUR",
-				value: "#{total_price}"
+				value: total_price
 			},
 			description: "Red Pack Productions Samples",
 			redirectUrl: redirect_url, # show ordered product or succesfull page
@@ -23,6 +28,7 @@ defmodule RedPackProductions.Mollie do
 				order_id: order_id
 			}
 		}
+
 		post_request("/payments", body)
 	end
 
@@ -44,12 +50,16 @@ defmodule RedPackProductions.Mollie do
 	end
 
 	def post_request(path, body) when is_binary(path) and is_map(body) do
+		IO.inspect body
 		body = body |> Poison.encode!
 		url = "#{@base_mollie}#{path}"
 		headers = [
 			{"Authorization", "Bearer #{@api_key}"},
 			{"Content-Type", "application/json"}
 		]
+
+		IO.inspect headers
+		IO.inspect url
 		case HTTPoison.post(url, body, headers, []) do
 			{:ok, response} ->
 				decoded = Poison.decode!(response.body)

@@ -72,6 +72,7 @@ defmodule RedPackProductionsWeb.ShopController do
       slug: selected_product["fields"]["slug"],
       old_price: selected_product["fields"]["oldPrice"],
       new_price: selected_product["fields"]["newPrice"],
+      price_text: selected_product["fields"]["priceText"],
       description: elem(htmlDetails, 1),
       sample_link: "https:" <> sample_link["file"]["url"],
       photo: photo["file"]["url"]
@@ -175,10 +176,40 @@ defmodule RedPackProductionsWeb.ShopController do
   #         Payment loading
   # ==================================
   def payment_loading_page(conn, _) do
-    conn
-    |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-    |> assign(:title, "Red Pack Productions - Shop - payment result")
-    |> render("payment_loading.html")
+    with(
+      mollie_payment_id when not is_nil(mollie_payment_id) <- get_session(conn, :payment_id),
+      {:ok, mollie_payment} = Mollie.get_payment(mollie_payment_id)
+    )do
+      case(mollie_payment["status"])do
+        "canceled" ->
+          conn
+          |> redirect(to: "/shop/checkout")
+        "expired" ->
+          conn
+          |> redirect(to: "/shop/checkout")
+        "failed" ->
+          conn
+          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+          |> assign(:title, "Red Pack Productions - Shop - error")
+          |> render("error.html")
+        _ ->
+          conn
+          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+          |> assign(:title, "Red Pack Productions - Shop - payment result")
+          |> render("payment_loading.html")
+      end
+    else
+      nil ->
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - error")
+        |> render("error.html")
+      {:error, _error} ->
+        conn
+        |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+        |> assign(:title, "Red Pack Productions - Shop - error")
+        |> render("error.html")
+    end
   end
 
   # ==================================
@@ -193,16 +224,30 @@ defmodule RedPackProductionsWeb.ShopController do
             mollie_payment["id"], 
             mollie_payment["metadata"]["order_id"], 
             mollie_payment["status"],
-            order),
-      email <- Mailer.deliver_now(Email.order_confirmation(updated_order)),
-      email <- Mailer.deliver_now(Email.order_confirmation_client(updated_order, updated_order["fields"]["consumerEmail"]["nl"]))
+            order)
     )do
-      conn
-      |> put_session(:shopping_basket, [])
-      |> put_session(:payment_id, nil)
-      |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
-      |> assign(:title, "Red Pack Productions - Shop - payment result")
-      |> render("payment_result.html", payment_status: mollie_payment["status"])
+      case(mollie_payment["status"])do
+        "canceled" ->
+          conn
+          |> redirect(to: "/shop/checkout")
+        "expired" ->
+          conn
+          |> redirect(to: "/shop/checkout")
+        "failed" ->
+          conn
+          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+          |> assign(:title, "Red Pack Productions - Shop - error")
+          |> render("error.html")
+        _ ->
+          Mailer.deliver_now(Email.order_confirmation(updated_order))
+          Mailer.deliver_now(Email.order_confirmation_client(updated_order, updated_order["fields"]["consumerEmail"]["nl"]))
+          conn
+          |> put_session(:shopping_basket, [])
+          |> put_session(:payment_id, nil)
+          |> assign(:og_description, "Low budget/HIGH QUALITY Audio-Recording studio.")
+          |> assign(:title, "Red Pack Productions - Shop - payment result")
+          |> render("payment_result.html", payment_status: mollie_payment["status"])
+      end
     else
       nil ->
         conn

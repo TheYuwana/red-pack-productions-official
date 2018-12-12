@@ -245,6 +245,8 @@ p, a{
 		text-align: left;
 		li{
 			font-family: 'typewriter';
+			font-size: 1.2em;
+			font-weight: 600;
 		}
 	}
 }
@@ -762,7 +764,7 @@ p, a{
 		width: 100%;
 		color: white;
 		height: 380px;
-		background-color: $error;
+		background-color: #171717;
 		position: relative;
 		text-align: center;
 
@@ -855,6 +857,7 @@ p, a{
 				margin: 68px auto 0px auto;
 				background-color: rgba(0,0,0, 0.9);
 				text-align: center;
+				padding: 0px 20px;
 
 				h2{
 					display: inline-block;
@@ -903,11 +906,13 @@ p, a{
 	.shop-samples-container{
 		width: 100%;
 		background-color: $mediumBlack;
+		background-image: url('/images/shop_background.png');
+		background-size: cover;
 		color: white;
 		padding: 50px 0px 50px 0px;
 
 		.shop-samples{
-			max-width: 800px;
+			max-width: 920px;
 			margin: 0px auto;
 			
 			h2{
@@ -915,7 +920,7 @@ p, a{
 			}
 
 			img{
-				width: 300px;
+				width: 350px;
 				margin: 0px 50px 0px 0px;
 				float: left;
 			}
@@ -1012,27 +1017,30 @@ p, a{
  	.content-samples{
  		width: 100%;
 
- 		.shop-samples-container{
+ 		.samples-container{
  			background-color: $orange;
 			.shop-samples{
-				max-width: 800px;
+				max-width: 920px;
 				margin: 0px auto;
+				padding: 30px 0px;
 				position: relative;
 				
 				h2, h3{
+					color: white;
 					margin:0px;
 				}
 
 				img{
 					width: 250px;
-					margin-right: 25px;
+					margin: 0px 50px 0px 0px;
+					float: left;
 				}
 
 				.subscribe-arrow{
 					width: 40px;
 					position: absolute;
-					bottom: 60px;
-					right: 450px;
+					bottom: 115px;
+					right: 448px;
 				}
 
 				.mobile-subscribe-text{
@@ -1050,6 +1058,26 @@ p, a{
 					}
 				}
 			}
+
+			// .shop-samples{
+			// 	max-width: 920px;
+			// 	margin: 0px auto;
+				
+			// 	h2{
+			// 		font-size: 2.6em;
+			// 	}
+
+			// 	// img{
+			// 	// 	width: 350px;
+			// 	// 	margin: 0px 50px 0px 0px;
+			// 	// 	float: left;
+			// 	// }
+
+			// 	a{
+			// 		display: inline-block;
+			// 		margin-top: 15px;
+			// 	}
+			// }
 		}
 
 
@@ -1367,8 +1395,6 @@ p, a{
 	}
 
  	.product-container{
- 		margin-top: -25px;
- 		padding-top: 30px;
  		background-color: $gray;
  		width: 100%;
  		position: relative;
@@ -1389,7 +1415,7 @@ p, a{
 			text-align: center;
 			position: relative;
 			height: 70px;
-			margin-top: 0px;
+			margin-top: -16px;
 			margin-bottom: 15px;
 		}
 		.product-navigation {

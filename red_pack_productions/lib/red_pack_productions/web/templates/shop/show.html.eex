@@ -31,7 +31,7 @@
 			<p class="product-subtitle"><%= @product.category %></p>
 			<h2><%= @product.title %></h2>
 			<p class="product-price">&euro;<%= @product.old_price %> <span class="real-price">&euro;<%= @product.new_price %></span></p>
-			<p>ex btw</p>
+			<p><%= @product.price_text %></p>
 			<p class="product-description"><%= raw(@product.description) %></p>
 			<audio controls>
 				<source src="<%= @product.sample_link %>" type="audio/wav">
