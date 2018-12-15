@@ -1,8 +1,8 @@
 defmodule RedPackProductions.Mollie do
 
-	@api_key Application.get_env(:red_pack_productions, :mollie_api_key)
 	@base_mollie "https://api.mollie.com/v2"
-	@redirect_url Application.get_env(:red_pack_productions, :mollie_redirect_url)
+	def get_api_key(), do: Application.get_env(:red_pack_productions, :mollie_api_key)
+	def get_redirect_url(), do: Application.get_env(:red_pack_productions, :mollie_redirect_url)
 
 	def get_payment(id) do
 		send_request("/payments/#{id}")
@@ -10,7 +10,7 @@ defmodule RedPackProductions.Mollie do
 
 	def create_payment_request(total_price, order_id) do
 
-		redirect_url = "#{@redirect_url}/shop/payment-loading"
+		redirect_url = "#{get_redirect_url()}/shop/payment-loading"
 		total_price = if String.contains?("#{total_price}", ".") do
 			"#{total_price}"
 		else
@@ -36,7 +36,7 @@ defmodule RedPackProductions.Mollie do
 	defp send_request(path) when is_binary(path) do
 		url = "#{@base_mollie}#{path}"
 		headers = [
-			"Authorization": "Bearer #{@api_key}",
+			"Authorization": "Bearer #{get_api_key()}",
 			"Accept": "Application/json; Charset=utf-8"
 		]
 		case HTTPoison.get(url, headers, []) do
@@ -50,11 +50,12 @@ defmodule RedPackProductions.Mollie do
 	end
 
 	def post_request(path, body) when is_binary(path) and is_map(body) do
+		IO.puts "==== MOLLIE POST ===="
 		IO.inspect body
 		body = body |> Poison.encode!
 		url = "#{@base_mollie}#{path}"
 		headers = [
-			{"Authorization", "Bearer #{@api_key}"},
+			{"Authorization", "Bearer #{get_api_key()}"},
 			{"Content-Type", "application/json"}
 		]
 

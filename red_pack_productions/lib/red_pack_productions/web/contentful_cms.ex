@@ -4,6 +4,8 @@ defmodule RedPackProductions.ContentfulCms do
 	@base_url "https://api.contentful.com"
 	@entry_url "/spaces/6t670ovmra8o/environments/master/entries"
 
+	def get_api_key(), do: Application.get_env(:red_pack_productions, :cf_cms_api_key)
+
 	# ====================================================
 	# Get order
 	# ====================================================
@@ -49,7 +51,7 @@ defmodule RedPackProductions.ContentfulCms do
 			}
 		}
 		headers = [
-			{"Authorization", "Bearer #{@api_key}"},
+			{"Authorization", "Bearer #{get_api_key()}"},
 			{"Content-Type", "application/json"},
 			{"X-Contentful-Content-Type", "orders"}
 		]
@@ -90,7 +92,7 @@ defmodule RedPackProductions.ContentfulCms do
 			}
 		}
 		headers = [
-			{"Authorization", "Bearer #{@api_key}"},
+			{"Authorization", "Bearer #{get_api_key()}"},
 			{"Content-Type", "application/json"},
 			{"X-Contentful-Content-Type", "orders"},
 			{"X-Contentful-Version", "#{data["sys"]["version"]}"}
@@ -108,7 +110,7 @@ defmodule RedPackProductions.ContentfulCms do
 			}
 		}
 		headers = [
-			{"Authorization", "Bearer #{@api_key}"},
+			{"Authorization", "Bearer #{get_api_key()}"},
 			{"Content-Type", "application/json"},
 			{"X-Contentful-Content-Type", "orders"}
 		]
@@ -118,7 +120,7 @@ defmodule RedPackProductions.ContentfulCms do
 	def publish_order(order_id, version) do
 		publish_url = "#{@entry_url}/#{order_id}/published"
 		headers = [
-			{"Authorization", "Bearer #{@api_key}"},
+			{"Authorization", "Bearer #{get_api_key()}"},
 			{"X-Contentful-Version", version}
 		]
 		put_request(publish_url, %{}, headers)
@@ -132,7 +134,7 @@ defmodule RedPackProductions.ContentfulCms do
 	defp send_request(path) do
 		url = "#{@base_url}#{path}"
 		headers = [
-			"Authorization": "Bearer #{@api_key}",
+			"Authorization": "Bearer #{get_api_key()}",
 			"Accept": "Application/json; Charset=utf-8"
 		]
 		case HTTPoison.get(url, headers, []) do
@@ -146,17 +148,17 @@ defmodule RedPackProductions.ContentfulCms do
 	end
 
 	def post_request(path, body, headers) do
+
+		IO.puts "==== CONTENTFUL POST ===="
+		IO.inspect body
+
 		body = body |> Poison.encode!
 		url = "#{@base_url}#{path}"
 
-		# IO.puts "==== Request stuff ==="
-		# IO.inspect url
-		# IO.inspect body
-		# IO.inspect headers
+		IO.inspect url
+		IO.inspect headers
 		case HTTPoison.post(url, body, headers, []) do
 			{:ok, response} ->
-				# IO.puts "==== RESPONSE ==="
-				# IO.inspect response
 				decoded = Poison.decode!(response.body)
 				{:ok,  decoded}
 			{:error, error} ->

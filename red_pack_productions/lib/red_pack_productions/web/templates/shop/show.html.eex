@@ -30,14 +30,15 @@
 		<div class="item-description">
 			<p class="product-subtitle"><%= @product.category %></p>
 			<h2><%= @product.title %></h2>
+			<%= if @product.new_price != nil do %>
 			<p class="product-price">&euro;<%= @product.old_price %> <span class="real-price">&euro;<%= @product.new_price %></span></p>
+			<% end %>
 			<p><%= @product.price_text %></p>
 			<p class="product-description"><%= raw(@product.description) %></p>
 			<audio controls>
 				<source src="<%= @product.sample_link %>" type="audio/wav">
 				Your browser does not support the audio element.
 			</audio>
-
 			<button class="btn-orange basket-add"
               data-basket-product-price="<%= @product.new_price %>"
               data-basket-product-id="<%= @product.id %>"
@@ -52,7 +53,7 @@
 	      	</div>
 		  <p class="product-subtitle"><%= product.category %></p>
 	      <h2><%= product.title %></h2>
-	      <p class="product-price">&euro;<%= product.old_price %> <span>&nbsp;</span><span class="real-price">&euro;<%= product.new_price %></span></p>
+	      <p class="product-price"><%= if product.old_price != nil do %>&euro;<%= product.old_price %><% end %> <span>&nbsp;</span><span class="real-price">&euro;<%= product.new_price %></span></p>
 	      <a href="/shop/product/<%= product.slug %>" class="btn-orange">SPEC &amp; LISTEN</a>
 	    </div>
 	<% end %>

@@ -16,7 +16,10 @@ use Mix.Config
 config :red_pack_productions, RedPackProductionsWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "redpackproductions.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json",
+  cache_static_manifest: "priv/static/cache_manifest.json"
+
+config :red_pack_productions,
+  ecto_repos: [],
   mollie_api_key: System.get_env("MOLLIE_API_KEY"),
   mollie_redirect_url: System.get_env("MOLLIE_REDIRECT_URL"),
   cf_cms_api_key: System.get_env("CF_CMS_API_KEY")
