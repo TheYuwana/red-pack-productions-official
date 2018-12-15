@@ -50,17 +50,12 @@ defmodule RedPackProductions.Mollie do
 	end
 
 	def post_request(path, body) when is_binary(path) and is_map(body) do
-		IO.puts "==== MOLLIE POST ===="
-		IO.inspect body
 		body = body |> Poison.encode!
 		url = "#{@base_mollie}#{path}"
 		headers = [
 			{"Authorization", "Bearer #{get_api_key()}"},
 			{"Content-Type", "application/json"}
 		]
-
-		IO.inspect headers
-		IO.inspect url
 		case HTTPoison.post(url, body, headers, []) do
 			{:ok, response} ->
 				decoded = Poison.decode!(response.body)

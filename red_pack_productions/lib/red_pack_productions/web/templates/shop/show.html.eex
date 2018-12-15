@@ -31,7 +31,7 @@
 			<p class="product-subtitle"><%= @product.category %></p>
 			<h2><%= @product.title %></h2>
 			<%= if @product.new_price != nil do %>
-			<p class="product-price">&euro;<%= @product.old_price %> <span class="real-price">&euro;<%= @product.new_price %></span></p>
+			<p class="product-price"><%= if @product.old_price != nil do %>&euro;<%= @product.old_price %> <% end %><span class="real-price">&euro;<%= @product.new_price %></span></p>
 			<% end %>
 			<p><%= @product.price_text %></p>
 			<p class="product-description"><%= raw(@product.description) %></p>
@@ -39,10 +39,26 @@
 				<source src="<%= @product.sample_link %>" type="audio/wav">
 				Your browser does not support the audio element.
 			</audio>
-			<button class="btn-orange basket-add"
-              data-basket-product-price="<%= @product.new_price %>"
-              data-basket-product-id="<%= @product.id %>"
-              data-basket-product-name="<%= @product.title %>">ADD TO CART</button>
+
+			<%= if @product.new_price != nil do %>
+				<button class="btn-orange basket-add"
+	              data-basket-product-price="<%= @product.new_price %>"
+	              data-basket-product-id="<%= @product.id %>"
+	              data-basket-product-name="<%= @product.title %>">ADD TO CART</button>
+			<%= else %>
+				<form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+		            <div id="mc_embed_signup_scroll">
+		            <input type="hidden" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
+		              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		              <div style="position: absolute; left: -5000px;" aria-hidden="true">
+		                <input type="text" name="b_6bf1bf9059744fe52696d0f48_d5dae95bbf" tabindex="-1" value="">
+		              </div>
+		              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-orange basket-add">
+		                <%= dgettext("index", "index-sample-subscribe") %>
+		              </button>
+		            </div>
+		        </form>
+			<% end %>
 		</div>
 	</div>
 
@@ -53,7 +69,7 @@
 	      	</div>
 		  <p class="product-subtitle"><%= product.category %></p>
 	      <h2><%= product.title %></h2>
-	      <p class="product-price"><%= if product.old_price != nil do %>&euro;<%= product.old_price %><% end %> <span>&nbsp;</span><span class="real-price">&euro;<%= product.new_price %></span></p>
+	      <p class="product-price"><%= if product.old_price != nil do %>&euro;<%= product.old_price %><% end %><span>&nbsp;&nbsp;</span><span class="real-price" <%= if product.new_price == nil do %>style="color:white;"<% end %>>&euro;<%= product.new_price %></span></p>
 	      <a href="/shop/product/<%= product.slug %>" class="btn-orange">SPEC &amp; LISTEN</a>
 	    </div>
 	<% end %>
