@@ -2,7 +2,7 @@ version: '3.3'
 services:
     red_pack_productions:
         container_name: "red_pack_productions"
-        image: "theyuwana/rpp-website:2.2.2"
+        image: "theyuwana/rpp-website:2.2.3"
         build:
             context: .
             dockerfile: ./docker_files/Dockerfile.compose

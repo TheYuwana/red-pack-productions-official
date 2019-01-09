@@ -6,7 +6,7 @@ msgstr ""
 # ===========================
 
 msgid "index-sub-introduction"
-msgstr "Wij helpen mensen hun beste werk schrijven, creëren en uitvoeren! "
+msgstr "Wij helpen mensen hun beste muziek schrijven, creëren en uitvoeren! "
 
 # ===========================
 # Top Introduction List
