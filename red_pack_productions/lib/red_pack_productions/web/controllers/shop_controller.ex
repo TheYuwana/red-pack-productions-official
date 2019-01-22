@@ -4,7 +4,6 @@ defmodule RedPackProductionsWeb.ShopController do
   alias RedPackProductions.Mollie
   alias RedPackProductionsWeb.Utils
   alias RedPackProductions.ContentfulCms
-  alias RedPackProductionsWeb.ApiController
   alias RedPackProductions.Email
   alias RedPackProductions.Mailer
   alias RedPackProductionsWeb.Context
@@ -145,7 +144,7 @@ defmodule RedPackProductionsWeb.ShopController do
       {:ok, order_data} <- ContentfulCms.create_order(data),
       {:ok, published_data} <- ContentfulCms.publish_order(order_data["sys"]["id"], order_data["sys"]["version"]),
       {:ok, payment_request} <- Mollie.create_payment_request(total_price, order_data["sys"]["id"]),
-      {:ok, updated_order} <- ContentfulCms.update_order(
+      {:ok, _updated_order} <- ContentfulCms.update_order(
           payment_request["id"], 
           payment_request["metadata"]["order_id"], 
           payment_request["status"],

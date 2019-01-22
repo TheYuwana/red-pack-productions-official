@@ -187,9 +187,7 @@ function initMap() {
 }
 
 function refreshView(selectedDay){
-	process_get_request("/api/dates", function(dates){
-		//console.log(dates);
-		
+	process_get("/api/dates", function(dates){
 		// Disable full dates
 		var reservedDates = [];
 		for(var i = 0; i < dates.length; i++){ 
@@ -363,8 +361,7 @@ function process_post(url, data, callback){
 function process_get(url, callback){
 	$.ajax({
       url: url,
-      type: 'POST',
-      data: data,
+      type: 'GET',
       fail: function(response) {
         callback(response);
       },

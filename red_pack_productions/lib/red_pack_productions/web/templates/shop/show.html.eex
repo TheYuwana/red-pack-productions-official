@@ -45,7 +45,7 @@
 	              data-basket-product-price="<%= @product.new_price %>"
 	              data-basket-product-id="<%= @product.id %>"
 	              data-basket-product-name="<%= @product.title %>">ADD TO CART</button>
-			<%= else %>
+			<% else %>
 				<form action="//facebook.us16.list-manage.com/subscribe/post?u=6bf1bf9059744fe52696d0f48&amp;id=d5dae95bbf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		            <div id="mc_embed_signup_scroll">
 		            <input type="hidden" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
