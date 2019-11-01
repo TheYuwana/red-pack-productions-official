@@ -26,7 +26,7 @@ msgid "index-introduction-list-item-4"
 msgstr "Meer dan 20 jaar evaring in muziek"
 
 msgid "index-introduction-list-item-5"
-msgstr "Het is klaar wanneer jij dat zegt"
+msgstr "A-klasse opname apparatuur"
 
 msgid "index-introduction-list-item-6"
 msgstr "Praatjes"

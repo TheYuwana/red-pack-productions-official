@@ -26,7 +26,7 @@ msgid "index-introduction-list-item-4"
 msgstr "Over 20 years of experience"
 
 msgid "index-introduction-list-item-5"
-msgstr "It's ready when you say it's ready"
+msgstr "A-class recording equipment"
 
 msgid "index-introduction-list-item-6"
 msgstr "No bullshit"
